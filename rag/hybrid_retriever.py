@@ -226,12 +226,12 @@ class HybridRetriever:
             # Compute section relevance score
             section_score = 0.0
             chunk_sec = meta.get("section", "")
-            chunk_type = meta.get("chunk_type", "")
+            curr_chunk_type = meta.get("chunk_type", "")
 
             if routing.target_section_hint:
                 if chunk_sec.startswith(routing.target_section_hint) or routing.target_section_hint in chunk_sec:
                     section_score = 1.0
-                elif routing.target_chunk_type_hint and routing.target_chunk_type_hint == chunk_type:
+                elif routing.target_chunk_type_hint and routing.target_chunk_type_hint == curr_chunk_type:
                     section_score = 0.8
                 elif routing.target_section_hint == "6." and "port" in chunk_title.lower():
                     section_score = 1.0

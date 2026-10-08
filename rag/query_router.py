@@ -181,7 +181,7 @@ class QueryRouter:
             elif "flow" in q_lower:
                 sec_hint = "8."
                 type_hint = "flow"
-            elif any(k in q_lower for k in ["depend", "coupling"]):
+            elif any(k in q_lower for k in ["depend", "coupling", "associat", "relationship"]):
                 sec_hint = "7."
                 type_hint = "dependency"
             elif "interface" in q_lower:
