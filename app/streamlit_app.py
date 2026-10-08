@@ -807,7 +807,7 @@ with tab_eval:
     km = benchmark_data.get("key_metrics_summary", {})
     dataset_info = benchmark_data.get("dataset", {})
     latencies = benchmark_data.get("latency_benchmarks", {})
-    ts = benchmark_data.get("benchmark_timestamp", "Unknown")
+    ts = benchmark_data.get("timestamp") or benchmark_data.get("benchmark_timestamp") or "Not recorded"
 
     st.caption(f"Last benchmark execution: `{ts}` | Evaluated queries: **{dataset_info.get('total_queries_evaluated', 35)}** (25 Grounded + 10 Adversarial)")
 
@@ -832,14 +832,15 @@ with tab_eval:
     abs_acc = km.get("adversarial_abstention_accuracy", 1.0) * 100
     kpi_col5.metric("Abstention Accuracy", f"{abs_acc:.1f}%", delta="0% Hallucinations")
 
-    # 2. Pipeline Micro-Latencies Profile
-    st.markdown("##### ⏱️ Component Latency Profile (Hardware Benchmark)")
+    # 2. Pipeline Micro-Latencies Profile (Benchmark / Mock)
+    st.markdown("##### ⏱️ Component Latency Profile (Offline Benchmark — MockLLMProvider)")
+    st.caption("Deterministic CI micro-latencies measured on host hardware. Note: Live Gemini inference timing is measured separately during live cloud queries.")
     l_col1, l_col2, l_col3, l_col4, l_col5 = st.columns(5)
-    l_col1.metric("Query Embedding", f"{latencies.get('embed_query_ms', 0):.1f} ms", help="BGE-small-en-v1.5 embedding generation time")
-    l_col2.metric("Dense FAISS Search", f"{latencies.get('baseline_retrieval_ms', 0):.1f} ms", help="Direct dense vector retrieval")
-    l_col3.metric("Hybrid Rerank", f"{latencies.get('hybrid_retrieval_ms', 0):.1f} ms", delta=f"+{latencies.get('rerank_overhead_ms', 0):.1f} ms overhead", help="Dense + Entity + Section multi-signal reranking")
-    l_col4.metric("LLM Inference", f"{latencies.get('mock_generation_ms', 0):.1f} ms", help="Generation latency (Mock CI baseline)")
-    l_col5.metric("End-to-End Pipeline", f"{latencies.get('full_pipeline_ms', 0):.1f} ms", help="Complete request lifecycle from query to validated answer")
+    l_col1.metric("Query Embedding", f"{latencies.get('embedding_latency_ms', latencies.get('embed_query_ms', 0)):.1f} ms", help="BGE-small-en-v1.5 embedding generation time")
+    l_col2.metric("Dense FAISS Search", f"{latencies.get('baseline_retrieval_latency_ms', latencies.get('baseline_retrieval_ms', 0)):.1f} ms", help="Direct dense vector retrieval")
+    l_col3.metric("Hybrid Rerank", f"{latencies.get('hybrid_retrieval_latency_ms', latencies.get('hybrid_retrieval_ms', 0)):.1f} ms", delta=f"+{latencies.get('rerank_overhead_ms', 0):.1f} ms overhead", help="Dense + Entity + Section multi-signal reranking")
+    l_col4.metric("LLM Inference (Mock)", f"{latencies.get('mock_generation_latency_ms', latencies.get('mock_generation_ms', 0)):.1f} ms", help="Benchmark generation latency (Mock CI baseline)")
+    l_col5.metric("End-to-End Pipeline", f"{latencies.get('full_mock_pipeline_latency_ms', latencies.get('full_pipeline_ms', 0)):.1f} ms", help="Complete request lifecycle from query to validated answer in benchmark mode")
 
     st.markdown("---")
 
@@ -880,41 +881,50 @@ with tab_eval:
         cat_data = retrieval_res.get("category_breakdown", {})
         cat_rows = []
         for cat_name, metrics in cat_data.items():
+            b_mrr = metrics.get('baseline_mrr', 0.0)
+            h_mrr = metrics.get('hybrid_mrr', 0.0)
+            diff = metrics.get('mrr_improvement', h_mrr - b_mrr)
             cat_rows.append({
                 "Category": cat_name,
-                "Queries Count": metrics.get("count", 0),
-                "Baseline MRR": f"{metrics.get('baseline_mrr', 0):.4f}",
-                "Hybrid MRR": f"{metrics.get('hybrid_mrr', 0):.4f}",
-                "MRR Gain": f"{metrics.get('hybrid_mrr', 0) - metrics.get('baseline_mrr', 0):+.4f}",
-                "Baseline HitRate@1": f"{metrics.get('baseline_hit_rate_at_1', 0)*100:.1f}%",
-                "Hybrid HitRate@1": f"{metrics.get('hybrid_hit_rate_at_1', 0)*100:.1f}%",
-                "Baseline nDCG@5": f"{metrics.get('baseline_ndcg_at_5', 0):.4f}",
-                "Hybrid nDCG@5": f"{metrics.get('hybrid_ndcg_at_5', 0):.4f}",
+                "Queries Count": metrics.get("query_count", metrics.get("count", 0)),
+                "Baseline MRR": f"{b_mrr:.4f}",
+                "Hybrid MRR": f"{h_mrr:.4f}",
+                "MRR Gain": f"{diff:+.4f}",
             })
         st.dataframe(cat_rows, use_container_width=True)
 
         st.markdown("##### Query Drill-Down Explorer")
-        itemized_retrieval = retrieval_res.get("itemized", [])
+        itemized_retrieval = retrieval_res.get("itemized_comparison", retrieval_res.get("itemized", []))
         q_options = [f"[{it['query_id']}] {it['query']}" for it in itemized_retrieval]
         if q_options:
             sel_q_idx = st.selectbox("Select query to inspect retrieval performance:", range(len(q_options)), format_func=lambda i: q_options[i])
             sel_q = itemized_retrieval[sel_q_idx]
 
             q_c1, q_c2, q_c3 = st.columns(3)
-            q_c1.markdown(f"**Intent**: `{sel_q['category']}`")
-            b_rank = sel_q['baseline_metrics'].get('first_relevant_rank')
-            h_rank = sel_q['hybrid_metrics'].get('first_relevant_rank')
+            q_c1.markdown(f"**Intent**: `{sel_q.get('category', 'N/A')}`")
+            b_rank = None
+            if "baseline_mrr" in sel_q and sel_q["baseline_mrr"] > 0:
+                b_rank = round(1.0 / sel_q["baseline_mrr"])
+            elif "baseline_metrics" in sel_q:
+                b_rank = sel_q["baseline_metrics"].get("first_relevant_rank")
+
+            h_rank = None
+            if "hybrid_mrr" in sel_q and sel_q["hybrid_mrr"] > 0:
+                h_rank = round(1.0 / sel_q["hybrid_mrr"])
+            elif "hybrid_metrics" in sel_q:
+                h_rank = sel_q["hybrid_metrics"].get("first_relevant_rank")
+
             q_c2.markdown(f"**Baseline First Hit Rank**: `{'#' + str(b_rank) if b_rank else 'None (Miss)'}`")
             q_c3.markdown(f"**Hybrid First Hit Rank**: `{'#' + str(h_rank) if h_rank else 'None (Miss)'}`")
 
-            st.markdown(f"**Expected Ground-Truth Chunks**: `{sel_q['expected_chunks']}`")
+            st.markdown(f"**Expected Ground-Truth Chunks**: `{sel_q.get('expected_chunks', [])}`")
             det_col1, det_col2 = st.columns(2)
             with det_col1:
                 st.markdown("###### Baseline Retrieved Chunks (Top 5)")
-                st.write(sel_q.get("baseline_retrieved_chunk_ids", []))
+                st.write(sel_q.get("baseline_retrieved", sel_q.get("baseline_retrieved_chunk_ids", [])))
             with det_col2:
                 st.markdown("###### Hybrid Retrieved Chunks (Top 5)")
-                st.write(sel_q.get("hybrid_retrieved_chunk_ids", []))
+                st.write(sel_q.get("hybrid_retrieved", sel_q.get("hybrid_retrieved_chunk_ids", [])))
 
     # Subtab 2: Grounding & Citation Quality
     with eval_sub2:
@@ -963,20 +973,20 @@ with tab_eval:
         a_col1, a_col2, a_col3 = st.columns(3)
         a_col1.metric("Abstention Accuracy", f"{abs_eval.get('abstention_accuracy', 1.0)*100:.1f}%", delta="10/10 Clean Abstentions")
         a_col2.metric("Hallucination Rate", f"{abs_eval.get('hallucination_rate', 0.0)*100:.1f}%", delta="0 Fabricated Answers")
-        a_col3.metric("Adversarial Queries Tested", abs_eval.get("total_adversarial_queries", 10))
+        a_col3.metric("Adversarial Queries Tested", abs_eval.get("total_queries", abs_eval.get("total_adversarial_queries", 10)))
 
         st.markdown("##### Adversarial Evaluation Log")
-        abs_results = abs_eval.get("results", [])
+        abs_results = abs_eval.get("itemized", abs_eval.get("results", []))
         abs_table = []
         for r in abs_results:
             abs_table.append({
                 "Query ID": r.get("query_id"),
                 "Adversarial Prompt": r.get("query"),
-                "Unstated Topic": r.get("expected_topic_not_in_hld"),
+                "Unstated Topic": r.get("rationale", r.get("expected_topic_not_in_hld", "-")),
                 "Abstained?": "YES ✅" if r.get("abstained") else "NO ❌",
                 "Review Gated?": "YES ⚠️" if r.get("review_required") else "NO",
                 "Confidence": r.get("confidence"),
-                "Detected Intent": r.get("routing_intent"),
+                "Detected Intent": r.get("category", r.get("routing_intent", "-")),
                 "Answer Preview": r.get("answer_preview"),
             })
         st.dataframe(abs_table, use_container_width=True)

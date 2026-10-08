@@ -382,21 +382,23 @@ class BenchmarkRunner:
             "full_mock_pipeline_latency_ms": avg(pipeline_times),
         }
 
-    def run_full_benchmark(self, save_results: bool = True) -> Dict[str, Any]:
+    def run_full_benchmark(self, save_results: bool = True, provider_name: str = "mock") -> Dict[str, Any]:
         """Execute complete benchmark suite and persist un-fabricated metrics."""
         t_start = time.time()
-        logger.info("Starting Full Phase 4 Evaluation Benchmark...")
+        logger.info(f"Starting Full Phase 4 Evaluation Benchmark (provider={provider_name})...")
 
         retrieval_eval = self.run_retrieval_benchmark()
-        generation_eval = self.run_generation_benchmark()
-        abstention_eval = self.run_abstention_benchmark()
+        generation_eval = self.run_generation_benchmark(provider_name=provider_name)
+        abstention_eval = self.run_abstention_benchmark(provider_name=provider_name)
         latency_eval = self.measure_component_latencies()
 
         duration = round(time.time() - t_start, 2)
         logger.info(f"Full Benchmark completed in {duration}s.")
 
+        ts_str = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
         benchmark_summary = {
-            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime()),
+            "timestamp": ts_str,
+            "benchmark_timestamp": ts_str,
             "total_benchmark_duration_seconds": duration,
             "dataset": {
                 "grounded_queries_count": len(BENCHMARK_DATASET),
@@ -445,7 +447,7 @@ def load_benchmark_results(results_path: Path = RESULTS_FILE) -> Optional[Dict[s
         return None
 
 
-def get_or_run_benchmark(force_recompute: bool = False) -> Dict[str, Any]:
+def get_or_run_benchmark(force_recompute: bool = False, provider_name: str = "mock") -> Dict[str, Any]:
     """Return existing benchmark results or execute fresh evaluation."""
     if not force_recompute:
         cached = load_benchmark_results()
@@ -453,7 +455,7 @@ def get_or_run_benchmark(force_recompute: bool = False) -> Dict[str, Any]:
             return cached
 
     runner = BenchmarkRunner()
-    return runner.run_full_benchmark(save_results=True)
+    return runner.run_full_benchmark(save_results=True, provider_name=provider_name)
 
 
 if __name__ == "__main__":

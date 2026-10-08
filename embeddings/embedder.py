@@ -4,6 +4,9 @@ from typing import List
 import numpy as np
 from pathlib import Path
 
+os.environ.setdefault("USE_TF", "0")
+os.environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
+
 # Try importing sentence_transformers, handle gracefully if missing
 try:
     from sentence_transformers import SentenceTransformer

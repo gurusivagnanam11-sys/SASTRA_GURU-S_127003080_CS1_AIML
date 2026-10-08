@@ -318,7 +318,10 @@ class MockLLMProvider(LLMProvider):
         # Query 1: What components are associated with VehicleControl?
         if "component" in q_lower and "vehiclecontrol" in q_lower:
             dep_chunks = [item for item in items if "depends on" in item["content"].lower() or "dependencies" in item["content"].lower()]
-            comp_chunks = [item for item in items if "vehiclecontrol" in item["content"].lower()]
+            # Prefer chunks with substantive content (> 25 chars) over section headings
+            comp_chunks = [item for item in items if "vehiclecontrol" in item["content"].lower() and len(item["content"].strip()) > 25]
+            if not comp_chunks:
+                comp_chunks = [item for item in items if "vehiclecontrol" in item["content"].lower()]
             target_chunks = dep_chunks if dep_chunks else comp_chunks
             top = target_chunks[0] if target_chunks else items[0]
 
@@ -346,10 +349,16 @@ class MockLLMProvider(LLMProvider):
                     }
                 ]
             else:
-                answer = "VehicleControl is the central application component in the architecture that processes sensor data and generates vehicle control commands."
+                top_lower = top["content"].lower()
+                if "motion control" in top_lower:
+                    answer = "VehicleControl is the central application component computing motion control requests."
+                    claim_text = "VehicleControl is the central application component computing motion control requests."
+                else:
+                    answer = "VehicleControl is the central application component in the architecture that processes sensor data and generates vehicle control commands."
+                    claim_text = "VehicleControl is the central application component responsible for processing sensor data and generating vehicle control commands."
                 claims = [
                     {
-                        "text": "VehicleControl is the central application component responsible for processing sensor data and generating vehicle control commands.",
+                        "text": claim_text,
                         "citation_ids": citation_ids,
                     }
                 ]

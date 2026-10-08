@@ -1,6 +1,7 @@
 {
-  "timestamp": "2026-10-08 06:33:45 UTC",
-  "total_benchmark_duration_seconds": 1576.09,
+  "timestamp": "2026-10-08 16:39:25 UTC",
+  "benchmark_timestamp": "2026-10-08 16:39:25 UTC",
+  "total_benchmark_duration_seconds": 3.79,
   "dataset": {
     "grounded_queries_count": 25,
     "unsupported_queries_count": 10,
@@ -11,62 +12,62 @@
     "baseline": {
       "macro_averages": {
         "total_queries": 25,
-        "mrr": 0.5967,
-        "ndcg_at_5": 0.4955,
-        "precision_at_1": 0.52,
-        "recall_at_1": 0.2267,
-        "hit_rate_at_1": 0.52,
-        "precision_at_3": 0.3467,
-        "recall_at_3": 0.4367,
-        "hit_rate_at_3": 0.68,
-        "precision_at_5": 0.248,
-        "recall_at_5": 0.5167,
+        "mrr": 0.5113,
+        "ndcg_at_5": 0.4355,
+        "precision_at_1": 0.36,
+        "recall_at_1": 0.1867,
+        "hit_rate_at_1": 0.36,
+        "precision_at_3": 0.32,
+        "recall_at_3": 0.4067,
+        "hit_rate_at_3": 0.64,
+        "precision_at_5": 0.224,
+        "recall_at_5": 0.4767,
         "hit_rate_at_5": 0.72
       },
-      "latency_per_query_ms": 92.46
+      "latency_per_query_ms": 33.82
     },
     "hybrid": {
       "macro_averages": {
         "total_queries": 25,
-        "mrr": 0.68,
-        "ndcg_at_5": 0.4792,
-        "precision_at_1": 0.68,
-        "recall_at_1": 0.2933,
-        "hit_rate_at_1": 0.68,
-        "precision_at_3": 0.3467,
-        "recall_at_3": 0.4267,
-        "hit_rate_at_3": 0.68,
-        "precision_at_5": 0.208,
-        "recall_at_5": 0.4267,
+        "mrr": 0.59,
+        "ndcg_at_5": 0.4519,
+        "precision_at_1": 0.52,
+        "recall_at_1": 0.2433,
+        "hit_rate_at_1": 0.52,
+        "precision_at_3": 0.3067,
+        "recall_at_3": 0.3867,
+        "hit_rate_at_3": 0.64,
+        "precision_at_5": 0.224,
+        "recall_at_5": 0.4667,
         "hit_rate_at_5": 0.68
       },
-      "latency_per_query_ms": 93.17
+      "latency_per_query_ms": 32.47
     },
     "deltas": {
       "hit_rate_at_1_delta": 0.16,
       "hit_rate_at_3_delta": 0.0,
       "hit_rate_at_5_delta": -0.04,
       "precision_at_1_delta": 0.16,
-      "precision_at_3_delta": 0.0,
-      "precision_at_5_delta": -0.04,
-      "recall_at_1_delta": 0.0666,
-      "recall_at_3_delta": -0.01,
-      "recall_at_5_delta": -0.09,
-      "mrr_delta": 0.0833,
-      "ndcg_at_5_delta": -0.0163
+      "precision_at_3_delta": -0.0133,
+      "precision_at_5_delta": 0.0,
+      "recall_at_1_delta": 0.0566,
+      "recall_at_3_delta": -0.02,
+      "recall_at_5_delta": -0.01,
+      "mrr_delta": 0.0787,
+      "ndcg_at_5_delta": 0.0164
     },
     "category_breakdown": {
       "ARCHITECTURE_QUERY": {
         "query_count": 18,
-        "baseline_mrr": 0.8102,
-        "hybrid_mrr": 0.8333,
-        "mrr_improvement": 0.0232
+        "baseline_mrr": 0.6917,
+        "hybrid_mrr": 0.7639,
+        "mrr_improvement": 0.0722
       },
       "REVISION_QUERY": {
         "query_count": 5,
         "baseline_mrr": 0.0,
-        "hybrid_mrr": 0.2,
-        "mrr_improvement": 0.2
+        "hybrid_mrr": 0.0,
+        "mrr_improvement": 0.0
       },
       "IMPACT_QUERY": {
         "query_count": 1,
@@ -93,23 +94,23 @@
           "autosar_hld__v2.0_p07_c30"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p06_c23",
           "autosar_hld__v1.0_p06_c23",
           "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p03_c10",
-          "autosar_hld__v1.0_p03_c10",
-          "autosar_hld__v1.0_p07_c27"
+          "harrier_ev_o_v1.0_p276_c1502",
+          "test_upload__v3.0_p03_c10"
         ],
-        "baseline_mrr": 1.0,
-        "baseline_ndcg5": 0.5414,
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.2463,
         "hybrid_retrieved": [
+          "test_upload__v3.0_p07_c27",
           "autosar_hld__v1.0_p07_c27",
           "autosar_hld__v2.0_p07_c30",
-          "autosar_hld__v1.0_p06_c23",
-          "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v1.0_p07_c28"
+          "test_upload__v3.0_p06_c23",
+          "autosar_hld__v1.0_p06_c23"
         ],
-        "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.8319
+        "hybrid_mrr": 0.5,
+        "hybrid_ndcg5": 0.5925
       },
       {
         "query_id": "eval_02",
@@ -122,19 +123,19 @@
         ],
         "baseline_retrieved": [
           "autosar_hld__v1.0_p06_c23",
+          "harrier_ev_o_v1.0_p276_c1502",
           "autosar_hld__v1.0_p07_c27",
-          "autosar_hld__v1.0_p07_c28",
-          "autosar_hld__v1.0_p04_c16",
-          "autosar_hld__v1.0_p03_c10"
+          "harrier_ev_o_v1.0_p200_c1192",
+          "harrier_ev_o_v1.0_p163_c985"
         ],
         "baseline_mrr": 1.0,
-        "baseline_ndcg5": 0.7654,
+        "baseline_ndcg5": 0.7039,
         "hybrid_retrieved": [
           "autosar_hld__v1.0_p07_c27",
           "autosar_hld__v1.0_p07_c28",
           "autosar_hld__v1.0_p06_c23",
-          "autosar_hld__v1.0_p08_c33",
-          "autosar_hld__v1.0_p06_c21"
+          "harrier_ev_o_v1.0_p276_c1502",
+          "harrier_ev_o_v1.0_p200_c1192"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 0.7039
@@ -151,9 +152,7 @@
         "baseline_retrieved": [
           "autosar_hld__v2.0_p06_c25",
           "autosar_hld__v2.0_p07_c30",
-          "autosar_hld__v2.0_p07_c31",
-          "autosar_hld__v2.0_p03_c10",
-          "autosar_hld__v2.0_p08_c36"
+          "autosar_hld__v2.0_p07_c31"
         ],
         "baseline_mrr": 0.5,
         "baseline_ndcg5": 0.2961,
@@ -161,8 +160,7 @@
           "autosar_hld__v2.0_p07_c30",
           "autosar_hld__v2.0_p07_c31",
           "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p08_c36",
-          "autosar_hld__v2.0_p06_c23"
+          "autosar_hld__v2.0_p03_c10"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 0.4693
@@ -178,23 +176,23 @@
           "autosar_hld__v2.0_p04_c18"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p06_c23",
           "autosar_hld__v1.0_p06_c23",
+          "test_upload__v3.0_p04_c16",
           "autosar_hld__v2.0_p04_c17",
-          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p04_c16"
+        ],
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.2463,
+        "hybrid_retrieved": [
+          "test_upload__v3.0_p06_c23",
+          "autosar_hld__v1.0_p06_c23",
           "autosar_hld__v2.0_p06_c25",
+          "test_upload__v3.0_p07_c28",
           "autosar_hld__v1.0_p07_c28"
         ],
-        "baseline_mrr": 1.0,
-        "baseline_ndcg5": 0.3904,
-        "hybrid_retrieved": [
-          "autosar_hld__v1.0_p06_c23",
-          "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v1.0_p07_c28",
-          "autosar_hld__v2.0_p07_c31",
-          "autosar_hld__v1.0_p07_c27"
-        ],
-        "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.3904
+        "hybrid_mrr": 0.5,
+        "hybrid_ndcg5": 0.2463
       },
       {
         "query_id": "eval_05",
@@ -207,23 +205,23 @@
           "autosar_hld__v2.0_p04_c17"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p04_c16",
           "autosar_hld__v2.0_p04_c17",
           "autosar_hld__v1.0_p04_c16",
+          "test_upload__v3.0_p06_c23",
+          "autosar_hld__v1.0_p06_c23"
+        ],
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.5925,
+        "hybrid_retrieved": [
+          "test_upload__v3.0_p06_c23",
           "autosar_hld__v1.0_p06_c23",
           "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p07_c31"
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v1.0_p07_c28"
         ],
-        "baseline_mrr": 1.0,
-        "baseline_ndcg5": 0.8319,
-        "hybrid_retrieved": [
-          "autosar_hld__v2.0_p04_c17",
-          "autosar_hld__v1.0_p04_c16",
-          "autosar_hld__v2.0_p04_c16",
-          "autosar_hld__v1.0_p04_c15",
-          "autosar_exp__v1.0_p108_c330"
-        ],
-        "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.6367
+        "hybrid_mrr": 0.5,
+        "hybrid_ndcg5": 0.2463
       },
       {
         "query_id": "eval_06",
@@ -297,10 +295,14 @@
         "baseline_mrr": 1.0,
         "baseline_ndcg5": 1.0,
         "hybrid_retrieved": [
-          "autosar_hld__v1.0_p04_c16"
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p03_c10",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v1.0_p06_c23"
         ],
         "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.6131
+        "hybrid_ndcg5": 0.9197
       },
       {
         "query_id": "eval_09",
@@ -320,10 +322,14 @@
         "baseline_mrr": 1.0,
         "baseline_ndcg5": 1.0,
         "hybrid_retrieved": [
-          "autosar_hld__v2.0_p04_c17"
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v2.0_p03_c10",
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p08_c37"
         ],
         "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.6131
+        "hybrid_ndcg5": 0.8772
       },
       {
         "query_id": "eval_10",
@@ -403,23 +409,23 @@
           "autosar_hld__v2.0_p07_c30"
         ],
         "baseline_retrieved": [
-          "autosar_hld__v1.0_p06_c23",
-          "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p04_c17",
-          "autosar_hld__v1.0_p04_c16",
-          "autosar_exp__v1.0_p04_c07"
+          "harrier_ev_o_v1.0_p276_c1502",
+          "harrier_ev_o_v1.0_p200_c1192",
+          "harrier_ev_o_v1.0_p163_c985",
+          "harrier_ev_o_v1.0_p250_c1385",
+          "harrier_ev_o_v1.0_p160_c968"
         ],
         "baseline_mrr": 0.0,
         "baseline_ndcg5": 0.0,
         "hybrid_retrieved": [
-          "autosar_hld__v2.0_p07_c30",
-          "autosar_hld__v1.0_p07_c27",
+          "test_upload__v3.0_p06_c23",
           "autosar_hld__v1.0_p06_c23",
           "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p07_c31"
+          "harrier_ev_o_v1.0_p276_c1502",
+          "harrier_ev_o_v1.0_p200_c1192"
         ],
-        "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 1.0
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
       },
       {
         "query_id": "eval_14",
@@ -465,7 +471,11 @@
         "baseline_mrr": 1.0,
         "baseline_ndcg5": 0.6131,
         "hybrid_retrieved": [
-          "autosar_hld__v2.0_p08_c34"
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p03_c14",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p06_c28"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 0.6131
@@ -481,17 +491,20 @@
           "autosar_hld__v2.0_p08_c37"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p08_c32",
           "autosar_hld__v2.0_p08_c35",
           "autosar_hld__v1.0_p08_c32",
           "automotive_e_v1.0_p13_c97",
-          "autosar_hld__v2.0_p03_c07",
-          "autosar_hld__v1.0_p03_c07"
+          "test_upload__v3.0_p03_c07"
         ],
         "baseline_mrr": 0.0,
         "baseline_ndcg5": 0.0,
         "hybrid_retrieved": [
+          "test_upload__v3.0_p08_c32",
           "autosar_hld__v2.0_p08_c35",
-          "autosar_hld__v1.0_p08_c32"
+          "autosar_hld__v1.0_p08_c32",
+          "automotive_e_v1.0_p13_c97",
+          "test_upload__v3.0_p03_c07"
         ],
         "hybrid_mrr": 0.0,
         "hybrid_ndcg5": 0.0
@@ -505,23 +518,23 @@
           "autosar_hld__v2.0_p08_c36"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p03_c11",
           "autosar_hld__v2.0_p03_c11",
           "autosar_hld__v1.0_p03_c11",
           "autosar_hld__v2.0_p08_c36",
-          "autosar_hld__v1.0_p08_c33",
-          "automotive_e_v1.0_p21_c174"
+          "autosar_hld__v1.0_p08_c33"
         ],
-        "baseline_mrr": 0.3333,
-        "baseline_ndcg5": 0.5706,
+        "baseline_mrr": 0.25,
+        "baseline_ndcg5": 0.5013,
         "hybrid_retrieved": [
+          "test_upload__v3.0_p03_c11",
           "autosar_hld__v2.0_p03_c11",
           "autosar_hld__v1.0_p03_c11",
-          "automotive_e_v1.0_p21_c174",
-          "automotive_e_v1.0_p17_c136",
-          "automotive_e_v1.0_p13_c98"
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v1.0_p08_c33"
         ],
-        "hybrid_mrr": 0.0,
-        "hybrid_ndcg5": 0.0
+        "hybrid_mrr": 0.25,
+        "hybrid_ndcg5": 0.5013
       },
       {
         "query_id": "eval_18",
@@ -532,20 +545,20 @@
           "autosar_hld__v2.0_p08_c37"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p03_c12",
           "autosar_hld__v2.0_p03_c12",
           "autosar_hld__v1.0_p03_c12",
           "autosar_hld__v2.0_p06_c26",
-          "autosar_hld__v2.0_p08_c37",
-          "autosar_hld__v1.0_p08_c34"
+          "autosar_hld__v2.0_p08_c37"
         ],
-        "baseline_mrr": 0.25,
-        "baseline_ndcg5": 0.5013,
+        "baseline_mrr": 0.2,
+        "baseline_ndcg5": 0.2372,
         "hybrid_retrieved": [
-          "autosar_hld__v2.0_p03_c12",
-          "autosar_hld__v1.0_p03_c12",
-          "automotive_e_v1.0_p21_c179",
-          "automotive_e_v1.0_p21_c178",
-          "automotive_e_v1.0_p23_c195"
+          "harrier_ev_o_v1.0_p70_c378",
+          "test_upload__v3.0_p08_c32",
+          "autosar_hld__v2.0_p08_c35",
+          "autosar_hld__v1.0_p08_c32",
+          "test_upload__v3.0_p03_c12"
         ],
         "hybrid_mrr": 0.0,
         "hybrid_ndcg5": 0.0
@@ -561,18 +574,18 @@
         "baseline_retrieved": [
           "autosar_hld__v2.0_p05_c20",
           "autosar_hld__v1.0_p05_c19",
-          "autosar_hld__v2.0_p03_c12",
-          "autosar_hld__v1.0_p03_c12",
-          "autosar_hld__v2.0_p06_c26"
+          "test_upload__v3.0_p05_c19",
+          "test_upload__v3.0_p03_c12",
+          "autosar_hld__v2.0_p03_c12"
         ],
         "baseline_mrr": 1.0,
         "baseline_ndcg5": 1.0,
         "hybrid_retrieved": [
           "autosar_hld__v2.0_p05_c20",
           "autosar_hld__v1.0_p05_c19",
-          "autosar_hld__v2.0_p08_c37",
-          "autosar_hld__v1.0_p08_c34",
-          "autosar_hld__v2.0_p05_c22"
+          "test_upload__v3.0_p05_c19",
+          "test_upload__v3.0_p03_c12",
+          "autosar_hld__v2.0_p03_c12"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 1.0
@@ -587,22 +600,22 @@
         ],
         "baseline_retrieved": [
           "autosar_hld__v2.0_p06_c26",
+          "test_upload__v3.0_p06_c24",
           "autosar_hld__v1.0_p06_c24",
-          "autosar_hld__v2.0_p08_c37",
-          "autosar_hld__v1.0_p08_c34",
-          "autosar_hld__v2.0_p05_c20"
+          "test_upload__v3.0_p08_c34",
+          "autosar_hld__v2.0_p08_c37"
         ],
         "baseline_mrr": 1.0,
-        "baseline_ndcg5": 1.0,
+        "baseline_ndcg5": 0.9197,
         "hybrid_retrieved": [
           "autosar_hld__v2.0_p06_c26",
+          "test_upload__v3.0_p06_c24",
           "autosar_hld__v1.0_p06_c24",
-          "autosar_hld__v2.0_p08_c37",
-          "autosar_hld__v1.0_p08_c34",
-          "autosar_hld__v2.0_p05_c20"
+          "test_upload__v3.0_p08_c34",
+          "autosar_hld__v2.0_p08_c37"
         ],
         "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 1.0
+        "hybrid_ndcg5": 0.9197
       },
       {
         "query_id": "eval_21",
@@ -615,23 +628,23 @@
           "autosar_hld__v2.0_p04_c17"
         ],
         "baseline_retrieved": [
+          "test_upload__v3.0_p04_c16",
           "autosar_hld__v2.0_p04_c17",
           "autosar_hld__v1.0_p04_c16",
-          "autosar_hld__v2.0_p03_c10",
-          "autosar_hld__v1.0_p03_c10",
-          "autosar_hld__v2.0_p08_c34"
+          "test_upload__v3.0_p03_c10",
+          "autosar_hld__v2.0_p03_c10"
         ],
-        "baseline_mrr": 1.0,
-        "baseline_ndcg5": 0.7877,
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.4415,
         "hybrid_retrieved": [
-          "autosar_hld__v2.0_p04_c17",
-          "autosar_hld__v1.0_p04_c16",
-          "autosar_hld__v2.0_p04_c16",
-          "autosar_hld__v1.0_p04_c15",
-          "autosar_hld__v1.0_p03_c09"
+          "autosar_hld__v2.0_p08_c34",
+          "test_upload__v3.0_p08_c31",
+          "autosar_hld__v1.0_p08_c31",
+          "test_upload__v3.0_p04_c16",
+          "autosar_hld__v2.0_p04_c17"
         ],
         "hybrid_mrr": 1.0,
-        "hybrid_ndcg5": 0.6367
+        "hybrid_ndcg5": 0.7366
       },
       {
         "query_id": "eval_22",
@@ -646,8 +659,7 @@
           "autosar_hld__v2.0_p06_c25",
           "autosar_hld__v2.0_p07_c31",
           "autosar_hld__v2.0_p07_c30",
-          "autosar_hld__v2.0_p08_c34",
-          "autosar_hld__v2.0_p03_c10"
+          "autosar_hld__v2.0_p08_c34"
         ],
         "baseline_mrr": 0.3333,
         "baseline_ndcg5": 0.2346,
@@ -655,8 +667,7 @@
           "autosar_hld__v2.0_p07_c30",
           "autosar_hld__v2.0_p07_c31",
           "autosar_hld__v2.0_p06_c25",
-          "autosar_hld__v2.0_p08_c36",
-          "autosar_hld__v2.0_p06_c23"
+          "autosar_hld__v2.0_p08_c34"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 0.4693
@@ -680,10 +691,10 @@
         "baseline_ndcg5": 0.0,
         "hybrid_retrieved": [
           "autosar_exp__v1.0_p10_c28",
-          "autosar_exp__v1.0_p71_c221",
-          "autosar_exp__v1.0_p55_c147",
-          "autosar_exp__v1.0_p72_c224",
-          "autosar_exp__v1.0_p77_c245"
+          "autosar_exp__v1.0_p01_c01",
+          "autosar_exp__v1.0_p19_c42",
+          "autosar_exp__v1.0_p12_c30",
+          "autosar_exp__v1.0_p13_c31"
         ],
         "hybrid_mrr": 0.0,
         "hybrid_ndcg5": 0.0
@@ -708,8 +719,10 @@
         "baseline_ndcg5": 0.4693,
         "hybrid_retrieved": [
           "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p03_c14",
+          "autosar_hld__v2.0_p08_c34",
           "autosar_hld__v2.0_p06_c28",
-          "autosar_hld__v2.0_p05_c20"
+          "autosar_hld__v2.0_p03_c12"
         ],
         "hybrid_mrr": 1.0,
         "hybrid_ndcg5": 0.4693
@@ -726,16 +739,18 @@
         "baseline_retrieved": [
           "autosar_exp__v1.0_p07_c13",
           "autosar_exp__v1.0_p04_c06",
+          "harrier_ev_o_v1.0_p14_c64",
           "autosar_exp__v1.0_p04_c07",
-          "autosar_exp__v1.0_p06_c11",
-          "autosar_exp__v1.0_p180_c487"
+          "autosar_exp__v1.0_p06_c11"
         ],
         "baseline_mrr": 0.0,
         "baseline_ndcg5": 0.0,
         "hybrid_retrieved": [
           "autosar_exp__v1.0_p07_c13",
-          "autosar_exp__v1.0_p106_c325",
-          "autosar_exp__v1.0_p09_c27"
+          "autosar_exp__v1.0_p04_c06",
+          "harrier_ev_o_v1.0_p14_c64",
+          "autosar_exp__v1.0_p04_c07",
+          "autosar_exp__v1.0_p06_c11"
         ],
         "hybrid_mrr": 0.0,
         "hybrid_ndcg5": 0.0
@@ -743,33 +758,33 @@
     ]
   },
   "generation_evaluation": {
-    "provider": "ollama",
+    "provider": "mock",
     "query_count": 25,
     "macro_averages": {
-      "mean_grounding_score": 0.0,
+      "mean_grounding_score": 0.78,
       "mean_citation_precision": 1.0,
-      "mean_citation_coverage": 0.0,
-      "total_claims": 25,
-      "supported_claims_ratio": 0.0,
-      "partially_supported_claims_ratio": 0.0,
-      "unsupported_claims_ratio": 1.0,
-      "average_latency_ms": 62348.14
+      "mean_citation_coverage": 1.0,
+      "total_claims": 30,
+      "supported_claims_ratio": 0.6333,
+      "partially_supported_claims_ratio": 0.1333,
+      "unsupported_claims_ratio": 0.2333,
+      "average_latency_ms": 31.9
     },
     "itemized": [
       {
         "query_id": "eval_01",
         "query": "What interface carries VehicleSpeed?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "VehicleSpeed is carried by VehicleDataInterface (a Sender-Receiver interface between SensorManager and consuming compone...",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
+        "citation_coverage": 1.0,
+        "grounding_score": 0.5,
         "supported_claims": 0,
-        "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "partially_supported_claims": 2,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleDataInterface",
           "VehicleSpeed",
@@ -777,144 +792,151 @@
           "VehicleControl"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "VehicleSpeed",
+          "SensorManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62353.22
+        "entity_recall": 0.75,
+        "latency_ms": 31.63
       },
       {
         "query_id": "eval_02",
         "query": "What is the datatype of VehicleSpeed in version 1.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 5.: VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleSpeed"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 63440.69
+        "latency_ms": 35.99
       },
       {
         "query_id": "eval_03",
         "query": "What is the datatype of VehicleSpeed in version 2.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 5.: VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleSpeed"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62170.71
+        "latency_ms": 28.36
       },
       {
         "query_id": "eval_04",
         "query": "Which component provides VehicleDataInterface?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 4.: 4.1 VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "SensorManager",
           "VehicleDataInterface"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62270.31
+        "entity_recall": 0.5,
+        "latency_ms": 28.63
       },
       {
         "query_id": "eval_05",
         "query": "Which component requires VehicleDataInterface?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 4.: 4.1 VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleControl",
           "VehicleDataInterface"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62251.41
+        "entity_recall": 0.5,
+        "latency_ms": 29.34
       },
       {
         "query_id": "eval_06",
         "query": "What signals are carried by VehicleDataInterface in version 1.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 5.: VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleDataInterface",
           "VehicleSpeed",
           "EngineRPM"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62224.61
+        "entity_recall": 0.3333,
+        "latency_ms": 32.77
       },
       {
         "query_id": "eval_07",
         "query": "What signals are carried by VehicleDataInterface in version 2.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 5.: VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleDataInterface",
           "VehicleSpeed",
@@ -922,25 +944,26 @@
           "EngineTemperature"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62259.92
+        "entity_recall": 0.25,
+        "latency_ms": 33.5
       },
       {
         "query_id": "eval_08",
         "query": "What ports belong to VehicleControl in version 1.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "VehicleControl contains input ports such as VehicleSpeedIn and EngineRPMIn, and output ports ControlCommandOut and Vehic...",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
+        "citation_coverage": 1.0,
+        "grounding_score": 0.5,
         "supported_claims": 0,
-        "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "partially_supported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleControl",
           "VehicleSpeedIn",
@@ -948,25 +971,29 @@
           "ControlCommandOut"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleSpeedIn",
+          "ControlCommandOut",
+          "VehicleStateOut",
+          "EngineRPMIn",
+          "VehicleControl"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62218.15
+        "entity_recall": 1.0,
+        "latency_ms": 32.62
       },
       {
         "query_id": "eval_09",
         "query": "What ports belong to VehicleControl in version 2.0?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "VehicleControl contains input ports such as VehicleSpeedIn and EngineRPMIn, and output ports ControlCommandOut and Vehic...",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
+        "citation_coverage": 1.0,
+        "grounding_score": 0.5,
         "supported_claims": 0,
-        "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "partially_supported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleControl",
           "VehicleSpeedIn",
@@ -975,68 +1002,77 @@
           "ControlCommandOut"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleSpeedIn",
+          "ControlCommandOut",
+          "VehicleStateOut",
+          "EngineRPMIn",
+          "VehicleControl"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62121.0
+        "entity_recall": 0.8,
+        "latency_ms": 33.75
       },
       {
         "query_id": "eval_10",
         "query": "What component was added in version 2.0?",
         "category": "REVISION_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Based on retrieved HLD evidence from Section 2.: 2.2 Component Overview.",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "SafetyManager"
         ],
         "found_entities": [
-          "Generation"
+          "Overview",
+          "Based",
+          "Component"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62252.66
+        "latency_ms": 25.83
       },
       {
         "query_id": "eval_11",
         "query": "What interface was renamed between version 1.0 and version 2.0?",
         "category": "REVISION_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Between version 1.0 and version 2.0, Section 2.2 Component Overview shows that the system consists of four primary softw...",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 2,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
+        "citation_coverage": 1.0,
         "grounding_score": 0.0,
         "supported_claims": 0,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 2,
         "expected_entities": [
           "CommunicationInterface",
           "V2XCommunicationInterface"
         ],
         "found_entities": [
-          "Generation"
+          "Overview",
+          "Between",
+          "Component",
+          "SafetyManager"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62356.7
+        "latency_ms": 34.77
       },
       {
         "query_id": "eval_12",
         "query": "What dependency was added in version 2.0?",
         "category": "REVISION_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Based on retrieved HLD evidence from Section 7.: Please analyze the evidence above and provide your response as a valid ...",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
+        "citation_coverage": 1.0,
         "grounding_score": 0.0,
         "supported_claims": 0,
         "partially_supported_claims": 0,
@@ -1046,121 +1082,132 @@
           "SafetyManager"
         ],
         "found_entities": [
-          "Generation"
+          "Please",
+          "Based",
+          "Remember",
+          "JSON"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62313.36
+        "latency_ms": 34.44
       },
       {
         "query_id": "eval_13",
         "query": "What changed in VehicleSpeed between versions?",
         "category": "REVISION_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Between version 1.0 and version 2.0, Section 2.2 Component Overview shows that the system consists of four primary softw...",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 2,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
+        "citation_coverage": 1.0,
         "grounding_score": 0.0,
         "supported_claims": 0,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 2,
         "expected_entities": [
           "VehicleSpeed"
         ],
         "found_entities": [
-          "Generation"
+          "Overview",
+          "Between",
+          "Component",
+          "SafetyManager"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62874.89
+        "latency_ms": 27.46
       },
       {
         "query_id": "eval_14",
         "query": "What is SafetyMonitorInterface?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 4.: 4.4 SafetyMonitorInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "SafetyMonitorInterface",
           "SafetyStatus",
           "SystemHealth"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "SafetyMonitorInterface"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62408.03
+        "entity_recall": 0.3333,
+        "latency_ms": 31.0
       },
       {
         "query_id": "eval_15",
         "query": "Which component depends on SafetyManager?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 7.: 7.1 Component Dependencies.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleControl",
           "SafetyManager"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "Component",
+          "Dependencies"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62284.08
+        "latency_ms": 31.27
       },
       {
         "query_id": "eval_16",
         "query": "What functional flows exist in the system?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 7.: 8. Functional Flows.",
+        "confidence": "medium",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "Sensor Data Flow",
           "Diagnostic Flow"
         ],
         "found_entities": [
-          "Generation"
+          "Functional",
+          "Based",
+          "Flows"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62200.38
+        "latency_ms": 29.32
       },
       {
         "query_id": "eval_17",
         "query": "What are the steps of the Sensor Data Flow?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Based on retrieved HLD evidence from Section 2.: 2. SensorManager: Acquires, filters, and broadcasts vehicle telemetry a...",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "Sensor Data Flow",
           "SensorManager",
@@ -1168,25 +1215,27 @@
           "VehicleControl"
         ],
         "found_entities": [
-          "Generation"
+          "Acquires",
+          "Based",
+          "SensorManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62152.8
+        "entity_recall": 0.25,
+        "latency_ms": 41.4
       },
       {
         "query_id": "eval_18",
         "query": "What are the steps of the Diagnostic Flow?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Based on retrieved HLD evidence from Section 8.: 8. Check for the telltale indication fre-.",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "Diagnostic Flow",
           "DiagnosticManager",
@@ -1194,72 +1243,75 @@
           "VehicleControl"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "Check"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62138.29
+        "latency_ms": 39.39
       },
       {
         "query_id": "eval_19",
         "query": "What is the purpose of DiagnosticManager?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 3.3: 3.3 DiagnosticManager.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "DiagnosticManager",
           "DiagnosticInterface"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "DiagnosticManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62213.59
+        "entity_recall": 0.5,
+        "latency_ms": 47.11
       },
       {
         "query_id": "eval_20",
         "query": "What operations does DiagnosticInterface support?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 4.: 4.2 DiagnosticInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "DiagnosticInterface"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "DiagnosticInterface"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62241.84
+        "entity_recall": 1.0,
+        "latency_ms": 28.23
       },
       {
         "query_id": "eval_21",
         "query": "What components are associated with VehicleControl?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "VehicleControl is associated with SensorManager, DiagnosticManager, and SafetyManager through component dependencies. Ve...",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 2,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleControl",
           "SensorManager",
@@ -1267,25 +1319,28 @@
           "SafetyManager"
         ],
         "found_entities": [
-          "Generation"
+          "DiagnosticManager",
+          "VehicleControl",
+          "SensorManager",
+          "SafetyManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62141.06
+        "entity_recall": 1.0,
+        "latency_ms": 28.14
       },
       {
         "query_id": "eval_22",
         "query": "What components may be affected by VehicleSpeed changing datatype?",
         "category": "IMPACT_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 5.: VehicleDataInterface.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "VehicleSpeed",
           "SensorManager",
@@ -1293,73 +1348,77 @@
           "VehicleDataInterface"
         ],
         "found_entities": [
-          "Generation"
+          "VehicleDataInterface",
+          "Based"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62216.88
+        "entity_recall": 0.25,
+        "latency_ms": 28.76
       },
       {
         "query_id": "eval_23",
         "query": "What are the three architecture layers in the AUTOSAR overview?",
         "category": "DOCUMENT_QA",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Based on retrieved HLD evidence from Section : Purpose and Inputs.",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "Application Layer",
           "RTE",
           "BSW"
         ],
         "found_entities": [
-          "Generation"
+          "Purpose",
+          "Based",
+          "Inputs"
         ],
         "entity_recall": 0.0,
-        "latency_ms": 62191.4
+        "latency_ms": 28.86
       },
       {
         "query_id": "eval_24",
         "query": "What safety standard does SafetyManager adhere to?",
         "category": "ARCHITECTURE_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
-        "confidence": "low",
-        "review_required": true,
-        "citation_count": 0,
+        "answer_preview": "Based on retrieved HLD evidence from Section 3.3: 3.5 SafetyManager.",
+        "confidence": "high",
+        "review_required": false,
+        "citation_count": 1,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
-        "grounding_score": 0.0,
-        "supported_claims": 0,
+        "citation_coverage": 1.0,
+        "grounding_score": 1.0,
+        "supported_claims": 1,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 0,
         "expected_entities": [
           "SafetyManager"
         ],
         "found_entities": [
-          "Generation"
+          "Based",
+          "SafetyManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 63217.07
+        "entity_recall": 1.0,
+        "latency_ms": 27.0
       },
       {
         "query_id": "eval_25",
         "query": "What changed between version 1.0 and version 2.0?",
         "category": "REVISION_QUERY",
-        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "answer_preview": "Between version 1.0 and version 2.0, Section 2.2 Component Overview shows that the system consists of four primary softw...",
         "confidence": "low",
         "review_required": true,
-        "citation_count": 0,
+        "citation_count": 2,
         "citation_precision": 1.0,
-        "citation_coverage": 0.0,
+        "citation_coverage": 1.0,
         "grounding_score": 0.0,
         "supported_claims": 0,
         "partially_supported_claims": 0,
-        "unsupported_claims": 1,
+        "unsupported_claims": 2,
         "expected_entities": [
           "SafetyManager",
           "VehicleSpeed",
@@ -1369,10 +1428,13 @@
           "V2XCommunicationInterface"
         ],
         "found_entities": [
-          "Generation"
+          "Overview",
+          "Between",
+          "Component",
+          "SafetyManager"
         ],
-        "entity_recall": 0.0,
-        "latency_ms": 62190.44
+        "entity_recall": 0.1667,
+        "latency_ms": 27.91
       }
     ]
   },
@@ -1506,25 +1568,25 @@
     ]
   },
   "latency_benchmarks": {
-    "embedding_latency_ms": 98.67,
-    "baseline_retrieval_latency_ms": 97.16,
-    "hybrid_retrieval_latency_ms": 112.58,
-    "rerank_overhead_ms": 15.42,
-    "mock_generation_latency_ms": 1.05,
-    "full_mock_pipeline_latency_ms": 87.65
+    "embedding_latency_ms": 27.44,
+    "baseline_retrieval_latency_ms": 30.06,
+    "hybrid_retrieval_latency_ms": 26.65,
+    "rerank_overhead_ms": 0.0,
+    "mock_generation_latency_ms": 0.07,
+    "full_mock_pipeline_latency_ms": 26.8
   },
   "key_metrics_summary": {
-    "baseline_mrr": 0.5967,
-    "hybrid_mrr": 0.68,
-    "mrr_improvement": 0.0833,
-    "baseline_ndcg5": 0.4955,
-    "hybrid_ndcg5": 0.4792,
-    "ndcg5_improvement": -0.0163,
-    "baseline_hit_rate_at_1": 0.52,
-    "hybrid_hit_rate_at_1": 0.68,
+    "baseline_mrr": 0.5113,
+    "hybrid_mrr": 0.59,
+    "mrr_improvement": 0.0787,
+    "baseline_ndcg5": 0.4355,
+    "hybrid_ndcg5": 0.4519,
+    "ndcg5_improvement": 0.0164,
+    "baseline_hit_rate_at_1": 0.36,
+    "hybrid_hit_rate_at_1": 0.52,
     "citation_precision": 1.0,
-    "citation_coverage": 0.0,
-    "supported_claims_ratio": 0.0,
+    "citation_coverage": 1.0,
+    "supported_claims_ratio": 0.6333,
     "adversarial_abstention_accuracy": 1.0,
     "hallucination_rate": 0.0
   }

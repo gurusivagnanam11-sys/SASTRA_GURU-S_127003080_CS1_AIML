@@ -343,7 +343,44 @@ def client():
     return TestClient(app)
 
 
-def test_fastapi_health(client: TestClient):
+@pytest.fixture
+def controlled_hld_pipeline(monkeypatch, v1_chunks, v2_chunks):
+    """Controlled 71-chunk test state from synthetic HLD specification fixtures."""
+    all_chunks = v1_chunks + v2_chunks
+    entries = [
+        {
+            "chunk_id": c.chunk_id,
+            "document_id": c.document_id,
+            "version": c.version,
+            "page": getattr(c, "page_number", getattr(c, "page", 1)),
+            "section": c.section,
+            "section_title": c.section_title,
+            "chunk_type": c.chunk_type,
+            "entity_hint": c.entity_hint,
+            "text": c.text,
+        }
+        for c in all_chunks
+    ]
+
+    class ControlledMetaStore:
+        count = len(entries)
+        def __init__(self):
+            self.entries = entries
+
+    class ControlledFAISSStore:
+        count = len(entries)
+        dimension = 384
+
+    class ControlledPipeline:
+        faiss_store = ControlledFAISSStore()
+        metadata_store = ControlledMetaStore()
+
+    controlled = ControlledPipeline()
+    monkeypatch.setattr("app.main.get_pipeline", lambda provider_name=None: controlled)
+    return controlled
+
+
+def test_fastapi_health(client: TestClient, controlled_hld_pipeline):
     """Verify /health endpoint returns 200 and complete diagnostics."""
     res = client.get("/health")
     assert res.status_code == 200
@@ -389,7 +426,7 @@ def test_fastapi_query_empty_raises_400(client: TestClient):
     assert res.status_code == 400
 
 
-def test_fastapi_documents_endpoint(client: TestClient):
+def test_fastapi_documents_endpoint(client: TestClient, controlled_hld_pipeline):
     """Verify GET /documents returns indexed versions and chunk breakdown."""
     res = client.get("/documents")
     assert res.status_code == 200
