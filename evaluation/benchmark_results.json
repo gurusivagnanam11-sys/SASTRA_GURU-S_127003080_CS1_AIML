@@ -1,0 +1,1531 @@
+{
+  "timestamp": "2026-10-08 06:33:45 UTC",
+  "total_benchmark_duration_seconds": 1576.09,
+  "dataset": {
+    "grounded_queries_count": 25,
+    "unsupported_queries_count": 10,
+    "total_queries_evaluated": 35
+  },
+  "retrieval_evaluation": {
+    "query_count": 25,
+    "baseline": {
+      "macro_averages": {
+        "total_queries": 25,
+        "mrr": 0.5967,
+        "ndcg_at_5": 0.4955,
+        "precision_at_1": 0.52,
+        "recall_at_1": 0.2267,
+        "hit_rate_at_1": 0.52,
+        "precision_at_3": 0.3467,
+        "recall_at_3": 0.4367,
+        "hit_rate_at_3": 0.68,
+        "precision_at_5": 0.248,
+        "recall_at_5": 0.5167,
+        "hit_rate_at_5": 0.72
+      },
+      "latency_per_query_ms": 92.46
+    },
+    "hybrid": {
+      "macro_averages": {
+        "total_queries": 25,
+        "mrr": 0.68,
+        "ndcg_at_5": 0.4792,
+        "precision_at_1": 0.68,
+        "recall_at_1": 0.2933,
+        "hit_rate_at_1": 0.68,
+        "precision_at_3": 0.3467,
+        "recall_at_3": 0.4267,
+        "hit_rate_at_3": 0.68,
+        "precision_at_5": 0.208,
+        "recall_at_5": 0.4267,
+        "hit_rate_at_5": 0.68
+      },
+      "latency_per_query_ms": 93.17
+    },
+    "deltas": {
+      "hit_rate_at_1_delta": 0.16,
+      "hit_rate_at_3_delta": 0.0,
+      "hit_rate_at_5_delta": -0.04,
+      "precision_at_1_delta": 0.16,
+      "precision_at_3_delta": 0.0,
+      "precision_at_5_delta": -0.04,
+      "recall_at_1_delta": 0.0666,
+      "recall_at_3_delta": -0.01,
+      "recall_at_5_delta": -0.09,
+      "mrr_delta": 0.0833,
+      "ndcg_at_5_delta": -0.0163
+    },
+    "category_breakdown": {
+      "ARCHITECTURE_QUERY": {
+        "query_count": 18,
+        "baseline_mrr": 0.8102,
+        "hybrid_mrr": 0.8333,
+        "mrr_improvement": 0.0232
+      },
+      "REVISION_QUERY": {
+        "query_count": 5,
+        "baseline_mrr": 0.0,
+        "hybrid_mrr": 0.2,
+        "mrr_improvement": 0.2
+      },
+      "IMPACT_QUERY": {
+        "query_count": 1,
+        "baseline_mrr": 0.3333,
+        "hybrid_mrr": 1.0,
+        "mrr_improvement": 0.6667
+      },
+      "DOCUMENT_QA": {
+        "query_count": 1,
+        "baseline_mrr": 0.0,
+        "hybrid_mrr": 0.0,
+        "mrr_improvement": 0.0
+      }
+    },
+    "itemized_comparison": [
+      {
+        "query_id": "eval_01",
+        "query": "What interface carries VehicleSpeed?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c24",
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v2.0_p07_c30"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p03_c10",
+          "autosar_hld__v1.0_p03_c10",
+          "autosar_hld__v1.0_p07_c27"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.5414,
+        "hybrid_retrieved": [
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v1.0_p07_c28"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.8319
+      },
+      {
+        "query_id": "eval_02",
+        "query": "What is the datatype of VehicleSpeed in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p03_c10"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.7654,
+        "hybrid_retrieved": [
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p08_c33",
+          "autosar_hld__v1.0_p06_c21"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.7039
+      },
+      {
+        "query_id": "eval_03",
+        "query": "What is the datatype of VehicleSpeed in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p06_c24",
+          "autosar_hld__v2.0_p04_c18"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p03_c10",
+          "autosar_hld__v2.0_p08_c36"
+        ],
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.2961,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v2.0_p06_c23"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.4693
+      },
+      {
+        "query_id": "eval_04",
+        "query": "Which component provides VehicleDataInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c24",
+          "autosar_hld__v1.0_p04_c17",
+          "autosar_hld__v2.0_p04_c18"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v1.0_p07_c28"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.3904,
+        "hybrid_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v1.0_p07_c27"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.3904
+      },
+      {
+        "query_id": "eval_05",
+        "query": "Which component requires VehicleDataInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c24",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p07_c31"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.8319,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p04_c16",
+          "autosar_hld__v1.0_p04_c15",
+          "autosar_exp__v1.0_p108_c330"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6367
+      },
+      {
+        "query_id": "eval_06",
+        "query": "What signals are carried by VehicleDataInterface in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p07_c27"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p06_c25",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p07_c28"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v1.0_p08_c33",
+          "autosar_hld__v1.0_p06_c25"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.9197
+      },
+      {
+        "query_id": "eval_07",
+        "query": "What signals are carried by VehicleDataInterface in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p06_c24",
+          "autosar_hld__v2.0_p07_c30"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p06_c27",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_mrr": 0.5,
+        "baseline_ndcg5": 0.3869,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v2.0_p06_c27"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6131
+      },
+      {
+        "query_id": "eval_08",
+        "query": "What ports belong to VehicleControl in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_hld__v1.0_p04_c16"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v1.0_p07_c28",
+          "autosar_exp__v1.0_p38_c92",
+          "autosar_exp__v1.0_p60_c165",
+          "autosar_hld__v1.0_p03_c10"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v1.0_p04_c16"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6131
+      },
+      {
+        "query_id": "eval_09",
+        "query": "What ports belong to VehicleControl in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p08_c37",
+          "autosar_hld__v2.0_p03_c10",
+          "autosar_hld__v2.0_p07_c30"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6131
+      },
+      {
+        "query_id": "eval_10",
+        "query": "What component was added in version 2.0?",
+        "category": "REVISION_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p03_c11",
+          "autosar_hld__v2.0_p02_c06"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p03_c09",
+          "autosar_hld__v2.0_p04_c16"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p03_c09",
+          "autosar_hld__v2.0_p04_c16"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_11",
+        "query": "What interface was renamed between version 1.0 and version 2.0?",
+        "category": "REVISION_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c25",
+          "autosar_hld__v2.0_p06_c27",
+          "autosar_hld__v2.0_p05_c21"
+        ],
+        "baseline_retrieved": [
+          "autosar_exp__v1.0_p07_c13",
+          "autosar_exp__v1.0_p83_c271",
+          "autosar_exp__v1.0_p106_c325",
+          "autosar_exp__v1.0_p09_c27",
+          "autosar_exp__v1.0_p27_c63"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_exp__v1.0_p07_c13",
+          "autosar_exp__v1.0_p83_c271",
+          "autosar_exp__v1.0_p106_c325",
+          "autosar_exp__v1.0_p09_c27",
+          "autosar_exp__v1.0_p27_c63"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_12",
+        "query": "What dependency was added in version 2.0?",
+        "category": "REVISION_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p08_c33"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p08_c33"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_13",
+        "query": "What changed in VehicleSpeed between versions?",
+        "category": "REVISION_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v2.0_p07_c30"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_exp__v1.0_p04_c07"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v1.0_p06_c23",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p07_c31"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 1.0
+      },
+      {
+        "query_id": "eval_14",
+        "query": "What is SafetyMonitorInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p06_c28"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p06_c28",
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p06_c26",
+          "autosar_hld__v2.0_p03_c14",
+          "autosar_hld__v2.0_p08_c37"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p06_c28",
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p06_c26",
+          "autosar_hld__v2.0_p06_c27"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 1.0
+      },
+      {
+        "query_id": "eval_15",
+        "query": "Which component depends on SafetyManager?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p03_c14",
+          "autosar_hld__v2.0_p06_c28",
+          "autosar_hld__v2.0_p07_c31"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.6131,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p08_c34"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6131
+      },
+      {
+        "query_id": "eval_16",
+        "query": "What functional flows exist in the system?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p08_c33",
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v2.0_p08_c37"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p08_c35",
+          "autosar_hld__v1.0_p08_c32",
+          "automotive_e_v1.0_p13_c97",
+          "autosar_hld__v2.0_p03_c07",
+          "autosar_hld__v1.0_p03_c07"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p08_c35",
+          "autosar_hld__v1.0_p08_c32"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_17",
+        "query": "What are the steps of the Sensor Data Flow?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p08_c33",
+          "autosar_hld__v2.0_p08_c36"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p03_c11",
+          "autosar_hld__v1.0_p03_c11",
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v1.0_p08_c33",
+          "automotive_e_v1.0_p21_c174"
+        ],
+        "baseline_mrr": 0.3333,
+        "baseline_ndcg5": 0.5706,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p03_c11",
+          "autosar_hld__v1.0_p03_c11",
+          "automotive_e_v1.0_p21_c174",
+          "automotive_e_v1.0_p17_c136",
+          "automotive_e_v1.0_p13_c98"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_18",
+        "query": "What are the steps of the Diagnostic Flow?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v2.0_p08_c37"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p03_c12",
+          "autosar_hld__v1.0_p03_c12",
+          "autosar_hld__v2.0_p06_c26",
+          "autosar_hld__v2.0_p08_c37",
+          "autosar_hld__v1.0_p08_c34"
+        ],
+        "baseline_mrr": 0.25,
+        "baseline_ndcg5": 0.5013,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p03_c12",
+          "autosar_hld__v1.0_p03_c12",
+          "automotive_e_v1.0_p21_c179",
+          "automotive_e_v1.0_p21_c178",
+          "automotive_e_v1.0_p23_c195"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_19",
+        "query": "What is the purpose of DiagnosticManager?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p05_c19",
+          "autosar_hld__v2.0_p05_c20"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p05_c20",
+          "autosar_hld__v1.0_p05_c19",
+          "autosar_hld__v2.0_p03_c12",
+          "autosar_hld__v1.0_p03_c12",
+          "autosar_hld__v2.0_p06_c26"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p05_c20",
+          "autosar_hld__v1.0_p05_c19",
+          "autosar_hld__v2.0_p08_c37",
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v2.0_p05_c22"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 1.0
+      },
+      {
+        "query_id": "eval_20",
+        "query": "What operations does DiagnosticInterface support?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p06_c24",
+          "autosar_hld__v2.0_p06_c26"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p06_c26",
+          "autosar_hld__v1.0_p06_c24",
+          "autosar_hld__v2.0_p08_c37",
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v2.0_p05_c20"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 1.0,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p06_c26",
+          "autosar_hld__v1.0_p06_c24",
+          "autosar_hld__v2.0_p08_c37",
+          "autosar_hld__v1.0_p08_c34",
+          "autosar_hld__v2.0_p05_c20"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 1.0
+      },
+      {
+        "query_id": "eval_21",
+        "query": "What components are associated with VehicleControl?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p08_c31",
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p04_c17"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p03_c10",
+          "autosar_hld__v1.0_p03_c10",
+          "autosar_hld__v2.0_p08_c34"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.7877,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p04_c17",
+          "autosar_hld__v1.0_p04_c16",
+          "autosar_hld__v2.0_p04_c16",
+          "autosar_hld__v1.0_p04_c15",
+          "autosar_hld__v1.0_p03_c09"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.6367
+      },
+      {
+        "query_id": "eval_22",
+        "query": "What components may be affected by VehicleSpeed changing datatype?",
+        "category": "IMPACT_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v1.0_p07_c27",
+          "autosar_hld__v2.0_p06_c24"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p08_c34",
+          "autosar_hld__v2.0_p03_c10"
+        ],
+        "baseline_mrr": 0.3333,
+        "baseline_ndcg5": 0.2346,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p07_c30",
+          "autosar_hld__v2.0_p07_c31",
+          "autosar_hld__v2.0_p06_c25",
+          "autosar_hld__v2.0_p08_c36",
+          "autosar_hld__v2.0_p06_c23"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.4693
+      },
+      {
+        "query_id": "eval_23",
+        "query": "What are the three architecture layers in the AUTOSAR overview?",
+        "category": "DOCUMENT_QA",
+        "expected_chunks": [
+          "autosar_hld__v1.0_p03_c09",
+          "autosar_hld__v2.0_p03_c10"
+        ],
+        "baseline_retrieved": [
+          "autosar_exp__v1.0_p10_c28",
+          "autosar_exp__v1.0_p01_c01",
+          "autosar_exp__v1.0_p19_c42",
+          "autosar_exp__v1.0_p12_c30",
+          "autosar_exp__v1.0_p13_c31"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_exp__v1.0_p10_c28",
+          "autosar_exp__v1.0_p71_c221",
+          "autosar_exp__v1.0_p55_c147",
+          "autosar_exp__v1.0_p72_c224",
+          "autosar_exp__v1.0_p77_c245"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      },
+      {
+        "query_id": "eval_24",
+        "query": "What safety standard does SafetyManager adhere to?",
+        "category": "ARCHITECTURE_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p02_c07",
+          "autosar_hld__v2.0_p03_c11"
+        ],
+        "baseline_retrieved": [
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p03_c14",
+          "autosar_hld__v2.0_p06_c28",
+          "autosar_hld__v2.0_p03_c12",
+          "autosar_hld__v2.0_p08_c34"
+        ],
+        "baseline_mrr": 1.0,
+        "baseline_ndcg5": 0.4693,
+        "hybrid_retrieved": [
+          "autosar_hld__v2.0_p05_c22",
+          "autosar_hld__v2.0_p06_c28",
+          "autosar_hld__v2.0_p05_c20"
+        ],
+        "hybrid_mrr": 1.0,
+        "hybrid_ndcg5": 0.4693
+      },
+      {
+        "query_id": "eval_25",
+        "query": "What changed between version 1.0 and version 2.0?",
+        "category": "REVISION_QUERY",
+        "expected_chunks": [
+          "autosar_hld__v2.0_p03_c11",
+          "autosar_hld__v2.0_p02_c06",
+          "autosar_hld__v1.0_p03_c10"
+        ],
+        "baseline_retrieved": [
+          "autosar_exp__v1.0_p07_c13",
+          "autosar_exp__v1.0_p04_c06",
+          "autosar_exp__v1.0_p04_c07",
+          "autosar_exp__v1.0_p06_c11",
+          "autosar_exp__v1.0_p180_c487"
+        ],
+        "baseline_mrr": 0.0,
+        "baseline_ndcg5": 0.0,
+        "hybrid_retrieved": [
+          "autosar_exp__v1.0_p07_c13",
+          "autosar_exp__v1.0_p106_c325",
+          "autosar_exp__v1.0_p09_c27"
+        ],
+        "hybrid_mrr": 0.0,
+        "hybrid_ndcg5": 0.0
+      }
+    ]
+  },
+  "generation_evaluation": {
+    "provider": "ollama",
+    "query_count": 25,
+    "macro_averages": {
+      "mean_grounding_score": 0.0,
+      "mean_citation_precision": 1.0,
+      "mean_citation_coverage": 0.0,
+      "total_claims": 25,
+      "supported_claims_ratio": 0.0,
+      "partially_supported_claims_ratio": 0.0,
+      "unsupported_claims_ratio": 1.0,
+      "average_latency_ms": 62348.14
+    },
+    "itemized": [
+      {
+        "query_id": "eval_01",
+        "query": "What interface carries VehicleSpeed?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleDataInterface",
+          "VehicleSpeed",
+          "SensorManager",
+          "VehicleControl"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62353.22
+      },
+      {
+        "query_id": "eval_02",
+        "query": "What is the datatype of VehicleSpeed in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleSpeed"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 63440.69
+      },
+      {
+        "query_id": "eval_03",
+        "query": "What is the datatype of VehicleSpeed in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleSpeed"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62170.71
+      },
+      {
+        "query_id": "eval_04",
+        "query": "Which component provides VehicleDataInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "SensorManager",
+          "VehicleDataInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62270.31
+      },
+      {
+        "query_id": "eval_05",
+        "query": "Which component requires VehicleDataInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "VehicleDataInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62251.41
+      },
+      {
+        "query_id": "eval_06",
+        "query": "What signals are carried by VehicleDataInterface in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleDataInterface",
+          "VehicleSpeed",
+          "EngineRPM"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62224.61
+      },
+      {
+        "query_id": "eval_07",
+        "query": "What signals are carried by VehicleDataInterface in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleDataInterface",
+          "VehicleSpeed",
+          "EngineRPM",
+          "EngineTemperature"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62259.92
+      },
+      {
+        "query_id": "eval_08",
+        "query": "What ports belong to VehicleControl in version 1.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "VehicleSpeedIn",
+          "EngineRPMIn",
+          "ControlCommandOut"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62218.15
+      },
+      {
+        "query_id": "eval_09",
+        "query": "What ports belong to VehicleControl in version 2.0?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "VehicleSpeedIn",
+          "EngineRPMIn",
+          "SafetyStatusIn",
+          "ControlCommandOut"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62121.0
+      },
+      {
+        "query_id": "eval_10",
+        "query": "What component was added in version 2.0?",
+        "category": "REVISION_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "SafetyManager"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62252.66
+      },
+      {
+        "query_id": "eval_11",
+        "query": "What interface was renamed between version 1.0 and version 2.0?",
+        "category": "REVISION_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "CommunicationInterface",
+          "V2XCommunicationInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62356.7
+      },
+      {
+        "query_id": "eval_12",
+        "query": "What dependency was added in version 2.0?",
+        "category": "REVISION_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "SafetyManager"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62313.36
+      },
+      {
+        "query_id": "eval_13",
+        "query": "What changed in VehicleSpeed between versions?",
+        "category": "REVISION_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleSpeed"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62874.89
+      },
+      {
+        "query_id": "eval_14",
+        "query": "What is SafetyMonitorInterface?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "SafetyMonitorInterface",
+          "SafetyStatus",
+          "SystemHealth"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62408.03
+      },
+      {
+        "query_id": "eval_15",
+        "query": "Which component depends on SafetyManager?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "SafetyManager"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62284.08
+      },
+      {
+        "query_id": "eval_16",
+        "query": "What functional flows exist in the system?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "Sensor Data Flow",
+          "Diagnostic Flow"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62200.38
+      },
+      {
+        "query_id": "eval_17",
+        "query": "What are the steps of the Sensor Data Flow?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "Sensor Data Flow",
+          "SensorManager",
+          "VehicleDataInterface",
+          "VehicleControl"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62152.8
+      },
+      {
+        "query_id": "eval_18",
+        "query": "What are the steps of the Diagnostic Flow?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "Diagnostic Flow",
+          "DiagnosticManager",
+          "DiagnosticInterface",
+          "VehicleControl"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62138.29
+      },
+      {
+        "query_id": "eval_19",
+        "query": "What is the purpose of DiagnosticManager?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "DiagnosticManager",
+          "DiagnosticInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62213.59
+      },
+      {
+        "query_id": "eval_20",
+        "query": "What operations does DiagnosticInterface support?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "DiagnosticInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62241.84
+      },
+      {
+        "query_id": "eval_21",
+        "query": "What components are associated with VehicleControl?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleControl",
+          "SensorManager",
+          "DiagnosticManager",
+          "SafetyManager"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62141.06
+      },
+      {
+        "query_id": "eval_22",
+        "query": "What components may be affected by VehicleSpeed changing datatype?",
+        "category": "IMPACT_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "VehicleSpeed",
+          "SensorManager",
+          "VehicleControl",
+          "VehicleDataInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62216.88
+      },
+      {
+        "query_id": "eval_23",
+        "query": "What are the three architecture layers in the AUTOSAR overview?",
+        "category": "DOCUMENT_QA",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "Application Layer",
+          "RTE",
+          "BSW"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62191.4
+      },
+      {
+        "query_id": "eval_24",
+        "query": "What safety standard does SafetyManager adhere to?",
+        "category": "ARCHITECTURE_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "SafetyManager"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 63217.07
+      },
+      {
+        "query_id": "eval_25",
+        "query": "What changed between version 1.0 and version 2.0?",
+        "category": "REVISION_QUERY",
+        "answer_preview": "Generation error: LLM provider unavailable or call failed.",
+        "confidence": "low",
+        "review_required": true,
+        "citation_count": 0,
+        "citation_precision": 1.0,
+        "citation_coverage": 0.0,
+        "grounding_score": 0.0,
+        "supported_claims": 0,
+        "partially_supported_claims": 0,
+        "unsupported_claims": 1,
+        "expected_entities": [
+          "SafetyManager",
+          "VehicleSpeed",
+          "EngineTemperature",
+          "SafetyStatusIn",
+          "SafetyMonitorInterface",
+          "V2XCommunicationInterface"
+        ],
+        "found_entities": [
+          "Generation"
+        ],
+        "entity_recall": 0.0,
+        "latency_ms": 62190.44
+      }
+    ]
+  },
+  "abstention_evaluation": {
+    "total_queries": 10,
+    "correctly_abstained": 10,
+    "hallucinated": 0,
+    "abstention_accuracy": 1.0,
+    "hallucination_rate": 0.0,
+    "itemized": [
+      {
+        "query_id": "eval_unsupported_01",
+        "query": "What is the CAN bus baud rate used by CommunicationManager?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "CAN baud rate",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'baud r..."
+      },
+      {
+        "query_id": "eval_unsupported_02",
+        "query": "What processor architecture or microcontroller does VehicleControl run on?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "Microcontroller / CPU",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'proces..."
+      },
+      {
+        "query_id": "eval_unsupported_03",
+        "query": "What AUTOSAR OS release version and scheduling algorithm are configured?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "AUTOSAR OS release",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'autosa..."
+      },
+      {
+        "query_id": "eval_unsupported_04",
+        "query": "What is the flash memory size allocated for DiagnosticManager DTC storage?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "Flash memory size",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'flash ..."
+      },
+      {
+        "query_id": "eval_unsupported_05",
+        "query": "What encryption algorithm is used for V2X message authentication?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "Encryption algorithm",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'encryp..."
+      },
+      {
+        "query_id": "eval_unsupported_06",
+        "query": "What is the Ethernet MAC address and physical layer transceiver used?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "Ethernet MAC / PHY",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'mac ad..."
+      },
+      {
+        "query_id": "eval_unsupported_07",
+        "query": "What MISRA C:2012 checker rule enforcement level is mandated?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "MISRA compliance rules",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'misra ..."
+      },
+      {
+        "query_id": "eval_unsupported_08",
+        "query": "What is the maximum stack depth and heap allocation for SensorManager tasks?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "Stack / Heap limits",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'stack ..."
+      },
+      {
+        "query_id": "eval_unsupported_09",
+        "query": "What is the ASIL safety rating assigned to CommunicationManager?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "CommunicationManager ASIL level",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'safety..."
+      },
+      {
+        "query_id": "eval_unsupported_10",
+        "query": "What supply voltage and power management IC regulates the ECU hardware?",
+        "category": "UNSUPPORTED_QUERY",
+        "rationale": "PMIC / Power supply voltage",
+        "abstained": true,
+        "citations_count": 0,
+        "confidence": "low",
+        "review_required": true,
+        "verdict": "PASSED_ABSTAINED",
+        "answer_preview": "The approved AUTOSAR HLD documents do not specify this parameter (Query requests unsupported technical parameter 'power ..."
+      }
+    ]
+  },
+  "latency_benchmarks": {
+    "embedding_latency_ms": 98.67,
+    "baseline_retrieval_latency_ms": 97.16,
+    "hybrid_retrieval_latency_ms": 112.58,
+    "rerank_overhead_ms": 15.42,
+    "mock_generation_latency_ms": 1.05,
+    "full_mock_pipeline_latency_ms": 87.65
+  },
+  "key_metrics_summary": {
+    "baseline_mrr": 0.5967,
+    "hybrid_mrr": 0.68,
+    "mrr_improvement": 0.0833,
+    "baseline_ndcg5": 0.4955,
+    "hybrid_ndcg5": 0.4792,
+    "ndcg5_improvement": -0.0163,
+    "baseline_hit_rate_at_1": 0.52,
+    "hybrid_hit_rate_at_1": 0.68,
+    "citation_precision": 1.0,
+    "citation_coverage": 0.0,
+    "supported_claims_ratio": 0.0,
+    "adversarial_abstention_accuracy": 1.0,
+    "hallucination_rate": 0.0
+  }
+}

@@ -1,0 +1,43 @@
+# Git and VCS
+.git
+.gitignore
+.gitattributes
+.github
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python byte code and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Environment Secrets & Streamlit Secrets
+.env
+.streamlit/secrets.toml
+
+# IDE and Editor configs
+.vscode/
+.idea/
+
+# Node / JS
+node_modules/
+
+# OS specific files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary files and logs
+*.log
+tmp/
+temp/

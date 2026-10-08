@@ -1,0 +1,51 @@
+"""Architecture extraction module for AUTOSAR HLD Assistant."""
+
+from extraction.basic_extractor import (
+    ArchitectureCatalog,
+    ArchitectureExtractor,
+    ExtractedComponent,
+    ExtractedInterface,
+    get_architecture_extractor,
+)
+from extraction.models import (
+    ArchitectureGraph,
+    ChangeType,
+    CompleteArchitectureModel,
+    Direction,
+    ExtractedDependency,
+    ExtractedFunctionalFlow,
+    ExtractedPort,
+    ExtractedSignal,
+    GraphEdge,
+    GraphNode,
+    ImpactItem,
+    InterfaceType,
+    Provenance,
+    RevisionDiffResult,
+    Severity,
+    StructuralChange,
+)
+
+__all__ = [
+    "ArchitectureCatalog",
+    "ArchitectureExtractor",
+    "ArchitectureGraph",
+    "ChangeType",
+    "CompleteArchitectureModel",
+    "Direction",
+    "ExtractedComponent",
+    "ExtractedDependency",
+    "ExtractedFunctionalFlow",
+    "ExtractedInterface",
+    "ExtractedPort",
+    "ExtractedSignal",
+    "get_architecture_extractor",
+    "GraphEdge",
+    "GraphNode",
+    "ImpactItem",
+    "InterfaceType",
+    "Provenance",
+    "RevisionDiffResult",
+    "Severity",
+    "StructuralChange",
+]
