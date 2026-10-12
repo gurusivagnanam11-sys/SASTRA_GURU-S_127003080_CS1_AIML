@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-10-12 07:55:32 UTC",
+  "ragas_version": "0.4.3",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "embedding_dimension": 384,
+  "judge_configuration": {
+    "judge_type": "OFFLINE_MOCK_JUDGE",
+    "provider": "mock",
+    "model_name": "mock-judge-v1",
+    "endpoint": null,
+    "is_live": false,
+    "warning": "Evaluated using deterministic offline mock judge. These scores reflect pipeline execution and dataset format validity, but MUST NOT be reported as real LLM benchmark ratings."
+  },
+  "metrics_summary": {
+    "baseline": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9352,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 0.9501
+    },
+    "hybrid": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9352,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "answer_correctness": 0.9501
+    }
+  },
+  "baseline_vs_hybrid_deltas": {
+    "faithfulness": 0.0,
+    "answer_relevancy": 0.0,
+    "context_precision": 0.0,
+    "context_recall": 0.0,
+    "answer_correctness": 0.0
+  },
+  "exclusions": [
+    {
+      "sample_id": "eval_unsupported_01",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_02",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_03",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_04",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_05",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_06",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_07",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_08",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_09",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_10",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    }
+  ],
+  "total_valid_samples": 25
+}

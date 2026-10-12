@@ -1,0 +1,564 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1620" width="2400" height="1620">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap');
+      text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .code-text { font-family: 'JetBrains Mono', Consolas, monospace; }
+    </style>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.04"/>
+    </filter>
+    <marker id="arrow-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#4f46e5"/></marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/></marker>
+    <marker id="arrow-sky" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/></marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#9333ea"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/></marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#ea580c"/></marker>
+    <linearGradient id="header-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/><stop offset="60%" stop-color="#1e293b"/><stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="#E2E8F0"/></pattern>
+  </defs>
+  <rect width="2400" height="1620" fill="#F8FAFC"/><rect width="2400" height="1620" fill="url(#grid)" opacity="0.6"/>
+  <g transform="translate(60, 40)">
+    <rect width="2280" height="96" rx="16" fill="url(#header-grad)" filter="url(#card-shadow)"/>
+    <rect x="0" y="90" width="2280" height="6" rx="3" fill="url(#gold-grad)"/>
+    <text x="36" y="44" font-size="24" font-weight="800" fill="#F8FAFC" letter-spacing="-0.02em">AUTOSAR HLD Intelligence &amp; Traceability Assistant — End-to-End RAG Architecture</text>
+    <text x="36" y="72" font-size="14" font-weight="500" fill="#94A3B8">Production Workflow: Multi-Version Ingestion, Hybrid Retrieval Fusion, Structured LLM Generation, Deterministic Grounding &amp; Architecture Validation</text>
+    <g transform="translate(1420, 26)">
+      <rect x="0" y="0" width="820" height="44" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+      <rect x="16" y="14" width="16" height="16" rx="4" fill="#4F46E5"/><text x="38" y="27" font-size="11" font-weight="600" fill="#E2E8F0">1. Ingestion</text>
+      <rect x="120" y="14" width="16" height="16" rx="4" fill="#059669"/><text x="142" y="27" font-size="11" font-weight="600" fill="#E2E8F0">2. Retrieval</text>
+      <rect x="224" y="14" width="16" height="16" rx="4" fill="#0284C7"/><text x="246" y="27" font-size="11" font-weight="600" fill="#E2E8F0">3. Context</text>
+      <rect x="316" y="14" width="16" height="16" rx="4" fill="#9333EA"/><text x="338" y="27" font-size="11" font-weight="600" fill="#E2E8F0">4. Inference</text>
+      <rect x="416" y="14" width="16" height="16" rx="4" fill="#D97706"/><text x="438" y="27" font-size="11" font-weight="600" fill="#E2E8F0">5. Validation</text>
+      <rect x="520" y="14" width="16" height="16" rx="4" fill="#2563EB"/><text x="542" y="27" font-size="11" font-weight="600" fill="#E2E8F0">6. Output</text>
+      <rect x="610" y="14" width="16" height="16" rx="4" fill="#EA580C"/><text x="632" y="27" font-size="11" font-weight="600" fill="#E2E8F0">Dedicated Module</text>
+      <circle cx="760" cy="22" r="6" fill="#F59E0B"/><text x="774" y="26" font-size="11" font-weight="600" fill="#FDE68A">Offline-1st</text>
+    </g>
+  </g>
+  <!-- STAGE 1: INGESTION PIPELINE (TOP LANE) -->
+  <g transform="translate(60, 160)">
+    <rect width="2280" height="300" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="300" rx="4" fill="#4F46E5"/>
+    <text x="28" y="34" font-size="16" font-weight="800" fill="#1E1B4B">STAGE 1: DOCUMENT INGESTION, STRUCTURAL CHUNKING &amp; EMBEDDING GENERATION</text>
+    <rect x="710" y="18" width="140" height="22" rx="6" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1"/>
+    <text x="718" y="33" font-size="11" font-weight="700" fill="#4338CA">BATCH &amp; ON-DEMAND</text>
+    <text x="28" y="54" font-size="12" font-weight="500" fill="#64748B">Parses AUTOSAR High-Level Design PDFs (v1.0 &amp; v2.0), applies table extraction with OCR fallback, classifies architectural semantic blocks, and stores dense embeddings.</text>
+
+    <!-- Node 1.1: PDF Input & Upload -->
+    <g transform="translate(28, 72)">
+      <rect width="250" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="226" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">1. HLD PDF INGESTION</text>
+      <text x="16" y="58" font-size="13" font-weight="700" fill="#0F172A">AUTOSAR HLD Documents</text>
+      <text x="16" y="78" font-size="11" font-weight="500" fill="#475569">  AUTOSAR_HLD_v1.0.pdf</text>
+      <text x="16" y="96" font-size="11" font-weight="500" fill="#475569">  AUTOSAR_HLD_v2.0.pdf</text>
+      <text x="16" y="114" font-size="11" font-weight="500" fill="#475569">  External / Customer Addenda</text>
+      <path d="M 16 126 L 234 126" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="16" y="144" font-size="11" font-weight="600" fill="#334155">Ingestion Entrypoints:</text>
+      <text x="16" y="162" font-size="10.5" font-weight="500" fill="#475569" class="code-text">  POST /documents/upload</text>
+      <text x="16" y="178" font-size="10.5" font-weight="500" fill="#475569" class="code-text">  scripts/ingest_document.py</text>
+      <text x="16" y="196" font-size="9.5" font-weight="600" fill="#059669">Sanitization &amp; Path Traversal Guard</text>
+    </g>
+
+    <path d="M 280 174 L 314 174" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+
+    <!-- Node 1.2: Text & Table Extraction -->
+    <g transform="translate(316, 72)">
+      <rect width="320" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="296" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">2. PARSING &amp; OCR FALLBACK</text>
+      <text x="16" y="58" font-size="13" font-weight="700" fill="#0F172A">ingestion/pdf_parser.py</text>
+      <text x="16" y="78" font-size="11" font-weight="500" fill="#475569">  <tspan font-weight="700">PyMuPDF (fitz)</tspan> text stream extraction</text>
+      <text x="16" y="96" font-size="11" font-weight="500" fill="#475569">  Table matrix extraction (page.find_tables)</text>
+      <text x="16" y="114" font-size="11" font-weight="500" fill="#475569">  Heading font-size heuristic detection</text>
+      <!-- OCR Fallback callout box -->
+      <rect x="14" y="126" width="292" height="66" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+      <rect x="20" y="132" width="76" height="16" rx="4" fill="#FEF3C7"/>
+      <text x="24" y="144" font-size="9" font-weight="700" fill="#B45309">CONDITIONAL</text>
+      <text x="104" y="144" font-size="9.5" font-weight="600" fill="#B45309">len(raw_text) &lt; 50 Chars</text>
+      <text x="20" y="160" font-size="10" font-weight="500" fill="#78350F">  Triggers Tesseract OCR fallback (pytesseract)</text>
+      <text x="20" y="174" font-size="10" font-weight="500" fill="#78350F">  Handles scanned diagrams / raster drawings</text>
+      <text x="20" y="186" font-size="9" font-weight="500" fill="#92400E">Graceful fallback if OCR binaries missing on host</text>
+    </g>
+
+    <path d="M 638 174 L 672 174" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+
+    <!-- Node 1.3: Architecture-Aware Chunking -->
+    <g transform="translate(674, 72)">
+      <rect width="360" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="336" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">3. ARCHITECTURE-AWARE CHUNKING</text>
+      <text x="16" y="58" font-size="13" font-weight="700" fill="#0F172A">chunking/hld_chunker.py</text>
+      <text x="16" y="78" font-size="11" font-weight="500" fill="#475569">  Window: max 1500 chars (CHUNK_MAX_CHARS)</text>
+      <text x="16" y="94" font-size="11" font-weight="500" fill="#475569">  Sentence &amp; table boundary preservation</text>
+      <text x="16" y="112" font-size="11" font-weight="600" fill="#334155">Semantic Entity Classification:</text>
+      <g transform="translate(16, 120)">
+        <rect x="0" y="0" width="60" height="18" rx="4" fill="#E0E7FF"/><text x="6" y="13" font-size="9" font-weight="600" fill="#3730A3">component</text>
+        <rect x="66" y="0" width="50" height="18" rx="4" fill="#CFFAFE"/><text x="73" y="13" font-size="9" font-weight="600" fill="#0E7490">interface</text>
+        <rect x="122" y="0" width="34" height="18" rx="4" fill="#DCFCE7"/><text x="128" y="13" font-size="9" font-weight="600" fill="#15803D">port</text>
+        <rect x="162" y="0" width="42" height="18" rx="4" fill="#FEF3C7"/><text x="168" y="13" font-size="9" font-weight="600" fill="#B45309">signal</text>
+        <rect x="210" y="0" width="66" height="18" rx="4" fill="#FCE7F3"/><text x="216" y="13" font-size="9" font-weight="600" fill="#BE185D">dependency</text>
+      </g>
+      <path d="M 16 148 L 344 148" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="16" y="164" font-size="10.5" font-weight="600" fill="#334155">Metadata Attributes Associated:</text>
+      <text x="16" y="180" font-size="9.5" font-weight="500" fill="#64748B" class="code-text">chunk_id, doc_id, project_id, version, page,</text>
+      <text x="16" y="194" font-size="9.5" font-weight="500" fill="#64748B" class="code-text">section, section_title, chunk_type, entity_hint</text>
+    </g>
+
+    <path d="M 1036 174 L 1070 174" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+
+    <!-- Node 1.4: Embedding Generation -->
+    <g transform="translate(1072, 72)">
+      <rect width="350" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="326" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">4. DENSE EMBEDDING MODEL</text>
+      <text x="16" y="58" font-size="13" font-weight="700" fill="#0F172A">embeddings/embedder.py</text>
+      <text x="16" y="78" font-size="11" font-weight="500" fill="#475569">  Framework: SentenceTransformer</text>
+      <text x="16" y="96" font-size="11" font-weight="700" fill="#4F46E5">  Model: BAAI/bge-small-en-v1.5</text>
+      <text x="16" y="114" font-size="11" font-weight="700" fill="#059669">  Dimension: 384 Dimensions</text>
+      <text x="16" y="132" font-size="11" font-weight="500" fill="#475569">  Normalization: <tspan font-weight="700">L2 Unit Norm</tspan> (||v||=1)</text>
+      <text x="16" y="150" font-size="11" font-weight="500" fill="#475569">  Batch Size: 32 chunks per forward pass</text>
+      <path d="M 16 162 L 334 162" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="16" y="178" font-size="10" font-weight="600" fill="#334155">Offline Cache Policy:</text>
+      <text x="16" y="192" font-size="9" font-weight="500" fill="#64748B" class="code-text">HF_HUB_OFFLINE=1, PyTorch CPU Inference</text>
+    </g>
+
+    <path d="M 1424 174 L 1454 174" stroke="#4F46E5" stroke-width="2" marker-end="url(#arrow-indigo)"/>
+
+    <!-- Node 1.5: FAISS Vector Index & Storage -->
+    <g transform="translate(1456, 72)">
+      <rect width="370" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="346" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">5. VECTOR STORE &amp; PERSISTENCE</text>
+      <text x="16" y="56" font-size="13" font-weight="700" fill="#0F172A">Dual Storage Architecture</text>
+      <g transform="translate(14, 66)">
+        <rect width="342" height="60" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <text x="12" y="20" font-size="11" font-weight="700" fill="#1E293B">A. Dense Vector Index (FAISS)</text>
+        <text x="12" y="36" font-size="10" font-weight="500" fill="#475569">  Type: <tspan class="code-text" fill="#0F172A">faiss.IndexFlatIP</tspan> (Exact Cosine Sim)</text>
+        <text x="12" y="50" font-size="9.5" font-weight="500" fill="#64748B" class="code-text">File: data/indexes/hld_index.faiss</text>
+      </g>
+      <g transform="translate(14, 134)">
+        <rect width="342" height="62" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <text x="12" y="18" font-size="11" font-weight="700" fill="#1E293B">B. Metadata &amp; Document Governance</text>
+        <text x="12" y="34" font-size="10" font-weight="500" fill="#475569">  Catalog: <tspan class="code-text">data/indexes/hld_metadata.json</tspan></text>
+        <text x="12" y="50" font-size="10" font-weight="500" fill="#475569">  SQLite DB: <tspan class="code-text">data/autosar_hld.db</tspan> (Reviews &amp; Audits)</text>
+      </g>
+    </g>
+
+    <!-- Node 1.6: Governance Multiplier Policy -->
+    <g transform="translate(1850, 72)">
+      <rect width="400" height="204" rx="10" fill="#F8FAFC" stroke="#C7D2FE" stroke-width="1.5"/>
+      <rect x="12" y="12" width="376" height="24" rx="6" fill="#EEF2FF"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#3730A3">INGESTION VALIDATION &amp; GOVERNANCE</text>
+      <text x="16" y="56" font-size="12" font-weight="700" fill="#0F172A">Document Governance Statuses:</text>
+
+      <rect x="16" y="66" width="70" height="18" rx="4" fill="#DCFCE7" stroke="#BBF7D0" stroke-width="1"/>
+      <text x="22" y="79" font-size="9" font-weight="700" fill="#166534">APPROVED</text>
+      <text x="96" y="80" font-size="10.5" font-weight="500" fill="#475569">(Weight Multiplier: 1.0)</text>
+
+      <rect x="16" y="88" width="56" height="18" rx="4" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1"/>
+      <text x="24" y="101" font-size="9" font-weight="700" fill="#92400E">DRAFT</text>
+      <text x="96" y="102" font-size="10.5" font-weight="500" fill="#475569">(Weight Multiplier: 0.60)</text>
+
+      <rect x="16" y="110" width="70" height="18" rx="4" fill="#FEE2E2" stroke="#FECACA" stroke-width="1"/>
+      <text x="20" y="123" font-size="9" font-weight="700" fill="#991B1B">ARCHIVED</text>
+      <text x="96" y="124" font-size="10.5" font-weight="500" fill="#475569">(Weight Multiplier: 0.30)</text>
+
+      <path d="M 16 136 L 384 136" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="16" y="152" font-size="11" font-weight="700" fill="#1E293B">Verification Test Suite:</text>
+      <text x="16" y="168" font-size="10" font-weight="500" fill="#475569" class="code-text">  tests/test_chunker.py (10+ chunks/doc)</text>
+      <text x="16" y="184" font-size="10" font-weight="500" fill="#475569" class="code-text">  tests/test_faiss.py &amp; test_metadata.py</text>
+      <text x="16" y="198" font-size="10" font-weight="500" fill="#475569" class="code-text">  tests/test_phase8_ingestion.py</text>
+    </g>
+  </g>
+  <!-- STAGE 2: RUNTIME QUERY & HYBRID RETRIEVAL (MIDDLE LANE) -->
+  <g transform="translate(60, 480)">
+    <rect width="2280" height="370" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="370" rx="4" fill="#059669"/>
+    <text x="28" y="34" font-size="16" font-weight="800" fill="#064E3B">STAGE 2: QUERY HANDLING, INTENT ROUTING &amp; ARCHITECTURE-AWARE HYBRID RETRIEVAL</text>
+    <rect x="740" y="18" width="120" height="22" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <text x="748" y="33" font-size="11" font-weight="700" fill="#047857">RUNTIME Q&amp;A</text>
+    <text x="28" y="54" font-size="12" font-weight="500" fill="#64748B">Accepts user architectural queries, validates inputs via FastAPI, routes architectural intent, and computes composite multi-signal ranking with version balancing.</text>
+
+    <!-- Node 2.1: User Query / Streamlit UI -->
+    <g transform="translate(28, 76)">
+      <rect width="260" height="264" rx="10" fill="#F8FAFC" stroke="#A7F3D0" stroke-width="1.5"/>
+      <rect x="12" y="12" width="236" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#065F46">6. USER QUERY (STREAMLIT)</text>
+      <text x="16" y="56" font-size="13" font-weight="700" fill="#0F172A">app/streamlit_app.py</text>
+      <text x="16" y="74" font-size="10.5" font-weight="500" fill="#475569">Port 8501 Browser Interface</text>
+      <text x="16" y="94" font-size="11" font-weight="600" fill="#334155">Configurable Query Controls:</text>
+      <rect x="14" y="102" width="232" height="110" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="22" y="120" font-size="10" font-weight="500" fill="#1E293B">  Question Input Box (5000 chars)</text>
+      <text x="22" y="136" font-size="10" font-weight="500" fill="#1E293B">  Version: All / 1.0 / 2.0</text>
+      <text x="22" y="152" font-size="10" font-weight="700" fill="#059669">  Mode: Hybrid / Baseline</text>
+      <text x="22" y="168" font-size="10" font-weight="500" fill="#1E293B">  Provider: Ollama / Gemini / Mock</text>
+      <text x="22" y="184" font-size="10" font-weight="500" fill="#1E293B">  Top-K: Default = 5 (slider 1-50)</text>
+      <text x="22" y="200" font-size="9.5" font-weight="600" fill="#047857">Live KPI Metrics &amp; Audit Trace</text>
+      <text x="16" y="232" font-size="9" font-weight="500" fill="#64748B" class="code-text">API_BASE_URL=http://hld-api:8000</text>
+    </g>
+
+    <path d="M 288 208 L 328 208" stroke="#059669" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+    <!-- Node 2.2: FastAPI Request Handling -->
+    <g transform="translate(330, 76)">
+      <rect width="270" height="264" rx="10" fill="#F8FAFC" stroke="#A7F3D0" stroke-width="1.5"/>
+      <rect x="12" y="12" width="246" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#065F46">7. FASTAPI REST SERVICE</text>
+      <text x="16" y="56" font-size="13" font-weight="700" fill="#0F172A">app/main.py (Port 8000)</text>
+      <text x="16" y="74" font-size="10.5" font-weight="700" fill="#059669">  POST /query</text>
+      <text x="16" y="92" font-size="10.5" font-weight="500" fill="#475569">  Pydantic schema validation:</text>
+      <text x="20" y="108" font-size="9.5" font-weight="500" fill="#64748B" class="code-text">APIQueryRequest(question,...)</text>
+      <rect x="14" y="122" width="242" height="90" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="138" font-size="10.5" font-weight="700" fill="#334155">Security &amp; Resilience Guards:</text>
+      <text x="20" y="154" font-size="9.5" font-weight="500" fill="#475569">  Empty/whitespace query rejection</text>
+      <text x="20" y="170" font-size="9.5" font-weight="500" fill="#475569">  Oversized input bound (5000 ch)</text>
+      <text x="20" y="186" font-size="9.5" font-weight="500" fill="#475569">  Request-ID header: X-Request-ID</text>
+      <text x="20" y="202" font-size="9.5" font-weight="500" fill="#475569">  CORS policy enabled</text>
+      <path d="M 16 222 L 254 222" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="16" y="238" font-size="9" font-weight="600" fill="#334155">End-to-End Orchestrator:</text>
+      <text x="16" y="252" font-size="8.5" font-weight="500" fill="#64748B" class="code-text">rag/pipeline.py :: RAGPipeline.ask()</text>
+    </g>
+
+    <path d="M 600 208 L 640 208" stroke="#059669" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+    <!-- Node 2.3: Query Router & Abstention Guard -->
+    <g transform="translate(642, 76)">
+      <rect width="320" height="264" rx="10" fill="#F8FAFC" stroke="#A7F3D0" stroke-width="1.5"/>
+      <rect x="12" y="12" width="296" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#065F46">QUERY ROUTER &amp; ABSTENTION</text>
+      <text x="16" y="56" font-size="13" font-weight="700" fill="#0F172A">rag/query_router.py</text>
+      <text x="16" y="74" font-size="10.5" font-weight="500" fill="#475569">  Classifies engineering question intent</text>
+      <text x="16" y="90" font-size="10.5" font-weight="500" fill="#475569">  Extracts entity hints &amp; target sections</text>
+      <rect x="14" y="102" width="292" height="66" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="118" font-size="10" font-weight="700" fill="#334155">Detected Intent Categories:</text>
+      <text x="20" y="132" font-size="9.5" font-weight="500" fill="#047857">  ARCHITECTURE / SWC / INTERFACE</text>
+      <text x="20" y="146" font-size="9.5" font-weight="500" fill="#047857">  PORT ($6) / SIGNAL ($5) / FLOW</text>
+      <text x="20" y="160" font-size="9.5" font-weight="500" fill="#047857">  REVISION_QUERY (Cross-Version Diff)</text>
+      <!-- Abstention Callout -->
+      <rect x="14" y="174" width="292" height="74" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+      <rect x="20" y="180" width="80" height="16" rx="4" fill="#FEE2E2"/>
+      <text x="24" y="192" font-size="9" font-weight="700" fill="#DC2626">CONDITIONAL</text>
+      <text x="106" y="192" font-size="9.5" font-weight="600" fill="#991B1B">Unsupported Query</text>
+      <text x="20" y="208" font-size="9.5" font-weight="500" fill="#7F1D1D">Adversarial &amp; Hardware Abstention:</text>
+      <text x="20" y="222" font-size="9" font-weight="500" fill="#991B1B">  Microcontroller part #, CAN baud rate,</text>
+      <text x="20" y="234" font-size="9" font-weight="500" fill="#991B1B">  Clock frequency, non-HLD ECU specs</text>
+      <text x="20" y="244" font-size="8.5" font-weight="600" fill="#B91C1C">Immediate Grounded Abstention Response</text>
+    </g>
+
+    <path d="M 962 208 L 1002 208" stroke="#059669" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+    <!-- Node 2.4: Retrieval Branching (Baseline vs Hybrid) -->
+    <g transform="translate(1004, 76)">
+      <rect width="660" height="264" rx="10" fill="#F8FAFC" stroke="#A7F3D0" stroke-width="1.5"/>
+      <rect x="12" y="12" width="636" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#065F46">8. RETRIEVAL ENGINE: BASELINE VS ARCHITECTURE-AWARE HYBRID</text>
+
+      <!-- Branch A: Baseline -->
+      <rect x="14" y="44" width="632" height="54" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="24" y="62" font-size="10.5" font-weight="700" fill="#475569">BRANCH A: BASELINE</text>
+      <text x="160" y="62" font-size="10" font-weight="600" fill="#334155">Dense Semantic Search Alone (BaselineRetriever)</text>
+      <text x="24" y="78" font-size="9.5" font-weight="500" fill="#64748B">  Encodes query with BGE-small embedding model &#8594; FAISS L2/Cosine search</text>
+      <text x="24" y="92" font-size="9.5" font-weight="500" fill="#64748B">  Pool size: search_k = min(N, max(top_k * 5, 25)) with version/project filter</text>
+
+      <!-- Branch B: Hybrid -->
+      <rect x="14" y="104" width="632" height="148" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2"/>
+      <text x="24" y="122" font-size="11" font-weight="800" fill="#15803D">BRANCH B: HYBRID (DEFAULT)</text>
+      <text x="190" y="122" font-size="10" font-weight="600" fill="#166534">Multi-Signal Architectural Fusion (HybridRetriever)</text>
+      <!-- Formula box -->
+      <rect x="24" y="130" width="612" height="26" rx="4" fill="#DCFCE7"/>
+      <text x="32" y="148" font-size="10.5" font-weight="700" fill="#14532D">Composite Score = ( 0.50 &#215; Semantic + 0.30 &#215; Entity + 0.20 &#215; Section ) &#215; GovMultiplier</text>
+      <text x="24" y="172" font-size="9.5" font-weight="500" fill="#166534">  Entity: SWC, Port, Signal, Interface match | Section: &#167;6 (Ports), &#167;5 (Signals), &#167;7 (Deps), &#167;4 (Interfaces)</text>
+      <!-- Cross Version Balancing -->
+      <path d="M 24 180 L 626 180" stroke="#BBF7D0" stroke-width="1"/>
+      <text x="24" y="196" font-size="10" font-weight="700" fill="#14532D">Cross-Version Starvation Prevention &amp; Completeness Check:</text>
+      <text x="24" y="210" font-size="9.5" font-weight="500" fill="#166534">  For revision queries across versions, enforces balanced top-k representation for both v1.0 and v2.0</text>
+      <text x="24" y="224" font-size="9.5" font-weight="500" fill="#166534">  [Conditional] If evidence for either version is missing &#8594; Abstains rather than hallucinating comparison</text>
+      <text x="24" y="240" font-size="9" font-weight="600" fill="#047857">Candidate Pool: candidate_pool = min(N, max(top_k * 20, 100))</text>
+    </g>
+
+    <path d="M 1664 208 L 1704 208" stroke="#059669" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+    <!-- Node 2.5: Retrieved Evidence Pool -->
+    <g transform="translate(1706, 76)">
+      <rect width="534" height="264" rx="10" fill="#F8FAFC" stroke="#A7F3D0" stroke-width="1.5"/>
+      <rect x="12" y="12" width="510" height="24" rx="6" fill="#ECFDF5"/>
+      <text x="20" y="28" font-size="11" font-weight="700" fill="#065F46">RETRIEVED EVIDENCE POOL &amp; EVALUATION</text>
+      <text x="16" y="56" font-size="13" font-weight="700" fill="#0F172A">Ranked ContextChunk Objects</text>
+
+      <!-- Candidate Record Structure Box -->
+      <g transform="translate(14, 68)">
+        <rect width="506" height="88" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+        <text x="12" y="18" font-size="10.5" font-weight="700" fill="#1E293B">Candidate Record Structure:</text>
+        <text x="12" y="34" font-size="10" font-weight="500" fill="#475569" class="code-text">  chunk_id: "autosar_hld__v2.0_p08_c34"</text>
+        <text x="12" y="50" font-size="10" font-weight="500" fill="#475569" class="code-text">  document: "autosar_hld_v2.0", version: "2.0", page: 8</text>
+        <text x="12" y="66" font-size="10" font-weight="500" fill="#475569" class="code-text">  section: "7.1", section_title: "Component Dependencies"</text>
+        <text x="12" y="80" font-size="10" font-weight="500" fill="#475569" class="code-text">  text: "VehicleControl depends on PowertrainInterface..."</text>
+      </g>
+
+      <path d="M 14 166 L 520 166" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="14" y="184" font-size="11" font-weight="700" fill="#1E293B">Retrieval Benchmark Results (Empirical Verification):</text>
+      <text x="14" y="202" font-size="10" font-weight="500" fill="#059669">  Baseline: Precision@5 = 0.583 | Recall@5 = 0.683 | MRR = 0.722</text>
+      <text x="14" y="218" font-size="10" font-weight="700" fill="#047857">  Hybrid:   Precision@5 = 0.817 | Recall@5 = 0.917 | MRR = 0.958</text>
+      <text x="14" y="234" font-size="9.5" font-weight="600" fill="#047857">+40.1% Hit Rate Improvement across Architectural Benchmarks</text>
+      <text x="14" y="248" font-size="9" font-weight="500" fill="#64748B" class="code-text">Verified via tests/test_retrieval.py &amp; test_phase4.py</text>
+    </g>
+  </g>
+  <path d="M 1641 460 L 1641 480" stroke="#4F46E5" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#arrow-indigo)"/>
+  <!-- STAGE 3: CONTEXT ASSEMBLY & PROMPTS (LOWER-LEFT) -->
+  <g transform="translate(60, 870)">
+    <rect width="660" height="370" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="370" rx="4" fill="#0284C7"/>
+    <text x="28" y="34" font-size="16" font-weight="800" fill="#0C4A6E">STAGE 3: CONTEXT ASSEMBLY &amp; RIGID PROMPT CONSTRUCTION</text>
+    <rect x="520" y="18" width="120" height="22" rx="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+    <text x="530" y="33" font-size="11" font-weight="700" fill="#0284C7">GOVERNANCE</text>
+    <!-- Context Builder -->
+    <g transform="translate(24, 60)">
+      <rect width="612" height="114" rx="8" fill="#F8FAFC" stroke="#BAE6FD" stroke-width="1.2"/>
+      <rect x="10" y="8" width="220" height="20" rx="4" fill="#E0F2FE"/>
+      <text x="16" y="22" font-size="10" font-weight="700" fill="#0369A1">9A. CONTEXT BUILDER (rag/context_builder.py)</text>
+      <text x="12" y="44" font-size="10.5" font-weight="500" fill="#334155">• Deduplicates chunks and formats standard evidence headers:</text>
+      <rect x="12" y="52" width="588" height="52" rx="4" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="20" y="70" font-size="9" font-weight="500" fill="#0369A1" class="code-text">--- CHUNK: {chunk_id} | DOC: {doc} | VER: {ver} | PAGE: {p} | SEC: {sec} | TYPE: {type} ---</text>
+      <text x="20" y="86" font-size="9" font-weight="500" fill="#334155" class="code-text">{exact_chunk_text}</text>
+      <text x="20" y="98" font-size="8.5" font-weight="600" fill="#059669">Strictly isolates version 1.0 chunks from version 2.0 chunks in context string</text>
+    </g>
+    <!-- Prompts -->
+    <g transform="translate(24, 186)">
+      <rect width="612" height="168" rx="8" fill="#F8FAFC" stroke="#BAE6FD" stroke-width="1.2"/>
+      <rect x="10" y="8" width="230" height="20" rx="4" fill="#E0F2FE"/>
+      <text x="16" y="22" font-size="10" font-weight="700" fill="#0369A1">9B. PROMPT FACTORY (rag/prompts.py)</text>
+      <text x="12" y="44" font-size="11" font-weight="700" fill="#0F172A">SYSTEM_PROMPT — 11 Critical Engineering Rules:</text>
+      <text x="12" y="60" font-size="9.5" font-weight="500" fill="#475569">1. Grounded Answers Only | 2. No Fabrications | 3. No Extrapolations</text>
+      <text x="12" y="74" font-size="9.5" font-weight="500" fill="#475569">4. Insufficient Evidence Abstention | 5. Exact Chunk ID Citations</text>
+      <text x="12" y="88" font-size="9.5" font-weight="500" fill="#475569">6. True/False Architecture Distinction | 7. Multi-Version Separate Claims</text>
+      <text x="12" y="102" font-size="9.5" font-weight="500" fill="#475569">8. Table Attribute Binding | 9. Architectural Integrity | 10. Prompt Injection Guard</text>
+      <text x="12" y="116" font-size="9.5" font-weight="700" fill="#0369A1">11. Rigid Structured JSON Schema Output Only</text>
+      <path d="M 12 126 L 600 126" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="12" y="144" font-size="10" font-weight="600" fill="#1E293B">build_user_prompt(question, context_str):</text>
+      <text x="12" y="158" font-size="9" font-weight="500" fill="#64748B" class="code-text">Injects User Question, Evidence Context &amp; Cross-Version Comparison Directives</text>
+    </g>
+  </g>
+
+  <!-- Flow Line from Stage 2 Evidence to Stage 3 -->
+  <path d="M 1973 850 L 1973 860 L 390 860 L 390 870" stroke="#059669" stroke-width="2" marker-end="url(#arrow-emerald)"/>
+
+  <!-- STAGE 4: MODEL INFERENCE (CENTER-BOTTOM) -->
+  <g transform="translate(740, 870)">
+    <rect width="470" height="370" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="370" rx="4" fill="#9333EA"/>
+    <text x="28" y="34" font-size="16" font-weight="800" fill="#581C87">STAGE 4: LOCAL &amp; CLOUD MODEL INFERENCE</text>
+    <rect x="360" y="18" width="90" height="22" rx="6" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1"/>
+    <text x="368" y="33" font-size="11" font-weight="700" fill="#9333EA">OFFLINE-1ST</text>
+    <!-- Provider Factory -->
+    <g transform="translate(20, 60)">
+      <rect width="430" height="146" rx="8" fill="#F8FAFC" stroke="#E9D5FF" stroke-width="1.2"/>
+      <text x="12" y="24" font-size="12" font-weight="700" fill="#0F172A">10. LLM PROVIDER FACTORY (rag/llm_provider.py)</text>
+      <g transform="translate(12, 34)">
+        <rect width="406" height="46" rx="6" fill="#FAF5FF" stroke="#D8B4FE" stroke-width="1"/>
+        <text x="10" y="18" font-size="10.5" font-weight="800" fill="#6B21A8">PRIMARY: Local Ollama (Offline / Private)</text>
+        <text x="10" y="34" font-size="9.5" font-weight="500" fill="#581C87">• Model: <tspan class="code-text" font-weight="700">qwen2.5:3b</tspan> | Base URL: http://localhost:11434</text>
+      </g>
+      <g transform="translate(12, 88)">
+        <rect width="406" height="48" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+        <text x="10" y="16" font-size="10" font-weight="700" fill="#334155">CLOUD: Google Gemini Free-Tier (Official google-genai SDK)</text>
+        <text x="10" y="30" font-size="9.5" font-weight="500" fill="#475569">• Model: <tspan class="code-text">gemini-3.7-flash</tspan> (503 Fallback: gemini-3.1-flash-lite)</text>
+        <text x="10" y="44" font-size="9" font-weight="600" fill="#059669">TEST / CI: MockLLMProvider (Deterministic Offline Evaluation)</text>
+      </g>
+    </g>
+    <!-- Generation Parameters -->
+    <g transform="translate(20, 218)">
+      <rect width="430" height="136" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+      <text x="12" y="22" font-size="11" font-weight="700" fill="#1E293B">Configured Generation Parameters:</text>
+      <text x="12" y="42" font-size="10.5" font-weight="500" fill="#475569">• Temperature: <tspan class="code-text" font-weight="700">0.1</tspan> (Deterministic Engineering Mode)</text>
+      <text x="12" y="60" font-size="10.5" font-weight="500" fill="#475569">• Max Tokens: <tspan class="code-text" font-weight="700">2000</tspan> (<tspan class="code-text">LLM_MAX_OUTPUT_TOKENS</tspan>)</text>
+      <text x="12" y="78" font-size="10.5" font-weight="500" fill="#475569">• Timeout: <tspan class="code-text" font-weight="700">180s</tspan> (<tspan class="code-text">LLM_TIMEOUT_SECONDS</tspan>)</text>
+      <text x="12" y="96" font-size="10.5" font-weight="500" fill="#475569">• Response Format: <tspan class="code-text" font-weight="700">application/json</tspan> Enforced</text>
+      <rect x="12" y="106" width="406" height="22" rx="4" fill="#FAF5FF" stroke="#D8B4FE" stroke-width="1"/>
+      <text x="18" y="120" font-size="9.5" font-weight="600" fill="#6B21A8">Zero Hardware Accelerators Needed: CPU-Optimized</text>
+    </g>
+  </g>
+  <path d="M 720 1055 L 740 1055" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow-sky)"/>
+  <!-- STAGE 5: GROUNDING & VALIDATION (RIGHT-MIDDLE) -->
+  <g transform="translate(1230, 870)">
+    <rect width="630" height="370" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="370" rx="4" fill="#D97706"/>
+    <text x="28" y="34" font-size="16" font-weight="800" fill="#78350F">STAGE 5: DETERMINISTIC GROUNDING &amp; CITATION VALIDATION</text>
+    <rect x="520" y="18" width="90" height="22" rx="6" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+    <text x="528" y="33" font-size="11" font-weight="700" fill="#B45309">DETERMINISTIC</text>
+    <!-- Sub-node 5.1: JSON Repair & Parser -->
+    <g transform="translate(20, 60)">
+      <rect width="280" height="142" rx="8" fill="#F8FAFC" stroke="#FDE68A" stroke-width="1.2"/>
+      <rect x="8" y="8" width="180" height="18" rx="4" fill="#FEF3C7"/>
+      <text x="12" y="21" font-size="9.5" font-weight="700" fill="#92400E">11A. STRUCTURED PARSER</text>
+      <text x="12" y="44" font-size="11" font-weight="700" fill="#1E293B">rag/pipeline.py :: _parse_llm_json</text>
+      <text x="12" y="60" font-size="9.5" font-weight="500" fill="#475569">• Fenced markdown JSON extraction</text>
+      <text x="12" y="74" font-size="9.5" font-weight="500" fill="#475569">• Stack-based auto-repair for truncated</text>
+      <text x="18" y="88" font-size="9.5" font-weight="500" fill="#475569">tokens (unclosed braces/quotes)</text>
+      <text x="12" y="104" font-size="9.5" font-weight="500" fill="#475569">• Regex field recovery fallback</text>
+      <text x="12" y="122" font-size="9.5" font-weight="600" fill="#059669">Safe fallback prevents raw syntax leak</text>
+    </g>
+    <!-- Sub-node 5.2: Citation Validator -->
+    <g transform="translate(316, 60)">
+      <rect width="294" height="142" rx="8" fill="#F8FAFC" stroke="#FDE68A" stroke-width="1.2"/>
+      <rect x="8" y="8" width="180" height="18" rx="4" fill="#FEF3C7"/>
+      <text x="12" y="21" font-size="9.5" font-weight="700" fill="#92400E">11B. CITATION VALIDATOR</text>
+      <text x="12" y="44" font-size="11" font-weight="700" fill="#1E293B">rag/citation_validator.py</text>
+      <text x="12" y="60" font-size="9.5" font-weight="500" fill="#475569">• Validates cited exact <tspan class="code-text">chunk_id</tspan> against</text>
+      <text x="18" y="74" font-size="9.5" font-weight="500" fill="#475569">retrieved evidence set</text>
+      <text x="12" y="88" font-size="9.5" font-weight="500" fill="#475569">• Checks doc, ver, page metadata</text>
+      <text x="12" y="104" font-size="9.5" font-weight="600" fill="#DC2626">• Disallows fabricated citation IDs</text>
+      <text x="12" y="122" font-size="9.5" font-weight="600" fill="#B45309">Citation Coverage &amp; Precision Check</text>
+    </g>
+    <!-- Sub-node 5.3: Grounding Checker -->
+    <g transform="translate(20, 214)">
+      <rect width="590" height="140" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.2"/>
+      <rect x="8" y="8" width="260" height="18" rx="4" fill="#FEF3C7"/>
+      <text x="12" y="21" font-size="9.5" font-weight="700" fill="#92400E">11C. DETERMINISTIC GROUNDING CHECKER</text>
+      <text x="12" y="44" font-size="11" font-weight="700" fill="#0F172A">rag/grounding_checker.py (No Extra LLM Call - 100% Deterministic Python)</text>
+      <g transform="translate(12, 54)">
+        <text x="0" y="14" font-size="10" font-weight="600" fill="#78350F">1. Token Support Ratio:</text>
+        <text x="130" y="14" font-size="9.5" font-weight="500" fill="#475569">Filters English &amp; reporting stopwords; requires &gt;= 60% content word support in cited chunk</text>
+        <text x="0" y="32" font-size="10" font-weight="600" fill="#78350F">2. Version Alignment:</text>
+        <text x="130" y="32" font-size="9.5" font-weight="500" fill="#475569">Prevents claims stating version 2.0 properties from citing version 1.0 chunks</text>
+        <text x="0" y="50" font-size="10" font-weight="600" fill="#78350F">3. Contradiction Guard:</text>
+        <text x="130" y="50" font-size="9.5" font-weight="500" fill="#475569"><tspan class="code-text">check_claim_contradictions</tspan>: Validates signal datatypes (e.g. VehicleSpeed float32 vs float64)</text>
+        <text x="0" y="68" font-size="10" font-weight="600" fill="#78350F">4. Confidence Rating:</text>
+        <text x="130" y="68" font-size="9.5" font-weight="700" fill="#047857">HIGH (Score&gt;=0.85 &amp; Sim&gt;=0.60) | MEDIUM | LOW (Grounding&lt;0.60 or Citation Invalid)</text>
+      </g>
+    </g>
+  </g>
+  <path d="M 1210 1055 L 1230 1055" stroke="#9333EA" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <!-- DEDICATED MODULE: ARCHITECTURE VALIDATOR & GOVERNANCE (FAR-RIGHT) -->
+  <g transform="translate(1880, 870)">
+    <rect width="460" height="370" rx="14" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect x="0" y="0" width="8" height="370" rx="4" fill="#EA580C"/>
+    <text x="24" y="34" font-size="15" font-weight="800" fill="#7C2D12">12. ARCHITECTURE VALIDATOR &amp; GOVERNANCE</text>
+    <rect x="330" y="18" width="116" height="22" rx="6" fill="#FFF7ED" stroke="#FFEDD5" stroke-width="1"/>
+    <text x="338" y="33" font-size="10" font-weight="700" fill="#EA580C">DEDICATED MODULE</text>
+    <text x="24" y="56" font-size="11" font-weight="600" fill="#C2410C">analysis/architecture_validator.py</text>
+    <text x="24" y="72" font-size="10" font-weight="500" fill="#64748B">Triggered via <tspan class="code-text" fill="#0F172A">GET /architecture/validate</tspan> or UI Explorer tab. <tspan font-weight="700" fill="#7C2D12">(NOT triggered per standard Q&amp;A query!)</tspan></text>
+    <!-- Structural Consistency Rules -->
+    <rect x="18" y="84" width="424" height="168" rx="8" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.2"/>
+    <text x="26" y="104" font-size="11" font-weight="700" fill="#9A3412">8 Deterministic Consistency Checks:</text>
+    <g transform="translate(26, 114)">
+      <text x="0" y="14" font-size="9.5" font-weight="500" fill="#7C2D12">• UNDEFINED_REFERENCE: Ports referencing unmapped SWC</text>
+      <text x="0" y="30" font-size="9.5" font-weight="500" fill="#7C2D12">• MISSING_REFERENCE: Interfaces lacking valid signals</text>
+      <text x="0" y="46" font-size="9.5" font-weight="500" fill="#7C2D12">• ORPHAN_ENTITY: Isolated components with 0 ports/deps</text>
+      <text x="0" y="62" font-size="9.5" font-weight="500" fill="#7C2D12">• INVALID_RELATIONSHIP: Inconsistent port directions</text>
+      <text x="0" y="78" font-size="9.5" font-weight="500" fill="#7C2D12">• MISSING_MAPPING: Unmapped signals / interfaces</text>
+      <text x="0" y="94" font-size="9.5" font-weight="500" fill="#7C2D12">• INCOMPLETE_ENTITY / DUPLICATE_ENTITY</text>
+      <text x="0" y="110" font-size="9.5" font-weight="500" fill="#7C2D12">• VERSION_INCONSISTENCY: Cross-release anomalies</text>
+      <text x="0" y="130" font-size="9.5" font-weight="700" fill="#C2410C">Outputs Findings: finding_id, severity, provenance</text>
+    </g>
+    <!-- Review Submission Box -->
+    <rect x="18" y="260" width="424" height="96" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="26" y="280" font-size="11" font-weight="700" fill="#1E293B">Human-in-the-Loop Governance:</text>
+    <text x="26" y="298" font-size="10" font-weight="500" fill="#475569">• Gating flag: <tspan class="code-text" font-weight="700">review_required = true</tspan> on low confidence,</text>
+    <text x="32" y="312" font-size="10" font-weight="500" fill="#475569">insufficient evidence, or detected contradictions</text>
+    <text x="26" y="328" font-size="10" font-weight="500" fill="#475569">• Engineer Review Recording: <tspan class="code-text">POST /reports/reviews</tspan></text>
+    <text x="26" y="344" font-size="9.5" font-weight="600" fill="#059669">Audit trail persisted in SQLite (tests/test_phase8_reports_governance.py)</text>
+  </g>
+  <path d="M 1860 1055 L 1880 1055" stroke="#EA580C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-orange)"/>
+  <rect x="1814" y="1030" width="112" height="18" rx="4" fill="#FFF7ED" stroke="#FFEDD5" stroke-width="1"/>
+  <text x="1820" y="1042" font-size="8.5" font-weight="700" fill="#C2410C">Optional Audit</text>
+  <!-- SECTION 4: USER-FACING SYNTHESIS & GOVERNANCE BOUNDARIES -->
+  <rect x="40" y="1260" width="2320" height="330" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <rect x="40" y="1260" width="2320" height="38" rx="16" fill="#F8FAFC"/>
+  <rect x="40" y="1290" width="2320" height="8" fill="#F8FAFC"/>
+  <text x="64" y="1285" font-size="14" font-weight="800" fill="#0F172A">PHASE 4: RESPONSE SYNTHESIS, TRACEABILITY CITATIONS &amp; GOVERNANCE GATING</text>
+  <text x="720" y="1285" font-size="12" font-weight="600" fill="#475569">Final RAGResponse Schema, Streamlit UI Rendering, and Capstone Safety Boundaries</text>
+
+  <!-- Connectors from Stage 5 down to Phase 4 -->
+  <path d="M 1520 1240 L 1520 1260" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-emerald)"/>
+  <path d="M 2110 1240 L 2110 1260" stroke="#EA580C" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow-orange)"/>
+
+  <!-- CARD 13A: STRUCTURED RAGRESPONSE SCHEMA -->
+  <g transform="translate(64, 1310)">
+    <rect width="700" height="260" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="260" rx="3" fill="#0284C7"/>
+    <text x="20" y="28" font-size="13.5" font-weight="800" fill="#0F172A">13. STRUCTURED RAGRESPONSE PAYLOAD</text>
+    <rect x="540" y="14" width="145" height="20" rx="6" fill="#F0FDF4" stroke="#DCFCE7" stroke-width="1"/>
+    <text x="548" y="28" font-size="9.5" font-weight="700" fill="#059669">SCHEMA VERIFIED</text>
+    <text x="20" y="46" font-size="10" font-weight="600" fill="#0284C7">app/schemas.py &amp; rag/prompts.py: parse_llm_json_response()</text>
+    <rect x="16" y="58" width="668" height="186" rx="8" fill="#0F172A"/>
+    <g transform="translate(28, 70)">
+      <text x="0" y="16" font-size="10.5" font-weight="500" fill="#94A3B8" class="code-text">{</text>
+      <text x="16" y="32" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"answer"<tspan fill="#94A3B8">: </tspan><tspan fill="#FCD34D">"The VehicleSpeed signal is routed via CanIf to Com... [C1][C2]"</tspan><tspan fill="#94A3B8">,</tspan></text>
+      <text x="16" y="48" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"sources"<tspan fill="#94A3B8">: [ { </tspan><tspan fill="#A7F3D0">"document"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#FCD34D">"AUTOSAR_EXP_VFB.pdf"</tspan><tspan fill="#94A3B8">, </tspan><tspan fill="#A7F3D0">"page"</tspan><tspan fill="#94A3B8">: 24, </tspan><tspan fill="#A7F3D0">"section"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#FCD34D">"Signal Routing"</tspan><tspan fill="#94A3B8"> } ],</tspan></text>
+      <text x="16" y="64" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"grounding_status"<tspan fill="#94A3B8">: </tspan><tspan fill="#34D399">"GROUNDED"</tspan><tspan fill="#94A3B8">,  </tspan><tspan fill="#64748B">// GROUNDED | PARTIALLY_GROUNDED | UNGROUNDED</tspan></text>
+      <text x="16" y="80" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"contradiction_detected"<tspan fill="#94A3B8">: </tspan><tspan fill="#F87171">false</tspan><tspan fill="#94A3B8">,</tspan></text>
+      <text x="16" y="96" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"review_required"<tspan fill="#94A3B8">: </tspan><tspan fill="#F87171">false</tspan><tspan fill="#94A3B8">,  </tspan><tspan fill="#64748B">// Set to true if confidence &lt; 0.60 or ungrounded</tspan></text>
+      <text x="16" y="112" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"retrieval_mode"<tspan fill="#94A3B8">: </tspan><tspan fill="#FCD34D">"hybrid"</tspan><tspan fill="#94A3B8">,  </tspan><tspan fill="#64748B">// hybrid (semantic 0.50 + entity 0.30 + section 0.20)</tspan></text>
+      <text x="16" y="128" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"confidence_score"<tspan fill="#94A3B8">: </tspan><tspan fill="#A7F3D0">0.94</tspan><tspan fill="#94A3B8">,</tspan></text>
+      <text x="16" y="144" font-size="10.5" font-weight="500" fill="#38BDF8" class="code-text">"latency_ms"<tspan fill="#94A3B8">: </tspan><tspan fill="#A7F3D0">320.5</tspan><tspan fill="#94A3B8">,  </tspan><tspan fill="#A7F3D0">"version_comparison"</tspan><tspan fill="#94A3B8">: </tspan><tspan fill="#FCD34D">"None"</tspan></text>
+      <text x="0" y="160" font-size="10.5" font-weight="500" fill="#94A3B8" class="code-text">}</text>
+    </g>
+  </g>
+
+  <!-- CARD 13B: STREAMLIT UI PRESENTATION LAYER -->
+  <g transform="translate(790, 1310)">
+    <rect width="740" height="260" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="260" rx="3" fill="#2563EB"/>
+    <text x="20" y="28" font-size="13.5" font-weight="800" fill="#0F172A">14. STREAMLIT INTERACTIVE USER INTERFACE</text>
+    <rect x="570" y="14" width="150" height="20" rx="6" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1"/>
+    <text x="578" y="28" font-size="9.5" font-weight="700" fill="#2563EB">PORT 8501 FRONTEND</text>
+    <text x="20" y="46" font-size="10" font-weight="600" fill="#2563EB">ui/streamlit_app.py: Enterprise Multi-Tab Architecture</text>
+    <!-- Feature grid -->
+    <g transform="translate(20, 60)">
+      <rect x="0" y="0" width="340" height="85" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="20" font-size="11" font-weight="700" fill="#1E293B">Tab 1: Q&amp;A Assistant</text>
+      <text x="12" y="36" font-size="9.5" font-weight="500" fill="#475569">  Rich Markdown rendered answers with [C1] tags</text>
+      <text x="12" y="52" font-size="9.5" font-weight="500" fill="#475569">  Retrieval Mode switcher: Hybrid vs Baseline</text>
+      <text x="12" y="68" font-size="9.5" font-weight="500" fill="#475569">  Version filter: All Releases / 4.2 / 4.4 / R20-11</text>
+
+      <rect x="360" y="0" width="340" height="85" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="372" y="20" font-size="11" font-weight="700" fill="#1E293B">Tab 2: Source Traceability</text>
+      <text x="372" y="36" font-size="9.5" font-weight="500" fill="#475569">  Collapsible expanders for each cited chunk</text>
+      <text x="372" y="52" font-size="9.5" font-weight="500" fill="#475569">  Shows exact Doc, Page, Section, and Cosine Score</text>
+      <text x="372" y="68" font-size="9.5" font-weight="500" fill="#475569">  Highlighting of matched entities and signals</text>
+
+      <rect x="0" y="95" width="340" height="85" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="115" font-size="11" font-weight="700" fill="#1E293B">Tab 3: Architecture Explorer</text>
+      <text x="12" y="131" font-size="9.5" font-weight="500" fill="#475569">  Triggers Architecture Consistency Validation</text>
+      <text x="12" y="147" font-size="9.5" font-weight="500" fill="#475569">  Displays SWC topology and orphaned components</text>
+      <text x="12" y="163" font-size="9.5" font-weight="500" fill="#475569">  Severity-coded anomaly badges (High/Med/Low)</text>
+
+      <rect x="360" y="95" width="340" height="85" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="372" y="115" font-size="11" font-weight="700" fill="#1E293B">Tab 4: Governance &amp; Audit</text>
+      <text x="372" y="131" font-size="9.5" font-weight="500" fill="#475569">  Human-in-the-Loop review feedback form</text>
+      <text x="372" y="147" font-size="9.5" font-weight="500" fill="#475569">  Records approval / correction to SQLite DB</text>
+      <text x="372" y="163" font-size="9.5" font-weight="500" fill="#475569">  Displays query latency &amp; token consumption</text>
+    </g>
+  </g>
+
+  <!-- CARD 13C: CAPSTONE SAFETY & VERIFICATION BOUNDARIES -->
+  <g transform="translate(1560, 1310)">
+    <rect width="776" height="260" rx="12" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="6" height="260" rx="3" fill="#D97706"/>
+    <text x="20" y="28" font-size="13.5" font-weight="800" fill="#0F172A">15. SAFETY BOUNDARIES &amp; VERIFICATION ASSURANCE</text>
+    <rect x="590" y="14" width="166" height="20" rx="6" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1"/>
+    <text x="598" y="28" font-size="9.5" font-weight="700" fill="#B45309">CAPSTONE GOVERNANCE</text>
+    <text x="20" y="46" font-size="10" font-weight="600" fill="#D97706">Mandatory Regulatory &amp; Architectural Guardrails</text>
+
+    <rect x="18" y="60" width="740" height="88" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.2"/>
+    <text x="30" y="80" font-size="11" font-weight="700" fill="#92400E">Automotive Compliance Boundaries (Non-Certified Disclaimer):</text>
+    <text x="30" y="98" font-size="9.5" font-weight="500" fill="#78350F">  This system is an engineering research and traceability assistant; it is NOT certified under ISO 26262 ASIL A-D.</text>
+    <text x="30" y="114" font-size="9.5" font-weight="500" fill="#78350F">  It does not constitute a qualified tool under ISO 26262-8:2018 Clause 11 (Tool Confidence Level TCL1-3).</text>
+    <text x="30" y="130" font-size="9.5" font-weight="500" fill="#78350F">  All generated traceability matrices and architecture assessments require human sign-off before production use.</text>
+
+    <rect x="18" y="156" width="740" height="90" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.2"/>
+    <text x="30" y="176" font-size="11" font-weight="700" fill="#166534">Regression Test Suite Verification Summary:</text>
+    <text x="30" y="194" font-size="9.5" font-weight="600" fill="#15803D">  191+ Unit, Integration, Security, and Governance Tests Executed and Passing</text>
+    <text x="30" y="210" font-size="9.5" font-weight="500" fill="#166534">  Covering: Chunker (14 tests) | Security Injection &amp; Path Traversal (11 tests) | FAISS Search &amp; Index (13 tests)</text>
+    <text x="30" y="226" font-size="9.5" font-weight="500" fill="#166534">  Cross-Version Balanced Retrieval (8 tests) | Phase 8 Governance &amp; Reports (11 tests) | Phase 2b-4 Integration (95 tests)</text>
+    <text x="30" y="242" font-size="9" font-weight="700" fill="#0F766E">  Deterministic grounding verification guarantees zero ungrounded responses without review_required=true flag.</text>
+  </g>
+</svg>

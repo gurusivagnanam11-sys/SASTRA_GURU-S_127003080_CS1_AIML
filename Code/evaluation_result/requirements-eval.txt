@@ -1,0 +1,9 @@
+# RAGAS Evaluation Pipeline Dependencies
+# Install in virtualenv alongside core project dependencies:
+# pip install -r evaluation_result/requirements-eval.txt
+
+ragas>=0.4.3
+datasets>=3.0.0
+pandas>=2.0.0
+langchain-ollama>=0.2.0
+sentence-transformers>=2.2.0

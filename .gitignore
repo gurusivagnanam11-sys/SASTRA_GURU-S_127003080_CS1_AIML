@@ -1,15 +1,77 @@
+# ==============================================================================
+# AUTOSAR HLD Intelligence & Traceability Assistant - Root .gitignore
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-.env
-*.egg-info/
-dist/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+**/.env
+.env.local
+.env.*.local
+!.env.example
+!**/.env.example
+
+# Pytest / Test Artifacts / Coverage
 .pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Database, Runtime Data, & Generated Binary Indexes
 data/
+Code/data/
 *.db
+*.sqlite
+*.sqlite3
 *.faiss
 *.index
-.venv/
-venv/
-env/
+
+# OS & Editor Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.sublime-project
+*.sublime-workspace

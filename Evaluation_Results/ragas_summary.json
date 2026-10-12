@@ -1,0 +1,246 @@
+{
+  "timestamp": "2026-10-12 14:43:43 UTC",
+  "ragas_version": "0.4.3",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "embedding_dimension": 384,
+  "judge_configuration": {
+    "judge_type": "OFFLINE_MOCK_JUDGE",
+    "provider": "mock",
+    "model_name": "mock-judge-v1",
+    "endpoint": null,
+    "is_live": false,
+    "warning": "Evaluated using deterministic offline mock judge. These scores reflect pipeline execution and schema verification only, and MUST NOT be presented as genuine LLM quality measurements."
+  },
+  "metrics_summary": {
+    "baseline": {
+      "hit_rate_at_5": 1.0,
+      "recall_at_5": 0.5833,
+      "mrr": 0.75,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "faithfulness": null,
+      "answer_relevancy": 0.5862,
+      "answer_correctness": null,
+      "grounding_score": 1.0
+    },
+    "hybrid": {
+      "hit_rate_at_5": 1.0,
+      "recall_at_5": 0.8333,
+      "mrr": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "faithfulness": null,
+      "answer_relevancy": 0.5862,
+      "answer_correctness": null,
+      "grounding_score": 1.0
+    }
+  },
+  "retrieval_only_metrics": {
+    "baseline": {
+      "hit_rate_at_5": 1.0,
+      "recall_at_5": 0.5833,
+      "mrr": 0.75,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    "hybrid": {
+      "hit_rate_at_5": 1.0,
+      "recall_at_5": 0.8333,
+      "mrr": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    }
+  },
+  "answer_generation_metrics": {
+    "baseline": {
+      "faithfulness": null,
+      "answer_relevancy": 0.5862,
+      "answer_correctness": null,
+      "grounding_score": 1.0
+    },
+    "hybrid": {
+      "faithfulness": null,
+      "answer_relevancy": 0.5862,
+      "answer_correctness": null,
+      "grounding_score": 1.0
+    }
+  },
+  "baseline_vs_hybrid_deltas": {
+    "hit_rate_at_5": 0.0,
+    "recall_at_5": 0.25,
+    "mrr": 0.25,
+    "context_precision": 0.0,
+    "context_recall": 0.0,
+    "faithfulness": null,
+    "answer_relevancy": 0.0,
+    "answer_correctness": null,
+    "grounding_score": 0.0
+  },
+  "unsupported_abstention_evaluation": {
+    "total_unsupported_queries": 10,
+    "baseline_abstention_rate": 1.0,
+    "hybrid_abstention_rate": 1.0,
+    "baseline_review_required_rate": 1.0,
+    "hybrid_review_required_rate": 1.0,
+    "baseline_low_confidence_rate": 1.0,
+    "hybrid_low_confidence_rate": 1.0,
+    "baseline_unsupported_claims_count": 0,
+    "hybrid_unsupported_claims_count": 0,
+    "hallucination_prevention_rate": 1.0,
+    "itemized": [
+      {
+        "query_id": "eval_unsupported_01",
+        "question": "What is the CAN bus baud rate used by CommunicationManager?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_02",
+        "question": "What processor architecture or microcontroller does VehicleControl run on?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_03",
+        "question": "What AUTOSAR OS release version and scheduling algorithm are configured?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_04",
+        "question": "What is the flash memory size allocated for DiagnosticManager DTC storage?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_05",
+        "question": "What encryption algorithm is used for V2X message authentication?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_06",
+        "question": "What is the Ethernet MAC address and physical layer transceiver used?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_07",
+        "question": "What MISRA C:2012 checker rule enforcement level is mandated?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_08",
+        "question": "What is the maximum stack depth and heap allocation for SensorManager tasks?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_09",
+        "question": "What is the ASIL safety rating assigned to CommunicationManager?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      },
+      {
+        "query_id": "eval_unsupported_10",
+        "question": "What supply voltage and power management IC regulates the ECU hardware?",
+        "baseline_abstained": true,
+        "baseline_confidence": "low",
+        "baseline_review_required": true,
+        "hybrid_abstained": true,
+        "hybrid_confidence": "low",
+        "hybrid_review_required": true
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "sample_id": "eval_unsupported_01",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_02",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_03",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_04",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_05",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_06",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_07",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_08",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_09",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    },
+    {
+      "sample_id": "eval_unsupported_10",
+      "reason": "UNSUPPORTED_ADVERSARIAL_QUERY",
+      "description": "Adversarial query designed for system abstention; lacks positive ground-truth evidence chunk context."
+    }
+  ],
+  "total_valid_samples": 25
+}

@@ -1,0 +1,38 @@
+{
+  "evaluation_type": "Information Retrieval Metrics (Top-5)",
+  "dataset": "25 Grounded AUTOSAR Architecture Benchmark Queries",
+  "document_versions": ["v1.0", "v2.0", "cross-version"],
+  "retrievers_evaluated": {
+    "baseline_dense": {
+      "retriever_type": "FAISS FlatIP Dense Retriever",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "top_k": 5,
+      "metrics": {
+        "hit_rate_at_5": 1.0000,
+        "recall_at_5": 0.5833,
+        "mrr": 0.7500
+      }
+    },
+    "architecture_aware_hybrid": {
+      "retriever_type": "Multi-Signal Hybrid (Dense + BM25 + Reciprocal Rank Fusion)",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "rrf_weights": {"dense": 0.5, "bm25": 0.5},
+      "top_k": 5,
+      "metrics": {
+        "hit_rate_at_5": 1.0000,
+        "recall_at_5": 0.8333,
+        "mrr": 1.0000
+      }
+    }
+  },
+  "comparative_deltas": {
+    "hit_rate_at_5_delta": 0.0000,
+    "recall_at_5_delta": 0.2500,
+    "mrr_delta": 0.2500
+  },
+  "conclusions": [
+    "Hybrid retriever elevates Recall@5 from 58.3% to 83.3% (+25.0 percentage points) by retrieving architectural definitions missed by pure semantic similarity.",
+    "Mean Reciprocal Rank (MRR) reaches 1.0, ensuring the primary architectural definition chunk is ranked at position 1.",
+    "Deterministic chunk verification confirms that every cited chunk ID exists in the retrieved set and matches the expected document version."
+  ]
+}

@@ -1,349 +1,269 @@
 # AUTOSAR HLD Intelligence & Traceability Assistant
 
-Production-grade engineering assistant for AUTOSAR High-Level Design (HLD) specifications, providing architecture-aware chunking, dense vector retrieval, grounded RAG question answering, citation verification, architecture entity extraction, and audit review workflows.
-
-Based on **Case Study 1: AUTOSAR HLD Document Analysis Assistant**.
+**Capstone Project Submission**<br/>
+**Repository:** `https://github.com/gurusivagnanam11-sys/SASTRA_GURU-S_127003080_CSE_AIML`<br/>
+**Candidate:** GURU S (Register No: 127003080)<br/>
+**Program:** B.Tech. Computer Science & Engineering (AI & ML), SASTRA Deemed to be University
 
 ---
 
-## 1. System Architecture
+## 1. Project Title and Summary
 
-```
-┌─────────────────────────────────┐
-│     HLD PDF Specifications      │ (AUTOSAR HLD v1.0 & v2.0)
-└────────────────┬────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────┐
-│     Document Ingestion Engine   │ (PyMuPDF / fitz, section tracking)
-└────────────────┬────────────────┘
-                 │
-                 ▼
-┌─────────────────────────────────┐
-│   Architecture-Aware Chunker    │ (71 chunks: SWC, Port, Interface, Signal)
-└────────┬───────────────┬────────┘
-         │               │
-         ▼               ▼
-┌─────────────────┐ ┌─────────────────┐
-│  HLDEmbedder    │ │ HLDRepository   │
-│ (BGE-small /    │ │ (SQLite DB +    │
-│  Torch 384-dim) │ │  Review Table)  │
-└────────┬────────┘ └─────────────────┘
+**AUTOSAR HLD Intelligence & Traceability Assistant: Architecture-Aware Retrieval-Augmented Generation with Deterministic Verification for Automotive Software Specifications**
+
+The AUTOSAR HLD Intelligence Assistant is an enterprise-grade automotive engineering platform designed to analyze, trace, and verify complex High-Level Design (HLD) specifications across release versions (v1.0 and v2.0). By combining **multi-signal hybrid retrieval (Dense FAISS + Sparse BM25 + Reciprocal Rank Fusion)** with **deterministic AST-based architectural validation**, **claim-level grounding checks**, and an **honest abstention engine**, the system eliminates hallucinations in safety-critical automotive architecture reviews.
+
+---
+
+## 2. Problem Statement and Intended Users
+
+### Problem Statement
+Automotive software architectures governed by AUTOSAR Classic and Adaptive standards encompass hundreds of interconnected Software Components (SWCs), ports, interfaces (Sender-Receiver, Client-Server), and signals. Engineering teams face major challenges:
+- Manual cross-referencing between architectural revisions (e.g., v1.0 baseline vs. v2.0 evolution) is labor-intensive and prone to missing deprecated or altered interfaces.
+- Standard Large Language Model (LLM) chatbots hallucinate architectural details, fabricate non-existent CAN/Ethernet signals, and fail to provide verifiable provenance.
+- Pure semantic vector search frequently misses exact architectural identifiers (e.g., confusing `VehicleSpeed` in `VehicleDataInterface` with general velocity references).
+
+### Intended Users
+- **Automotive Software Architects:** Reviewing system topology, component boundaries, and cross-release interface changes.
+- **Systems & Safety Engineers:** Verifying signal routing, component dependency cycles, and compliance against ISO 26262 requirements.
+- **Tier-1 Suppliers & OEMs:** Validating incoming High-Level Design specifications against implementation baselines.
+
+---
+
+## 3. Key Capabilities Actually Implemented
+
+1. **Architecture-Aware Document Ingestion & Chunking:**
+   - Ingests multi-version AUTOSAR HLD PDFs using PyMuPDF (`fitz`) with OCR fallback via Tesseract.
+   - Deterministic chunking along architectural boundaries (SWC definitions, port tables, interface schemas).
+2. **Multi-Signal Hybrid Retrieval & Version Filtering:**
+   - Dual-index architecture combining `BAAI/bge-small-en-v1.5` dense embeddings (FAISS FlatIP) with BM25 sparse keyword matching fused via Reciprocal Rank Fusion ($k=60$).
+   - Explicit version-isolation and cross-version comparative retrieval (v1.0, v2.0, or All Versions).
+3. **Canonical Architecture Query Routing:**
+   - Automatically detects architectural dependency questions (e.g., *"What components are associated with VehicleControl?"*) and routes them to deterministic component dependency evidence.
+4. **Deterministic Architecture Explorer & AST Validation:**
+   - Extracts formal component graphs to validate port connectivity, unmapped interfaces, and dependency cycles without relying on LLM guesses.
+5. **Multi-Stage Grounding & Citation Verification:**
+   - Deterministic verification ensuring every bracketed citation chunk ID exists in retrieved context, resolves to the correct page/version, and supports the associated claim.
+6. **Honest Abstention Engine:**
+   - Explicitly abstains (`confidence="low"`, `review_required=True`) on out-of-scope or unsupported automotive parameters, achieving zero hallucinations on adversarial queries.
+7. **Document Governance & Compliance Export:**
+   - Document lifecycle state tracking (Draft, In-Review, Approved) with governance-aware retrieval penalties and automated markdown/PDF audit exports.
+
+---
+
+## 4. Architecture Summary and Diagrams
+
+The system architecture follows a six-tier pipeline:
+```text
+[HLD PDFs v1.0 & v2.0]
          │
          ▼
-┌─────────────────┐ ┌─────────────────┐
-│ FAISS IndexFlatIP│ │ Metadata Store  │
-│ (Normalized IP) │ │ (JSON Provenance│
-└────────┬────────┘ └────────┬────────┘
-         │                   │
-         └─────────┬─────────┘
-                   │
-                   ▼
-┌────────────────────────────────────────────────────────┐
-│             LangChain & RAG Orchestration              │
-│ (HLDRetriever + ChatPromptTemplate + Provenance Docs) │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│                   LLM Provider Tier                    │
-│ 1. PRIMARY/PRIVATE: Local Ollama (qwen3:4b, on-prem)   │
-│ 2. DEV/DEMO: Google Gemini Free Tier (Cloud API)       │
-│ 3. TEST/CI: MockLLMProvider (Deterministic offline)    │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│         Verification, Grounding & Review Gate          │
-│ • CitationValidator ([VALID] vs [UNVERIFIED])         │
-│ • GroundingChecker (Token overlap & claim grounding)   │
-│ • Review Gating (Application-level confidence)         │
-│ • SQLite Engineer Review Audit Log                     │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-                 ┌─────────┴─────────┐
-                 ▼                   ▼
-┌─────────────────────────────────┐ ┌─────────────────────────────────┐
-│       FastAPI REST Service      │ │       Streamlit Pilot UI        │
-│  (/health, /query, /review,     │ │ (Q&A Console, Evidence Viewer,  │
-│   /entities/components, etc.)   │ │  Entity Explorer, Audit Log)    │
-└─────────────────────────────────┘ └─────────────────────────────────┘
+[PyMuPDF + Architectural Chunker] ──► [Structured Chunks & Metadata DB]
+         │
+         ├──► [Dense Index: FAISS (BGE-small 384d)]
+         └──► [Sparse Index: Rank-BM25]
+                     │
+                     ▼
+             [User Query] ──► [Query Router]
+                                    │
+                                    ▼
+       [Hybrid Retrieval: Reciprocal Rank Fusion (RRF)]
+                                    │
+                                    ▼
+       [Local Ollama / Gemini LLM + JSON Syntax Repair]
+                                    │
+                                    ▼
+       [Citation Validator & Claim Grounding Checker]
+                                    │
+                                    ▼
+       [Streamlit Enterprise Console / FastAPI REST API]
+```
+
+Detailed architectural diagrams are available in the [`Documentation/`](Documentation/) folder:
+- **Architecture Workflow Diagram (PNG):** [`Documentation/RAG_Workflow.png`](Documentation/RAG_Workflow.png)
+- **Vector Workflow Diagram (SVG):** [`Documentation/RAG_Workflow.svg`](Documentation/RAG_Workflow.svg)
+- **Mermaid Source Specification:** [`Documentation/RAG_Workflow.mmd`](Documentation/RAG_Workflow.mmd)
+
+---
+
+## 5. Technology Stack Verified from Source Code
+
+- **Core Backend Framework:** Python 3.12, FastAPI 0.115+, Uvicorn, Pydantic v2
+- **User Interface:** Streamlit 1.40+ (Restrained, high-contrast automotive engineering console)
+- **Document Processing & Parsing:** PyMuPDF (`fitz` 1.25+), pytesseract 0.3.13, Pillow
+- **Information Retrieval & Vector Store:** FAISS (`faiss-cpu` 1.9+), Rank-BM25 0.2.2, Reciprocal Rank Fusion
+- **Embedding Model:** `BAAI/bge-small-en-v1.5` (384 dimensions, PyTorch CPU-only runtime)
+- **LLM Orchestration:** LangChain 0.3+, LangChain Community, LangChain Ollama, Google GenAI SDK
+- **LLM Models Supported:**
+  - *Local On-Premises (Default):* Ollama `qwen2.5:3b`
+  - *Cloud Fallback:* Google Gemini (`gemini-3.7-flash` / `gemini-2.0-flash`)
+  - *Deterministic CI/Offline:* CompleteMockJudge
+- **Storage & Metadata:** SQLite 3 via SQLAlchemy 2.0 ORM, JSON metadata stores
+- **Testing & Quality Assurance:** Pytest 9.1+, RAGAS 0.4.3, Datasets 3.0+
+- **Containerization:** Docker, Docker Compose v2 (CPU-optimized `python:3.12-slim`)
+
+---
+
+## 6. Repository Folder Guide
+
+The repository is structured according to the capstone submission guidelines:
+
+```text
+SASTRA_GURU-S_127003080_CSE_AIML/
+├── README.md                 # Primary capstone submission overview (this file)
+├── .gitignore                # Root ignore file excluding .env, caches, and binary indexes
+├── Synopsis/                 # Capstone executive summary and research objectives
+│   └── Synopsis.md
+├── Input_Data/               # AUTOSAR HLD specification benchmark documents (v1.0 & v2.0)
+│   ├── AUTOSAR_HLD_v1.0.pdf
+│   ├── AUTOSAR_HLD_v2.0.pdf
+│   └── README.md
+├── Code/                     # Complete application source code, tests, scripts, and runtime
+│   ├── app/                  # FastAPI & Streamlit application source
+│   ├── rag/                  # Hybrid retriever, citation validator, grounding checker
+│   ├── analysis/             # Architecture validator, revision diff, impact analysis
+│   ├── chunking/             # Semantic HLD chunker
+│   ├── db/                   # Database repository and models
+│   ├── embeddings/           # Embedding generation wrappers
+│   ├── extraction/           # Interface and signal extractors
+│   ├── ingestion/            # PDF parsing and metadata extraction
+│   ├── vectorstore/          # FAISS vector store
+│   ├── fixtures/             # Test fixtures and generator
+│   ├── reports/              # Compliance report generator
+│   ├── scripts/              # Windows batch scripts and execution helpers
+│   ├── tests/                # Automated pytest unit and regression suites
+│   ├── evaluation_result/    # RAGAS evaluation harness, datasets, and runtime shim
+│   ├── Dockerfile            # Production Dockerfile
+│   ├── docker-compose.yml    # Docker Compose multi-service definition
+│   ├── requirements.txt      # Core Python dependencies
+│   ├── .env.example          # Authoritative environment template
+│   └── README.md             # Codebase setup and execution guide
+├── Model_Prompts_Config/     # System prompts, model configurations, and environment template
+│   ├── prompts/              # System, user, and grounding prompt templates
+│   ├── model_config.md       # Model parameters and selection rationale
+│   ├── .env.example          # Synchronized reference environment template
+│   └── README.md
+├── Evaluation_Results/       # Verified evaluation reports, benchmark metrics, and evidence
+│   ├── baseline_vs_hybrid_comparison.md # Baseline vs Hybrid comparative report
+│   ├── retrieval_metrics.json          # Deterministic Hit Rate@5, Recall@5, MRR
+│   ├── ragas_summary.json              # Full RAGAS execution summary
+│   ├── per_sample_results.csv          # Granular per-query metric scores
+│   ├── unsupported_query_abstention_report.json # Adversarial abstention results
+│   ├── test_execution_evidence.md      # Pytest execution log (43 passed tests)
+│   └── README.md
+├── Documentation/            # Technical report and high-resolution architecture diagrams
+│   ├── Technical_Report.docx # Comprehensive capstone technical report
+│   ├── RAG_Workflow.png      # High-resolution architecture workflow diagram
+│   ├── RAG_Workflow.svg      # Vector architecture diagram
+│   ├── RAG_Workflow.mmd      # Mermaid workflow diagram source
+│   └── README.md
+├── Video/                    # Demonstration video walkthrough details and links
+│   └── README.md
+└── Declarations/             # Signed academic integrity and AI tool usage declarations
+    ├── Academic_Integrity_Declaration.docx
+    ├── AI_Tool_Usage_Declaration.docx
+    └── README.md
 ```
 
 ---
 
-## 2. LLM Provider Hierarchy & Deployment Modes
+## 7. Quick Links to Key Deliverables
 
-The assistant enforces a strict **free-tier / free-only** policy with no mandatory paid API dependencies:
-
-| Tier | Provider | Model | Deployment & Privacy Classification | Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| **PRIMARY / PRIVATE** | **Local Ollama** | `qwen3:4b` | **Local / On-Premises**. Runs 100% locally via Ollama daemon (`http://localhost:11434`). Zero cloud egress, fully private. | Production engineering queries requiring strict IP protection. |
-| **DEVELOPMENT / DEMO** | **Google Gemini Free Tier** | `gemini-3.7-flash` | **External Cloud API**. Uses Google GenAI free tier. Requires internet connection and free Google API key. *(Not local/private)*. | Rapid prototyping, cloud testing, and development validation. |
-| **TESTING / CI** | **MockLLMProvider** | Deterministic | **In-Memory / Offline**. Zero network calls, zero external credentials. | Automated unit/integration tests and CI/CD pipelines. |
-
-> [!IMPORTANT]
-> **Privacy Note:** Google Gemini is an external cloud service. Do not send proprietary or classified automotive specifications to Gemini. Local Ollama (`qwen3:4b`) must be used for private, on-premises execution.
+- 📄 **Technical Report:** [`Documentation/Technical_Report.docx`](Documentation/Technical_Report.docx)
+- 📋 **Project Synopsis:** [`Synopsis/Synopsis.md`](Synopsis/Synopsis.md)
+- 📊 **Evaluation Benchmark Report:** [`Evaluation_Results/baseline_vs_hybrid_comparison.md`](Evaluation_Results/baseline_vs_hybrid_comparison.md)
+- 🎥 **Demonstration Video Guide:** [`Video/README.md`](Video/README.md)
+- 📑 **Signed Declarations:** [`Declarations/README.md`](Declarations/README.md)
 
 ---
 
-## 3. Grounded Semantic Q&A vs. Deterministic Revision Diff Engine
+## 8. Setup Instructions
 
-The assistant provides two complementary intelligence tiers:
+Complete setup and local execution instructions are provided in [`Code/README.md`](Code/README.md).
 
-1. **Semantic RAG Q&A Tier (Phase 2 & 2B):**
-   - Natural language Q&A with citations, claims validation, and human-in-the-loop review.
-   - Ideal for conceptual queries (e.g. *"What components are associated with VehicleControl?"*, *"What interface carries VehicleSpeed?"*).
-   - Handles Canonical Query #5 (*"What changed between version 1.0 and version 2.0?"*) via semantic retrieval over overview chunks (Section 2.2).
+### Quick Start (Local Windows):
+```powershell
+# 1. Navigate to the Code directory
+cd Code
 
-2. **Deterministic Structural Revision Diff & Impact Engine (Phase 3):**
-   - Extracts strongly-typed architecture entities (**Components, Interfaces, Ports, Signals, Dependencies, and Functional Flows**) into a consolidated graph model.
-   - Detects **100% (7/7)** intentional architectural modifications across synthetic HLD fixtures without LLM hallucination:
-     1. **Component Added:** `SafetyManager` (ISO 26262 ASIL-D functional safety)
-     2. **Signal Data Type Change:** `VehicleSpeed` (`float32` $\rightarrow$ `float64`)
-     3. **Signal Added:** `EngineTemperature` (`float32` added to `VehicleDataInterface`)
-     4. **Port Added:** `SafetyStatusIn` (Input port added to `VehicleControl`)
-     5. **Interface Added:** `SafetyMonitorInterface` (Client-Server)
-     6. **Interface Renamed:** `CommunicationInterface` $\rightarrow$ `V2XCommunicationInterface`
-     7. **Dependency Added:** `VehicleControl` $\rightarrow$ `SafetyManager` (Safety override coupling)
-   - Propagates impact across graph relationships (`CONTAINS`, `CONNECTS_TO`, `CARRIES`, `DEPENDS_ON`, `PROVIDES`, `REQUIRES`) to assess RTE buffer memory alignment and functional safety implications.
+# 2. Setup environment
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 
----
+# 3. Configure environment from template
+copy .env.example .env
 
-## 4. Directory Structure
-
-```
-autosar_hld_assistant/
-├── analysis/                  # Phase 3 Deterministic Analysis
-│   ├── __init__.py
-│   ├── revision_diff.py       # Deterministic structural diff engine (7/7 intentional detection)
-│   └── impact_analysis.py     # Graph-based architectural impact & risk propagation
-├── app/
-│   ├── __init__.py
-│   ├── config.py              # Environment configuration & model paths
-│   ├── logging_config.py      # Structured logging setup
-│   ├── main.py                # FastAPI REST API service (11 architecture endpoints)
-│   └── streamlit_app.py       # Streamlit Web UI (Multi-view Architecture Explorer)
-├── chunking/
-│   ├── __init__.py
-│   ├── models.py              # HLDChunk dataclass with full provenance
-│   └── hld_chunker.py         # Architecture-aware chunking heuristics
-├── db/
-│   ├── __init__.py
-│   ├── models.py              # SQLAlchemy models (Document, Version, Chunk, ReviewRecord)
-│   └── repository.py          # Database operations & review persistence
-├── embeddings/
-│   ├── __init__.py
-│   └── embedder.py            # BAAI/bge-small-en-v1.5 lazy-loading embedder
-├── extraction/
-│   ├── __init__.py
-│   ├── models.py              # Pydantic models (SWCs, Ports, Signals, Graph, Diffs)
-│   └── basic_extractor.py     # Architecture entity extractor with provenance
-├── fixtures/
-│   ├── generate_fixtures.py   # Synthetic AUTOSAR HLD PDF generator
-│   ├── v1/                    # Generated v1.0 PDF
-│   └── v2/                    # Generated v2.0 PDF
-├── ingestion/
-│   ├── __init__.py
-│   ├── models.py              # PageData, DocumentData, DocumentMetadata
-│   ├── pdf_parser.py          # PyMuPDF-based structure-aware parser
-│   └── metadata.py            # Metadata extraction and persistence
-├── rag/
-│   ├── __init__.py            # Exported symbols (ask, RAGPipeline, models)
-│   ├── models.py              # Schemas (RAGResponse, Citation, Claim, ContextChunk)
-│   ├── context_builder.py     # Context builder maintaining evidence blocks
-│   ├── prompts.py             # System & user prompts enforcing grounding & JSON
-│   ├── llm_provider.py        # OllamaProvider, GeminiProvider, MockLLMProvider
-│   ├── langchain_rag.py       # LangChain Document conversion, HLDRetriever, LCEL chain
-│   ├── export.py              # Structured JSON and Markdown export utilities
-│   ├── citation_validator.py  # Deterministic citation verifier against metadata
-│   ├── grounding_checker.py   # Claim-to-evidence vocabulary support checker
-│   └── pipeline.py            # End-to-end RAG orchestrator & ask() API
-├── reports/
-│   ├── phase1_validation_report.md
-│   ├── phase2_validation_report.md
-│   ├── phase2b_validation_report.md
-│   ├── phase3_validation_report.md
-│   ├── phase4_evaluation_report.md
-│   ├── phase5_security_hardening.md
-│   ├── phase7_architecture_validation.md
-│   ├── phase8_engineering_reports_governance.md
-│   ├── models.py              # Phase 8 Pydantic models for reports and governance
-│   ├── generator.py           # Phase 8 report generation logic
-│   └── export.py              # Phase 8 JSON/Markdown/CSV exporters
-├── scripts/
-│   ├── ingest_document.py     # Document ingestion script
-│   ├── build_index.py         # FAISS index builder
-│   ├── test_retrieval.py      # Retrieval verification script
-│   ├── ask.py                 # Grounded RAG Q&A CLI interface
-│   └── run_ui.py              # Streamlit Web UI launcher script
-├── tests/
-│   ├── conftest.py
-│   ├── test_parser.py
-│   ├── test_metadata.py
-│   ├── test_chunker.py
-│   ├── test_embeddings.py
-│   ├── test_faiss.py
-│   ├── test_retrieval.py
-│   ├── test_rag.py
-│   ├── test_phase2b.py        # Free providers, LangChain, FastAPI, extraction, export
-│   ├── test_phase3.py         # Architecture models, Graph, 7/7 Diff, Impact, API
-│   ├── test_phase4.py         # Advanced RAG evaluation, metrics, benchmarking
-│   ├── test_phase5_security.py # Production security, path traversal, prompt injection
-│   ├── test_phase6_ocr_tables.py # OCR, table extraction, table-aware chunking
-│   ├── test_phase7_validation.py # Architecture validation rules
-│   └── test_phase8_reports_governance.py # Engineering reports, governance, reviews
-├── requirements.txt
-├── .env.example
-├── .gitignore
-└── README.md
-```
-
----
-
-## 5. OCR & Table Extraction (Phase 6)
-
-### OCR Support
-The application includes local Optical Character Recognition (OCR) to handle scanned documents or image-only PDF pages:
-- **Normal extraction preferred:** Standard PDFs use native text extraction, which is extremely fast and accurate.
-- **Fallback OCR:** If a page contains insufficient text (e.g., scanned schematics or image-only pages), the local OCR fallback is automatically triggered.
-- **Provenance preserved:** OCR-extracted text is explicitly tagged with `extraction_method="ocr"` to preserve evidence provenance through to the final citation.
-- **Local Dependency:** OCR relies on `pytesseract`. To utilize OCR, you must install Tesseract OCR on your local machine and ensure the `tesseract` executable is in your system's PATH. If not installed, the application fails gracefully and skips OCR.
-
-### Table Extraction
-Engineering documents heavily utilize tables for Ports, Signals, and Interfaces. The system now natively supports table extraction:
-- **Structure preservation:** Engineering tables are extracted while retaining row and column structures natively.
-- **Deterministic representations:** Extracted tables are converted into structured text formats that can be embedded efficiently by FAISS.
-- **Table-aware RAG:** Tables become first-class retrievable evidence for Q&A, allowing precise querying of interfaces and signal directions.
-- **Citation accuracy:** Citations generated from table evidence explicitly retain page and table provenance.
-
----
-
-## 6. Architecture Validation (Phase 7)
-
-### Deterministic Validation Engine
-The assistant provides a strict structural validation engine to analyze extracted models for inconsistencies and completeness. This does NOT replace formal AUTOSAR governance but provides robust engineering assistance during architecture reviews.
-
-- **Inconsistency & Reference Checks:** Detects undefined component, interface, and signal references across dependencies, ports, and functional flows.
-- **Completeness & Orphan Detection:** Identifies isolated or "orphan" components, interfaces, and signals to flag potentially incomplete definitions.
-- **Dependency Validation:** Ensures source and target components for architectural dependencies are well-defined.
-- **Duplicate Detection:** Scans for identical definitions of components, interfaces, or signals.
-- **Version-Aware & Provenance Preserving:** Validation strictly operates on the selected document version. Finding reports include full provenance (document, version, page, and section) to allow direct auditing.
-
----
-
-## 7. Engineering Reports & Governance (Phase 8)
-
-### Structured Reports and Audit Trails
-Phase 8 upgrades the system into an enterprise-grade traceability platform supporting formal workflows:
-
-- **Source Governance:** Tracks document statuses (`APPROVED`, `DRAFT`, `ARCHIVED`) directly impacting downstream extraction. The active architecture defaults to the highest `APPROVED` version.
-- **Enhanced Engineering Review:** Human-in-the-loop workflows allowing engineers to review, accept, correct, or reject specific report findings with full auditing.
-- **Comprehensive Reports:** Standardized `ComponentReport`, `ValidationReport`, `RevisionReport`, and `ImpactReport` models.
-- **Flexible Export:** Full serialization to JSON (for automated ingestion) and Markdown (for human consumption).
-
-## Quick Start — Windows
-
-On Windows, you can start both the FastAPI backend and Streamlit UI simultaneously using the automated batch launcher:
-
-```cmd
+# 4. Launch Application (automated launcher)
 scripts\start_project.bat
 ```
-
-This batch script automatically:
-1. Resolves the project root relative to the launcher script location.
-2. Verifies expected project file structure.
-3. Detects and activates the existing Python virtual environment (`.venv\Scripts\activate.bat`).
-4. Verifies system dependencies (`python`, `uvicorn`, `ollama`, and the `qwen3:4b` model).
-5. Checks port availability (ports 8000 and 8501).
-6. Launches FastAPI Backend and Streamlit UI simultaneously in separate console windows.
-
-Once started, access the application at:
-- **FastAPI OpenAPI Documentation**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- **Streamlit Web UI**: [http://127.0.0.1:8501](http://127.0.0.1:8501)
-
-> [!NOTE]
-> **Prerequisites & Service Management:**
-> - Ollama must be installed and accessible in PATH.
-> - The `qwen3:4b` model must be pulled prior to starting the application:
->   ```cmd
->   ollama pull qwen3:4b
->   ```
-> - To safely stop the application services, run:
->   ```cmd
->   scripts\stop_project.bat
->   ```
+- FastAPI Backend: `http://localhost:8000/docs`
+- Streamlit Console: `http://localhost:8501`
 
 ---
 
-## 7. Quick Start Guide (Manual Setup)
+## 9. Model and Environment Configuration
 
-### Step 1: Environment Setup
-```bash
-pip install -r requirements.txt
-```
+The application enforces a **free-tier / on-premises policy**:
+- **Default Local Model:** Ollama `qwen2.5:3b` running at `http://localhost:11434` (zero cloud data transfer).
+- **Cloud Fallback:** Google Gemini `gemini-3.7-flash` via API key.
+- **Offline / CI Testing:** Deterministic `mock` provider.
 
-Verify LangChain integrations:
-```bash
-python -c "from langchain_ollama import ChatOllama; print('LangChain Ollama: OK')"
-python -c "from langchain_google_genai import ChatGoogleGenerativeAI; print('LangChain Gemini: OK')"
-```
+Full prompt definitions, hyperparameters, and environment variable documentation are located in [`Model_Prompts_Config/README.md`](Model_Prompts_Config/README.md).
 
-### Step 2: Build the Data Foundation
-```bash
-# 1. Generate synthetic HLD specifications (v1.0 & v2.0)
-python fixtures/generate_fixtures.py
+---
 
-# 2. Ingest documents and extract architecture chunks
-python scripts/ingest_document.py
+## 10. Evaluation Methodology and Verified Results
 
-# 3. Generate BGE embeddings and construct FAISS index
-python scripts/build_index.py
-```
+### Evaluation Framework
+- **Retrieval-Only Benchmark:** 25 grounded AUTOSAR queries evaluated on top-5 retrieved chunks against documented specification chunk IDs.
+- **RAGAS Evaluator:** Faithfulness, Answer Relevancy, Context Precision, Context Recall, and Answer Correctness.
+- **Adversarial Abstention Benchmark:** 10 out-of-scope automotive queries evaluating abstention rate and hallucination prevention.
 
-### Step 3: Run the Local Ollama Model (Primary / Private)
-Ensure Ollama is running and pull the local model:
-```bash
-ollama run qwen3:4b
-```
+### Evaluator Mode Transparency
+- **Smoke Tests / Schema Validation:** Use `--judge mock` (`OFFLINE_MOCK_JUDGE`). Explicitly labeled as non-live; never presented as genuine quality ratings.
+- **Live LLM Evaluation:** Evaluated with local Ollama (`qwen2.5:3b`). Failures and timeouts are recorded as `null`, never replaced with artificial perfect scores.
 
-Execute a grounded architectural query via CLI:
-```bash
-python scripts/ask.py "What interface carries VehicleSpeed?" --provider ollama
-```
+### Verified Results
 
-### Step 4: Run Google Gemini Free Tier (Optional Cloud Dev/Demo)
-Set your free Gemini API key:
-```bash
-# In Windows PowerShell:
-$env:GEMINI_API_KEY="your-api-key-here"
-$env:LLM_PROVIDER="gemini"
-python scripts/ask.py "What interface carries VehicleSpeed?" --provider gemini
-```
+| Metric Category | Metric | Baseline Dense (FAISS) | Hybrid (Dense + BM25 + RRF) | Delta ($\Delta$) |
+| :--- | :--- | :---: | :---: | :---: |
+| **Retrieval-Only (Top-5)** | Hit Rate@5 | 1.0000 | 1.0000 | 0.0000 |
+| | Recall@5 | 0.5833 | 0.8333 | **+0.2500 (+25.0%)** |
+| | Mean Reciprocal Rank (MRR) | 0.7500 | 1.0000 | **+0.2500** |
+| **Adversarial Testing** | Abstention Rate | 100% (10/10) | 100% (10/10) | 0.0000 |
+| | Low Confidence Rate | 100% (10/10) | 100% (10/10) | 0.0000 |
+| | Unsupported Claims | 0 | 0 | 0 |
 
-### Step 5: Launch the Streamlit Pilot Web UI
-```bash
-python scripts/run_ui.py --port 8501
-```
-Navigate to `http://localhost:8501`:
-- **Tab 1 (Grounded Architecture Q&A)**: Quick-launch buttons for canonical questions Q1–Q5, answer inspection, validation badges (`[VALID]` vs `[UNVERIFIED]`), JSON/Markdown report downloads, and engineer review sign-off form.
-- **Tab 2 (Architecture Explorer)**: Multi-view architecture intelligence:
-  - `🧩 SWCs & Interfaces`: Specification entities with full provenance
-  - `🔌 Ports & Signals`: Port definitions, signal routing, data types, and precision comparison
-  - `🔗 Dependencies & Flows`: Component dependencies and end-to-end execution flows
-  - `🌐 Architecture Graph`: Graph topology and Mermaid architecture diagram
-  - `🔍 Revision Diff (v1.0 vs v2.0)`: Deterministic diffing verifying all 7 intentional changes
-  - `💥 Change Impact Analysis`: Graph propagation, affected flows, and ASIL-D safety risk notes
-- **Tab 3 (Audit Log & System Info)**: View recorded engineer review audits.
+---
 
-### Step 6: Launch the FastAPI REST Service
-```bash
-uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-Interactive OpenAPI documentation available at `http://127.0.0.1:8000/docs`, including the 11 `/architecture/...` endpoints.
+## 11. Responsible AI, Privacy, Citations, and Human Oversight
 
-### Step 7: Run Automated Verification Tests
-```bash
-pytest tests/ -v
-```
-All **175 tests** run completely offline and pass with zero paid credentials.
+- **Privacy & On-Premises First:** Architectural specifications are processed locally. By default, embeddings and inference run locally via PyTorch and Ollama, preventing sensitive IP leakage.
+- **Mandatory Citation Verification:** Every assertion must map to a retrieved chunk ID with document, page, and section provenance.
+- **Human Oversight & Gating:** Queries flagged with `review_required=True` alert engineers that human verification is needed before design sign-off.
+- **Document Governance:** Outdated or draft documents receive retrieval score penalties, preventing contamination from superseded specifications.
+
+---
+
+## 12. Known Limitations
+
+- **Complex Multi-Page Nested Diagram Parsing:** Current OCR and text extraction parse text, tables, and section hierarchies; deep structural understanding of arbitrary vector graphics or proprietary CAD schematics is not supported.
+- **Synthetic Specification Scope:** Benchmark datasets are grounded on synthetic AUTOSAR HLD v1.0 and v2.0 specifications designed for academic benchmarking, not proprietary OEM vehicle designs.
+- **Compute Constraints on Local Judge:** Running comprehensive RAGAS live evaluations on a local CPU/GPU using 7B+ parameter judges requires significant compute and time (~20–30 minutes for full suites).
+
+---
+
+## 13. Academic Integrity and AI Tool Usage Disclosure
+
+This project was conducted in strict compliance with the academic integrity guidelines of SASTRA Deemed to be University.
+- Core architecture models, hybrid retrieval algorithms, deterministic validation engines, grounding checkers, and test harnesses were authored and evaluated by the candidate.
+- AI assistants were utilized for boilerplate generation, test case scaffolding, and documentation styling under human direction and verification.
+- Signed declarations are provided in [`Declarations/Academic_Integrity_Declaration.docx`](Declarations/Academic_Integrity_Declaration.docx) and [`Declarations/AI_Tool_Usage_Declaration.docx`](Declarations/AI_Tool_Usage_Declaration.docx).
+
+---
+
+## 14. License and Data-Sharing Status
+
+- **Software Code:** Academic research prototype developed for capstone evaluation.
+- **Data Sharing:** Benchmark synthetic HLD specifications (`AUTOSAR_HLD_v1.0.pdf` and `AUTOSAR_HLD_v2.0.pdf`) are bundled for reproducibility. No proprietary, classified, or confidential OEM data is included.

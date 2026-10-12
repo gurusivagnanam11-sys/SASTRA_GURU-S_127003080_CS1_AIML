@@ -1,0 +1,278 @@
+2026-10-12 13:24:38,653 [INFO] evaluate_ragas: === RUNNING DATASET VALIDATION (DRY RUN) ===
+2026-10-12 13:25:32,404 [INFO] evaluate_ragas: Initializing LLM judge (preference: mock)...
+2026-10-12 13:25:32,406 [INFO] metrics_config: Initialized offline mock judge wrapper.
+2026-10-12 13:25:32,406 [INFO] evaluate_ragas: Active judge: OFFLINE_MOCK_JUDGE (mock-judge-v1)
+2026-10-12 13:25:32,406 [INFO] evaluate_ragas: Active embeddings: BAAI/bge-small-en-v1.5 (dim=384)
+2026-10-12 13:25:32,408 [INFO] evaluate_ragas: Loading baseline evaluation dataset from: evaluation_result\dataset\baseline_eval_dataset.json
+2026-10-12 13:25:32,429 [INFO] evaluate_ragas: BASELINE Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 13:25:38,349 [INFO] embeddings.embedder: Loading embedding model: BAAI/bge-small-en-v1.5
+2026-10-12 13:25:38,354 [INFO] sentence_transformers.base.model: No device provided, using cpu
+2026-10-12 13:25:39,597 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-10-12 13:25:39,969 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:39,989 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:40,257 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:40,258 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-12 13:25:40,301 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:40,304 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from BAAI/bge-small-en-v1.5.
+2026-10-12 13:25:40,540 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:40,560 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:40,917 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:40,944 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/README.md?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2FREADME.md=&etag=%228b8567d75ffa619486d9590cb0eb76d66ad46c49%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:41,178 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:41,216 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:41,626 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:41,857 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/sentence_bert_config.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fsentence_bert_config.json=&etag=%22ea85692bff64b0d1917833c31ddbca8ab10f5455%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:42,175 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:42,551 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 13:25:42,870 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 13:25:43,860 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 13:25:44,133 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/processor_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:44,420 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:44,702 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:44,967 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:45,218 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-12 13:25:45,636 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 13:25:45,658 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/1_Pooling%2Fconfig.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2F1_Pooling%2Fconfig.json=&etag=%221da070f0993788c8851a652170ff013aa54dd519%22 "HTTP/1.1 200 OK"
+2026-10-12 13:25:45,899 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/2_Normalize/config.json "HTTP/1.1 404 Not Found"
+2026-10-12 13:25:46,235 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 13:25:46,409 [INFO] embeddings.embedder: Model loaded successfully. Dimension: 384
+2026-10-12 13:26:41,944 [INFO] evaluate_ragas: BASELINE evaluation completed in 69.48s. Mean scores: {'faithfulness': 1.0, 'answer_relevancy': 0.9352, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.9501}
+2026-10-12 13:26:41,945 [INFO] evaluate_ragas: Loading hybrid evaluation dataset from: evaluation_result\dataset\hybrid_eval_dataset.json
+2026-10-12 13:26:41,959 [INFO] evaluate_ragas: HYBRID Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 13:27:45,046 [INFO] evaluate_ragas: HYBRID evaluation completed in 63.08s. Mean scores: {'faithfulness': 1.0, 'answer_relevancy': 0.9352, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.9501}
+2026-10-12 13:27:45,049 [INFO] evaluate_ragas: Saved summary JSON to: evaluation_result\ragas\results\summary.json
+2026-10-12 13:27:45,069 [INFO] evaluate_ragas: Saved per-sample results CSV to: evaluation_result\ragas\results\per_sample_results.csv
+2026-10-12 13:27:45,071 [INFO] evaluate_ragas: Wrote evaluation report to: evaluation_result\ragas\results\evaluation_report.md
+2026-10-12 19:59:39,560 [INFO] evaluate_ragas: === RUNNING DATASET VALIDATION (DRY RUN) ===
+2026-10-12 20:00:10,882 [INFO] evaluate_ragas: Initializing LLM judge (preference: mock)...
+2026-10-12 20:00:10,883 [INFO] metrics_config: Initialized offline mock judge wrapper (schema verification mode).
+2026-10-12 20:00:10,885 [INFO] evaluate_ragas: Active judge: OFFLINE_MOCK_JUDGE (mock-judge-v1) endpoint: None
+2026-10-12 20:00:10,885 [INFO] evaluate_ragas: Active embeddings: BAAI/bge-small-en-v1.5 (dim=384)
+2026-10-12 20:00:10,885 [INFO] evaluate_ragas: Evaluating unsupported query abstention suite from: evaluation_result\dataset\unsupported_eval_dataset.json
+2026-10-12 20:00:10,888 [INFO] evaluate_ragas: Loading baseline evaluation dataset from: evaluation_result\dataset\baseline_eval_dataset.json
+2026-10-12 20:00:10,905 [INFO] evaluate_ragas: BASELINE Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 20:00:18,758 [INFO] embeddings.embedder: Loading embedding model: BAAI/bge-small-en-v1.5
+2026-10-12 20:00:18,765 [INFO] sentence_transformers.base.model: No device provided, using cpu
+2026-10-12 20:00:19,878 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:19,881 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-12 20:00:19,952 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:20,469 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:20,690 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:20,693 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from BAAI/bge-small-en-v1.5.
+2026-10-12 20:00:21,316 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:21,399 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:21,704 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:21,799 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/README.md?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2FREADME.md=&etag=%228b8567d75ffa619486d9590cb0eb76d66ad46c49%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:22,096 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:22,160 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:22,542 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:22,608 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/sentence_bert_config.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fsentence_bert_config.json=&etag=%22ea85692bff64b0d1917833c31ddbca8ab10f5455%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:22,951 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:00:23,582 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:00:24,077 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:00:24,999 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:00:25,329 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-10-12 20:00:25,640 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-12 20:00:26,034 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:00:26,124 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/1_Pooling%2Fconfig.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2F1_Pooling%2Fconfig.json=&etag=%221da070f0993788c8851a652170ff013aa54dd519%22 "HTTP/1.1 200 OK"
+2026-10-12 20:00:26,414 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/2_Normalize/config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:00:26,766 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:00:26,872 [INFO] embeddings.embedder: Model loaded successfully. Dimension: 384
+2026-10-12 20:01:36,476 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:36,476 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:36,476 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:36,477 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:36,477 [ERROR] ragas.executor: Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:01:43,031 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:43,032 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:43,032 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:43,032 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:43,032 [ERROR] ragas.executor: Exception raised in Job[5]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:01:49,581 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:49,582 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:49,582 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:49,582 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:49,582 [ERROR] ragas.executor: Exception raised in Job[4]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:01:51,054 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:51,054 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:51,055 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:51,055 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:01:51,055 [ERROR] ragas.executor: Exception raised in Job[9]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:01:54,160 [INFO] evaluate_ragas: BASELINE evaluation finished in 103.20s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 0.5833, 'mrr': 0.75, 'context_precision': 1.0, 'context_recall': 1.0, 'faithfulness': None, 'answer_relevancy': 0.5862, 'answer_correctness': None, 'grounding_score': 1.0}
+2026-10-12 20:01:54,161 [INFO] evaluate_ragas: Loading hybrid evaluation dataset from: evaluation_result\dataset\hybrid_eval_dataset.json
+2026-10-12 20:01:54,180 [INFO] evaluate_ragas: HYBRID Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 20:03:13,900 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:13,900 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:13,901 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:13,901 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:13,901 [ERROR] ragas.executor: Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:03:20,309 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:20,310 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:20,310 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:20,310 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:20,310 [ERROR] ragas.executor: Exception raised in Job[5]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:03:26,293 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:26,293 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:26,293 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:26,293 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:26,293 [ERROR] ragas.executor: Exception raised in Job[4]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:03:27,779 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:27,780 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:27,780 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:27,780 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:03:27,781 [ERROR] ragas.executor: Exception raised in Job[9]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:03:31,487 [INFO] evaluate_ragas: HYBRID evaluation finished in 97.29s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 0.8333, 'mrr': 1.0, 'context_precision': 1.0, 'context_recall': 1.0, 'faithfulness': None, 'answer_relevancy': 0.5862, 'answer_correctness': None, 'grounding_score': 1.0}
+2026-10-12 20:03:31,497 [INFO] evaluate_ragas: Saved summary JSON to: evaluation_result\ragas\results_corrected\summary.json
+2026-10-12 20:03:31,520 [INFO] evaluate_ragas: Saved per-sample results CSV to: evaluation_result\ragas\results_corrected\per_sample_results.csv
+2026-10-12 20:03:31,530 [INFO] evaluate_ragas: Wrote Capstone evaluation report to: evaluation_result\ragas\results_corrected\evaluation_report.md
+2026-10-12 20:04:24,105 [INFO] evaluate_ragas: Initializing LLM judge (preference: ollama)...
+2026-10-12 20:04:27,297 [INFO] httpx: HTTP Request: GET http://localhost:11434/api/tags "HTTP/1.1 200 OK"
+2026-10-12 20:04:30,654 [INFO] metrics_config: Initialized live Ollama LLM judge: qwen2.5:3b @ http://localhost:11434
+2026-10-12 20:04:30,654 [INFO] evaluate_ragas: Active judge: LIVE_LLM_JUDGE (qwen2.5:3b) endpoint: http://localhost:11434
+2026-10-12 20:04:30,654 [INFO] evaluate_ragas: Active embeddings: BAAI/bge-small-en-v1.5 (dim=384)
+2026-10-12 20:04:30,655 [INFO] evaluate_ragas: Evaluating unsupported query abstention suite from: evaluation_result\dataset\unsupported_eval_dataset.json
+2026-10-12 20:04:30,658 [INFO] evaluate_ragas: Loading baseline evaluation dataset from: evaluation_result\dataset\baseline_eval_dataset.json
+2026-10-12 20:04:30,681 [INFO] evaluate_ragas: BASELINE Dataset: 35 total raw samples, 1 valid for Ragas, 10 excluded.
+2026-10-12 20:04:47,886 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:04:59,216 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:05:01,814 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:05:10,494 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:05:33,860 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:06:03,777 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:06:14,404 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:06:18,335 [INFO] embeddings.embedder: Loading embedding model: BAAI/bge-small-en-v1.5
+2026-10-12 20:06:18,362 [INFO] sentence_transformers.base.model: No device provided, using cpu
+2026-10-12 20:06:19,611 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:19,613 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-12 20:06:19,691 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:20,009 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:20,090 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:20,093 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from BAAI/bge-small-en-v1.5.
+2026-10-12 20:06:20,404 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:20,487 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:20,793 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:20,862 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/README.md?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2FREADME.md=&etag=%228b8567d75ffa619486d9590cb0eb76d66ad46c49%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:21,208 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:21,291 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:21,618 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:21,691 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/sentence_bert_config.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fsentence_bert_config.json=&etag=%22ea85692bff64b0d1917833c31ddbca8ab10f5455%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:22,030 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:06:22,334 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:06:22,782 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:06:24,087 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:06:24,470 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-10-12 20:06:24,831 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-12 20:06:25,347 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:06:25,408 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/1_Pooling%2Fconfig.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2F1_Pooling%2Fconfig.json=&etag=%221da070f0993788c8851a652170ff013aa54dd519%22 "HTTP/1.1 200 OK"
+2026-10-12 20:06:25,775 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/2_Normalize/config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:06:26,093 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:06:26,458 [INFO] embeddings.embedder: Model loaded successfully. Dimension: 384
+2026-10-12 20:06:36,344 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:06:50,957 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:06:50,960 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:07:24,302 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:07:32,870 [ERROR] ragas.executor: Exception raised in Job[4]: TimeoutError()
+2026-10-12 20:07:32,871 [ERROR] ragas.executor: Exception raised in Job[2]: TimeoutError()
+2026-10-12 20:07:34,569 [INFO] evaluate_ragas: BASELINE evaluation finished in 183.78s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 0.5, 'mrr': 0.5, 'context_precision': None, 'context_recall': 1.0, 'faithfulness': 0.0, 'answer_relevancy': 0.8581, 'answer_correctness': None, 'grounding_score': 1.0}
+2026-10-12 20:07:34,570 [INFO] evaluate_ragas: Loading hybrid evaluation dataset from: evaluation_result\dataset\hybrid_eval_dataset.json
+2026-10-12 20:07:34,597 [INFO] evaluate_ragas: HYBRID Dataset: 35 total raw samples, 1 valid for Ragas, 10 excluded.
+2026-10-12 20:07:37,459 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:07:52,167 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:02,013 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:02,015 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:08,135 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:11,695 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:19,853 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:23,576 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:27,208 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:08:46,301 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:09:04,380 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:09:21,678 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:09:32,345 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:09:46,887 [INFO] httpx: HTTP Request: POST http://localhost:11434/api/chat "HTTP/1.1 200 OK"
+2026-10-12 20:09:58,789 [INFO] evaluate_ragas: HYBRID evaluation finished in 144.18s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 1.0, 'mrr': 1.0, 'context_precision': 1.0, 'context_recall': 1.0, 'faithfulness': 0.0, 'answer_relevancy': 0.8581, 'answer_correctness': 0.735, 'grounding_score': 1.0}
+2026-10-12 20:09:58,800 [INFO] evaluate_ragas: Saved summary JSON to: evaluation_result\ragas\results_corrected\summary.json
+2026-10-12 20:09:58,866 [INFO] evaluate_ragas: Saved per-sample results CSV to: evaluation_result\ragas\results_corrected\per_sample_results.csv
+2026-10-12 20:09:58,868 [INFO] evaluate_ragas: Wrote Capstone evaluation report to: evaluation_result\ragas\results_corrected\evaluation_report.md
+2026-10-12 20:12:56,301 [INFO] evaluate_ragas: === RUNNING DATASET VALIDATION (DRY RUN) ===
+2026-10-12 20:13:43,543 [INFO] evaluate_ragas: Initializing LLM judge (preference: mock)...
+2026-10-12 20:13:43,545 [INFO] metrics_config: Initialized offline mock judge wrapper (schema verification mode).
+2026-10-12 20:13:43,545 [INFO] evaluate_ragas: Active judge: OFFLINE_MOCK_JUDGE (mock-judge-v1) endpoint: None
+2026-10-12 20:13:43,545 [INFO] evaluate_ragas: Active embeddings: BAAI/bge-small-en-v1.5 (dim=384)
+2026-10-12 20:13:43,545 [INFO] evaluate_ragas: Evaluating unsupported query abstention suite from: evaluation_result\dataset\unsupported_eval_dataset.json
+2026-10-12 20:13:43,555 [INFO] evaluate_ragas: Loading baseline evaluation dataset from: evaluation_result\dataset\baseline_eval_dataset.json
+2026-10-12 20:13:43,569 [INFO] evaluate_ragas: BASELINE Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 20:13:51,336 [INFO] embeddings.embedder: Loading embedding model: BAAI/bge-small-en-v1.5
+2026-10-12 20:13:51,343 [INFO] sentence_transformers.base.model: No device provided, using cpu
+2026-10-12 20:13:52,319 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:52,391 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:52,697 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:52,699 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-10-12 20:13:52,760 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:52,763 [INFO] sentence_transformers.base.model: Loading SentenceTransformer model from BAAI/bge-small-en-v1.5.
+2026-10-12 20:13:53,139 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:53,213 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/config_sentence_transformers.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fconfig_sentence_transformers.json=&etag=%22dcb0c0d97d09b930d13600b1a773ddb27e441aab%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:53,549 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:53,649 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/README.md?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2FREADME.md=&etag=%228b8567d75ffa619486d9590cb0eb76d66ad46c49%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:54,060 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:54,122 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/modules.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fmodules.json=&etag=%22952a9b81c0bfd99800fabf352f69c7ccd46c5e43%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:54,462 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:54,538 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/sentence_bert_config.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2Fsentence_bert_config.json=&etag=%22ea85692bff64b0d1917833c31ddbca8ab10f5455%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:54,865 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:13:55,288 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:13:55,760 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:13:56,630 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:13:57,030 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-10-12 20:13:57,338 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-12 20:13:57,747 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-10-12 20:13:57,817 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/BAAI/bge-small-en-v1.5/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/1_Pooling%2Fconfig.json?%2FBAAI%2Fbge-small-en-v1.5%2Fresolve%2Fmain%2F1_Pooling%2Fconfig.json=&etag=%221da070f0993788c8851a652170ff013aa54dd519%22 "HTTP/1.1 200 OK"
+2026-10-12 20:13:58,125 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/main/2_Normalize/config.json "HTTP/1.1 404 Not Found"
+2026-10-12 20:13:58,452 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/BAAI/bge-small-en-v1.5 "HTTP/1.1 200 OK"
+2026-10-12 20:13:58,587 [INFO] embeddings.embedder: Model loaded successfully. Dimension: 384
+2026-10-12 20:15:02,995 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:02,996 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:02,996 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:02,996 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:02,997 [ERROR] ragas.executor: Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:15:09,131 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:09,132 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:09,132 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:09,132 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:09,132 [ERROR] ragas.executor: Exception raised in Job[5]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:15:14,886 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:14,887 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:14,887 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:14,887 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:14,887 [ERROR] ragas.executor: Exception raised in Job[4]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:15:16,250 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:16,250 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:16,251 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:16,251 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:15:16,251 [ERROR] ragas.executor: Exception raised in Job[9]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:15:19,270 [INFO] evaluate_ragas: BASELINE evaluation finished in 95.69s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 0.5833, 'mrr': 0.75, 'context_precision': 1.0, 'context_recall': 1.0, 'faithfulness': None, 'answer_relevancy': 0.5862, 'answer_correctness': None, 'grounding_score': 1.0}
+2026-10-12 20:15:19,272 [INFO] evaluate_ragas: Loading hybrid evaluation dataset from: evaluation_result\dataset\hybrid_eval_dataset.json
+2026-10-12 20:15:19,286 [INFO] evaluate_ragas: HYBRID Dataset: 35 total raw samples, 2 valid for Ragas, 10 excluded.
+2026-10-12 20:16:31,759 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:31,760 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:31,760 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:31,760 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:31,760 [ERROR] ragas.executor: Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:16:37,754 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:37,755 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:37,755 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:37,755 [ERROR] ragas.prompt.pydantic_prompt: Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:37,755 [ERROR] ragas.executor: Exception raised in Job[5]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:16:43,903 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:43,904 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:43,904 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:43,904 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:43,905 [ERROR] ragas.executor: Exception raised in Job[4]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:16:45,277 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:45,278 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:45,278 [ERROR] ragas.prompt.pydantic_prompt: Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:45,278 [ERROR] ragas.prompt.pydantic_prompt: Prompt correctness_classifier failed to parse output: The output parser failed to parse the output including retries.
+2026-10-12 20:16:45,279 [ERROR] ragas.executor: Exception raised in Job[9]: RagasOutputParserException(The output parser failed to parse the output including retries.)
+2026-10-12 20:16:48,425 [INFO] evaluate_ragas: HYBRID evaluation finished in 89.13s. Scores: {'hit_rate_at_5': 1.0, 'recall_at_5': 0.8333, 'mrr': 1.0, 'context_precision': 1.0, 'context_recall': 1.0, 'faithfulness': None, 'answer_relevancy': 0.5862, 'answer_correctness': None, 'grounding_score': 1.0}
+2026-10-12 20:16:48,430 [INFO] evaluate_ragas: Saved summary JSON to: evaluation_result\ragas\results_corrected\summary.json
+2026-10-12 20:16:48,440 [INFO] evaluate_ragas: Saved per-sample results CSV to: evaluation_result\ragas\results_corrected\per_sample_results.csv
+2026-10-12 20:16:48,441 [INFO] evaluate_ragas: Wrote Capstone evaluation report to: evaluation_result\ragas\results_corrected\evaluation_report.md
