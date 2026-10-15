@@ -1,0 +1,122 @@
+[
+  {
+    "file": "test_architecture_regression.py",
+    "exit_code": 0,
+    "duration_s": 46.44,
+    "summary": "15 passed, 1 warning in 40.26s"
+  },
+  {
+    "file": "test_chunker.py",
+    "exit_code": 0,
+    "duration_s": 7.56,
+    "summary": "6 passed in 4.86s"
+  },
+  {
+    "file": "test_docker_configuration.py",
+    "exit_code": 0,
+    "duration_s": 4.67,
+    "summary": "5 passed in 1.72s"
+  },
+  {
+    "file": "test_embeddings.py",
+    "exit_code": 0,
+    "duration_s": 37.32,
+    "summary": "4 passed in 32.07s"
+  },
+  {
+    "file": "test_faiss.py",
+    "exit_code": 0,
+    "duration_s": 2.94,
+    "summary": "5 passed in 0.43s"
+  },
+  {
+    "file": "test_metadata.py",
+    "exit_code": 0,
+    "duration_s": 2.52,
+    "summary": "3 passed in 0.17s"
+  },
+  {
+    "file": "test_parser.py",
+    "exit_code": 0,
+    "duration_s": 5.95,
+    "summary": "8 passed in 3.51s"
+  },
+  {
+    "file": "test_phase2b.py",
+    "exit_code": 0,
+    "duration_s": 59.48,
+    "summary": "22 passed, 1 warning in 53.34s"
+  },
+  {
+    "file": "test_phase3.py",
+    "exit_code": 0,
+    "duration_s": 34.53,
+    "summary": "35 passed, 1 warning in 29.15s"
+  },
+  {
+    "file": "test_phase4.py",
+    "exit_code": 0,
+    "duration_s": 35.28,
+    "summary": "32 passed, 1 warning in 30.26s"
+  },
+  {
+    "file": "test_phase5_security.py",
+    "exit_code": 0,
+    "duration_s": 36.07,
+    "summary": "7 passed, 2 warnings in 30.87s"
+  },
+  {
+    "file": "test_phase6.py",
+    "exit_code": 0,
+    "duration_s": 4.79,
+    "summary": "4 passed in 1.72s"
+  },
+  {
+    "file": "test_phase7_validation.py",
+    "exit_code": 0,
+    "duration_s": 2.79,
+    "summary": "13 passed in 0.26s"
+  },
+  {
+    "file": "test_phase8_ingestion.py",
+    "exit_code": 0,
+    "duration_s": 155.64,
+    "summary": "6 passed, 1 warning in 150.63s (0:02:30)"
+  },
+  {
+    "file": "test_phase8_reports_governance.py",
+    "exit_code": 0,
+    "duration_s": 35.0,
+    "summary": "11 passed, 1 warning in 29.79s"
+  },
+  {
+    "file": "test_rag.py",
+    "exit_code": 0,
+    "duration_s": 32.49,
+    "summary": "23 passed, 1 warning in 27.95s"
+  },
+  {
+    "file": "test_ragas_evaluation.py",
+    "exit_code": 0,
+    "duration_s": 27.75,
+    "summary": "15 passed, 23 warnings in 23.39s"
+  },
+  {
+    "file": "test_retrieval.py",
+    "exit_code": 0,
+    "duration_s": 28.69,
+    "summary": "2 passed in 23.93s"
+  },
+  {
+    "file": "test_validation_and_retrieval_fixes.py",
+    "exit_code": 0,
+    "duration_s": 49.33,
+    "summary": "13 passed, 1 warning in 43.47s"
+  },
+  {
+    "file": "test_vehiclespeed_cross_version.py",
+    "exit_code": 0,
+    "duration_s": 51.5,
+    "summary": "8 passed, 1 warning in 43.81s"
+  }
+]
