@@ -174,11 +174,13 @@ SASTRA_GURU-S_127003080_CSE_AIML/
 
 ## 7. Quick Links to Key Deliverables
 
-- 📄 **Technical Report:** [`Documentation/Technical_Report.docx`](Documentation/Technical_Report.docx)
-- 📋 **Project Synopsis:** [`Synopsis/Synopsis.md`](Synopsis/Synopsis.md)
-- 📊 **Evaluation Benchmark Report:** [`Evaluation_Results/baseline_vs_hybrid_comparison.md`](Evaluation_Results/baseline_vs_hybrid_comparison.md)
-- 🎥 **Demonstration Video Guide:** [`Video/README.md`](Video/README.md)
-- 📑 **Signed Declarations:** [`Declarations/README.md`](Declarations/README.md)
+- 📄 **Technical Report (PDF):** [View Technical Report](Technical_Report.pdf)
+- 📘 **Project Synopsis (PDF):** [View Project Synopsis](Synopsis/Project_Synopsis.pdf)
+- 📊 **Evaluation Benchmark Report:** [Baseline vs. Hybrid Retrieval](Evaluation_Results/baseline_vs_hybrid_comparison.md)
+- 🏗️ **Architecture Diagram:** [View Architecture (PNG)](Documentation/AUTOSAR%20RAG%20Workflow%20Architecture.png)
+- 🎥 **Demonstration Video:** [Watch Project Demo](Video/README.md)
+- 📝 **Academic Integrity Declaration (PDF):** [View Declaration](Declarations/Academic_Integrity_Declaration.pdf)
+- 🤖 **AI Tool Usage Declaration (PDF):** [View AI Usage Declaration](Declarations/AI_Tool_Usage_Declaration.pdf)
 
 ---
 
