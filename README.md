@@ -80,9 +80,14 @@ The system architecture follows a six-tier pipeline:
 ```
 
 Detailed architectural diagrams are available in the [`Documentation/`](Documentation/) folder:
+
 - **Architecture Workflow Diagram (PNG):** [`Documentation/RAG_Workflow.png`](Documentation/RAG_Workflow.png)
 - **Vector Workflow Diagram (SVG):** [`Documentation/RAG_Workflow.svg`](Documentation/RAG_Workflow.svg)
 - **Mermaid Source Specification:** [`Documentation/RAG_Workflow.mmd`](Documentation/RAG_Workflow.mmd)
+
+### AUTOSAR HLD Assistant Architecture
+
+![AUTOSAR HLD Assistant Architecture](Documentation/AUTOSAR%20RAG%20Workflow%20Architecture.png)
 
 ---
 
