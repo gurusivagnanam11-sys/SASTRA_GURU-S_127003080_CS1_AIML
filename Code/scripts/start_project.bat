@@ -1,4 +1,4 @@
-```bat
+
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 
@@ -233,4 +233,4 @@ echo.
 echo Launcher stopped because an error occurred.
 pause
 exit /b 1
-```
+
