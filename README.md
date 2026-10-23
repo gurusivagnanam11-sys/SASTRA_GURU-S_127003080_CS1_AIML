@@ -27,19 +27,18 @@ Choose either of the following deployment methods:
 | **Option 2: Docker Deployment** | Running the packaged backend and UI in containers | Docker Desktop, published images, and required external dependencies and configuration |
 
 ---
-
 ## Option 1 — Quick Start (Local Windows)
 
 ### Prerequisites
 
-- Python installed
-- Ollama installed
-- Required Ollama model available
-- Project dependencies and configuration files
+- Python 3.12
+- Ollama installed and running
+- Required project dependencies and embedding model
+- Internet access for any model files that are not already cached
 
-### Installation and launch
+### Installation
 
-Open Command Prompt in the repository directory and run each command separately:
+Open Command Prompt from the repository root and run each command separately:
 
 ```bat
 cd Code
@@ -47,9 +46,36 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 copy .env.example .env
+notepad .env
 ```
 
-Configure `.env` according to the project's requirements, ensure the model and retrieval data are available, and then launch:
+In `.env`, configure the local LLM provider:
+
+```ini
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=qwen2.5:3b
+```
+
+Save the file and close Notepad. Make sure Ollama is running and download the required model:
+
+```bat
+ollama pull qwen2.5:3b
+```
+
+### Prepare the HLD documents and retrieval index
+
+Run these commands from the `Code` directory, with the virtual environment activated:
+
+```bat
+python scripts\ingest_document.py "fixtures\v1\AUTOSAR_HLD_v1.0.pdf" --version 1.0
+python scripts\ingest_document.py "fixtures\v2\AUTOSAR_HLD_v2.0.pdf" --version 2.0
+python scripts\build_index.py
+```
+
+Complete ingestion and indexing before asking retrieval questions. These commands create the document records and build the vector index needed for retrieval.
+
+### Launch the application
 
 ```bat
 scripts\start_project.bat
@@ -57,99 +83,110 @@ scripts\start_project.bat
 
 ### Access the application
 
-- **FastAPI Backend / API Documentation:** http://localhost:8000/docs
-- **Streamlit Console:** http://localhost:8501
+- **FastAPI API documentation:** http://localhost:8000/docs
+- **Streamlit interface:** http://localhost:8501
 
----
+## Option 2 — Docker Compose Deployment
 
-## Option 2 — Docker Deployment
-
-Docker images are published separately for the FastAPI backend and Streamlit interface.
+The repository includes a Dockerfile and a Docker Compose configuration for the FastAPI backend and Streamlit interface.
 
 ### Prerequisites
 
 - Docker Desktop installed and running.
-- Ollama and the required `qwen2.5:3b` model available.
-- Required FAISS index and application configuration files.
-- Correct backend URL and host-to-container connectivity.
+- Either Ollama running on the host with `qwen2.5:3b`, or a valid Google Gemini API key.
+- The required environment configuration and HLD retrieval index.
 
-### Step 1: Pull the images
+### 1. Configure the environment
 
-```bash
-docker pull guru3716/autosar-hld-api:1.0.0
-docker pull guru3716/autosar-hld-ui:1.0.0
+Open Command Prompt in the repository root:
+
+```bat
+cd Code
+copy .env.example .env
+notepad .env
 ```
 
-### Step 2: Start the API container
+Choose one LLM provider.
 
-```bash
-docker run -d --name autosar-hld-api -p 8000:8000 guru3716/autosar-hld-api:1.0.0
+**Local Ollama:**
+
+```ini
+LLM_PROVIDER=ollama
+OLLAMA_BASE_URL=http://host.docker.internal:11434
+OLLAMA_MODEL=qwen2.5:3b
 ```
 
-### Step 3: Start the Streamlit container
+Ensure Ollama is running on the host and the model is downloaded.
 
-```bash
-docker run -d --name autosar-hld-ui -p 8501:8501 guru3716/autosar-hld-ui:1.0.0
+**Google Gemini:**
+
+```ini
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=your_actual_api_key
 ```
 
-**Configuration note:** These are basic container-start commands. Depending on the project's configuration, the containers may also require environment variables, mounted files or volumes, and a shared Docker network or reachable backend URL. The images do not bundle the Ollama model, FAISS index, or all external configuration, so these commands alone do not guarantee a complete working deployment.
+Use your real API key only in your local `.env` file. Never commit it to GitHub.
 
-### Step 4: Open the application
+### 2. Build and start the containers
 
-- **Streamlit Console:** http://localhost:8501
-- **FastAPI API Documentation:** http://localhost:8000/docs
-
-### Step 5: Check container status and logs
+Run from the `Code` directory:
 
 ```bash
-docker ps
-docker logs autosar-hld-api
-docker logs autosar-hld-ui
+docker compose up --build -d
 ```
 
-To follow the logs continuously:
+This builds the included Docker configuration and starts the API and UI services.
+
+### 3. Prepare the retrieval index
+
+On a first deployment, run:
 
 ```bash
-docker logs -f autosar-hld-api
-docker logs -f autosar-hld-ui
+docker compose exec hld-api python scripts/ingest_document.py fixtures/v1/AUTOSAR_HLD_v1.0.pdf --version 1.0
+docker compose exec hld-api python scripts/ingest_document.py fixtures/v2/AUTOSAR_HLD_v2.0.pdf --version 2.0
+docker compose exec hld-api python scripts/build_index.py
+docker compose restart hld-api hld-ui
 ```
 
-Press `Ctrl+C` to stop following logs; the containers will continue running.
+These commands ingest both bundled HLD fixtures into the shared data directory and build the retrieval index.
 
-### Step 6: Stop the containers
+### 4. Open the application
+
+- **Streamlit interface:** http://localhost:8501
+- **FastAPI API documentation:** http://localhost:8000/docs
+- **Health endpoint:** http://localhost:8000/health
+
+### 5. Check status and logs
 
 ```bash
-docker stop autosar-hld-ui autosar-hld-api
+docker compose ps
+docker compose logs -f
 ```
 
-To remove the stopped containers before recreating them:
+Press `Ctrl+C` to stop following logs; this does not stop the containers.
+
+### 6. Stop the services
 
 ```bash
-docker rm autosar-hld-ui autosar-hld-api
+docker compose down
 ```
 
-### Common Docker Problems
+### Common Docker problems
 
-| Problem | Suggested check or fix |
+| Problem | Suggested solution |
 |---|---|
-| Docker daemon unavailable | Start Docker Desktop and check `docker info`. |
-| Container name already exists | Run `docker ps -a`; stop and remove the old container if appropriate. |
-| Port 8000 or 8501 is occupied | Stop the conflicting process/container or use another host-side port. |
-| Streamlit cannot reach the API | Check the configured API URL. Inside a container, `localhost` refers to that container itself. |
-| Ollama connection fails | Verify Ollama is running and configure a host-reachable endpoint if Ollama runs outside Docker. |
-| FAISS index or configuration is missing | Check the expected paths and mount the required files or directories. |
-| Container exits or crashes | Inspect `docker logs` and `docker ps -a` for the underlying error. |
+| Docker is not running | Start Docker Desktop and verify `docker info`. |
+| A port is already in use | Stop the conflicting process or container, or change the host-side port mapping. |
+| Container name already exists | Check `docker ps -a`; remove old containers if appropriate. |
+| Streamlit cannot connect to the API | Check the `API_BASE_URL` setting and Docker network configuration. The Compose configuration uses `http://hld-api:8000` internally. |
+| Ollama connection fails | Verify Ollama is running on the host and the configured URL is `http://host.docker.internal:11434`. |
+| Gemini requests fail | Check that `GEMINI_API_KEY` is valid and that `LLM_PROVIDER=gemini`. |
+| Retrieval returns no useful results | Verify that both HLD PDFs were ingested and the FAISS index was built successfully. |
+| A container crashes | Run `docker compose logs hld-api` or `docker compose logs hld-ui` to inspect the error. |
 
----
+**Important:** The repository's Docker Compose configuration builds the application from source. The published Docker Hub images are separate artifacts; the standalone `docker run` commands are not the recommended deployment path documented here.
 
-## Important Limitations
 
-- The HLD documents used in this project are synthetic demonstration documents, not genuine OEM specifications.
-- Docker images do not include all external runtime dependencies and data.
-- Successful container startup does not, by itself, establish that end-to-end RAG functionality is working.
-- The application is an educational prototype and does not provide automotive safety certification or compliance assurance.
-
----
 
 ## 1. Project Title and Summary
 
