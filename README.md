@@ -332,24 +332,140 @@ SASTRA_GURU-S_127003080_CSE_AIML/
 
 Complete setup and local execution instructions are provided in [`Code/README.md`](Code/README.md).
 
-### Quick Start (Local Windows):
-```powershell
-# 1. Navigate to the Code directory
-cd Code
 
-# 2. Setup environment
+---
+
+## 🚀 Choose How to Run the Project
+
+Choose either of the following deployment methods:
+
+| Method | Recommended for | Main requirements |
+|---|---|---|
+| **Option 1: Local Windows Setup** | Development, debugging, and source-code exploration | Python, project dependencies, Ollama, model, and project data |
+| **Option 2: Docker Deployment** | Running the packaged backend and UI in containers | Docker Desktop, published images, and required external dependencies and configuration |
+
+---
+
+## Option 1 — Quick Start (Local Windows)
+
+### Prerequisites
+
+- Python installed
+- Ollama installed
+- Required Ollama model available
+- Project dependencies and configuration files
+
+### Installation and launch
+
+Open Command Prompt in the repository directory and run each command separately:
+
+```bat
+cd Code
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-
-# 3. Configure environment from template
 copy .env.example .env
+```
 
-# 4. Launch Application (automated launcher)
+Configure `.env` according to the project's requirements, ensure the model and retrieval data are available, and then launch:
+
+```bat
 scripts\start_project.bat
 ```
-- FastAPI Backend: `http://localhost:8000/docs`
-- Streamlit Console: `http://localhost:8501`
+
+### Access the application
+
+- **FastAPI Backend / API Documentation:** http://localhost:8000/docs
+- **Streamlit Console:** http://localhost:8501
+
+---
+
+## Option 2 — Docker Deployment
+
+Docker images are published separately for the FastAPI backend and Streamlit interface.
+
+### Prerequisites
+
+- Docker Desktop installed and running.
+- Ollama and the required `qwen2.5:3b` model available.
+- Required FAISS index and application configuration files.
+- Correct backend URL and host-to-container connectivity.
+
+### Step 1: Pull the images
+
+```bash
+docker pull guru3716/autosar-hld-api:1.0.0
+docker pull guru3716/autosar-hld-ui:1.0.0
+```
+
+### Step 2: Start the API container
+
+```bash
+docker run -d --name autosar-hld-api -p 8000:8000 guru3716/autosar-hld-api:1.0.0
+```
+
+### Step 3: Start the Streamlit container
+
+```bash
+docker run -d --name autosar-hld-ui -p 8501:8501 guru3716/autosar-hld-ui:1.0.0
+```
+
+**Configuration note:** These are basic container-start commands. Depending on the project's configuration, the containers may also require environment variables, mounted files or volumes, and a shared Docker network or reachable backend URL. The images do not bundle the Ollama model, FAISS index, or all external configuration, so these commands alone do not guarantee a complete working deployment.
+
+### Step 4: Open the application
+
+- **Streamlit Console:** http://localhost:8501
+- **FastAPI API Documentation:** http://localhost:8000/docs
+
+### Step 5: Check container status and logs
+
+```bash
+docker ps
+docker logs autosar-hld-api
+docker logs autosar-hld-ui
+```
+
+To follow the logs continuously:
+
+```bash
+docker logs -f autosar-hld-api
+docker logs -f autosar-hld-ui
+```
+
+Press `Ctrl+C` to stop following logs; the containers will continue running.
+
+### Step 6: Stop the containers
+
+```bash
+docker stop autosar-hld-ui autosar-hld-api
+```
+
+To remove the stopped containers before recreating them:
+
+```bash
+docker rm autosar-hld-ui autosar-hld-api
+```
+
+### Common Docker Problems
+
+| Problem | Suggested check or fix |
+|---|---|
+| Docker daemon unavailable | Start Docker Desktop and check `docker info`. |
+| Container name already exists | Run `docker ps -a`; stop and remove the old container if appropriate. |
+| Port 8000 or 8501 is occupied | Stop the conflicting process/container or use another host-side port. |
+| Streamlit cannot reach the API | Check the configured API URL. Inside a container, `localhost` refers to that container itself. |
+| Ollama connection fails | Verify Ollama is running and configure a host-reachable endpoint if Ollama runs outside Docker. |
+| FAISS index or configuration is missing | Check the expected paths and mount the required files or directories. |
+| Container exits or crashes | Inspect `docker logs` and `docker ps -a` for the underlying error. |
+
+---
+
+## Important Limitations
+
+- The HLD documents used in this project are synthetic demonstration documents, not genuine OEM specifications.
+- Docker images do not include all external runtime dependencies and data.
+- Successful container startup does not, by itself, establish that end-to-end RAG functionality is working.
+- The application is an educational prototype and does not provide automotive safety certification or compliance assurance.
 
 ---
 
