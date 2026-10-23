@@ -6,6 +6,26 @@
 **Program:** B.Tech. Computer Science & Engineering (AI & ML), SASTRA Deemed to be University
 
 ---
+### Quick Start (Local Windows):
+```powershell
+# 1. Navigate to the Code directory
+cd Code
+
+# 2. Setup environment
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+# 3. Configure environment from template
+copy .env.example .env
+
+# 4. Launch Application (automated launcher)
+scripts\start_project.bat
+```
+- FastAPI Backend: `http://localhost:8000/docs`
+- Streamlit Console: `http://localhost:8501`
+
+---
 
 ## 1. Project Title and Summary
 
