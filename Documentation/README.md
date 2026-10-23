@@ -8,7 +8,7 @@ This directory contains the formal technical deliverables, engineering reports, 
 
 | File | Format | Description |
 | :--- | :---: | :--- |
-| [`Technical_Report.docx`](Technical_Report.docx) | DOCX | Formal Capstone Technical Report covering background, system design, architectural models, RAG pipeline, deterministic grounding, evaluation results, and safety implications. |
+
 | [`RAG_Workflow.png`](RAG_Workflow.png) | PNG (High Res) | Complete end-to-end RAG architecture diagram illustrating ingestion, hybrid retrieval, query routing, LLM reasoning, citation validation, and architecture explorer. |
 | [`RAG_Workflow.svg`](RAG_Workflow.svg) | SVG (Vector) | Scalable vector graphic representation of the system architecture suitable for high-dpi rendering and documentation embedding. |
 | [`RAG_Workflow.mmd`](RAG_Workflow.mmd) | Mermaid Source | Source code of the Mermaid architecture workflow diagram for version-controlled maintenance. |
