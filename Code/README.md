@@ -222,8 +222,12 @@ Generated outputs are saved in:
    ```
 2. **Ollama connection timeout:**
    Ensure Ollama is started (`ollama serve`). If running in Docker, Docker connects via `host.docker.internal:11434`.
-3. **Missing Index:**
-   If running for the first time without pre-built indexes, build them using:
-   ```powershell
-   python scripts/build_index.py --version all
-   ```
+3**Missing retrieval index:** First ingest both fixture documents, then build the index from the `Code/` directory with the virtual environment activated:
+
+```powershell
+python scripts/ingest_document.py "fixtures/v1/AUTOSAR_HLD_v1.0.pdf" --version 1.0
+python scripts/ingest_document.py "fixtures/v2/AUTOSAR_HLD_v2.0.pdf" --version 2.0
+python scripts/build_index.py
+```
+
+Run indexing after ingestion has created the chunks in the local SQLite database. The index-building script does not accept a `--version all` option.
