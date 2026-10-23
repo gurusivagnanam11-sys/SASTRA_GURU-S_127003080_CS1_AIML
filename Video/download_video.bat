@@ -1,4 +1,3 @@
-```bat
 @echo off
 setlocal EnableExtensions
 
@@ -9,9 +8,9 @@ setlocal EnableExtensions
 :: ============================================================
 
 set "FILE_ID=1Fp9yBy_ukTX9h2evpwDOMVOZXDPxB1YN"
-set "DEST=%~dp0Video"
-set "OUTPUT=%DEST%\AUTOSAR_HLD_Original_Uncompressed.mp4"
-set "TEMP_FILE=%DEST%\AUTOSAR_HLD_Original_Uncompressed.download"
+set "DEST=%~dp0"
+set "OUTPUT=%DEST%AUTOSAR_HLD_Original_Uncompressed.mp4"
+set "TEMP_FILE=%DEST%AUTOSAR_HLD_Original_Uncompressed.download"
 
 echo.
 echo ============================================
@@ -19,17 +18,14 @@ echo AUTOSAR HLD - Original Video Downloader
 echo ============================================
 echo.
 
-:: Create Video folder if needed
+:: The batch file is already inside the Video folder.
 if not exist "%DEST%" (
-    mkdir "%DEST%"
-    if errorlevel 1 (
-        echo [ERROR] Could not create Video folder.
-        pause
-        exit /b 1
-    )
+    echo [ERROR] Video folder does not exist.
+    pause
+    exit /b 1
 )
 
-:: Skip if the video already exists and is non-empty
+:: Skip download if the video already exists and is non-empty.
 if exist "%OUTPUT%" (
     for %%F in ("%OUTPUT%") do if %%~zF GTR 0 (
         echo [INFO] Original video already exists.
@@ -39,7 +35,7 @@ if exist "%OUTPUT%" (
     )
 )
 
-:: Check curl
+:: Check curl availability.
 where curl >nul 2>&1
 if errorlevel 1 (
     echo [ERROR] curl is not installed or not available in PATH.
@@ -66,22 +62,22 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: Validate that the response appears to be an MP4 file
+:: Verify that the downloaded file has an MP4 signature.
 set "CHECK_FILE=%TEMP_FILE%"
 
 powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$p=$env:CHECK_FILE; if (!(Test-Path -LiteralPath $p)) { exit 1 }; $s=[IO.File]::OpenRead($p); try { if ($s.Length -lt 12) { exit 1 }; $s.Position=4; $b=[char[]]@($s.ReadByte(),$s.ReadByte(),$s.ReadByte(),$s.ReadByte()); if (-join $b -eq 'ftyp') { exit 0 } else { exit 1 } } finally { $s.Dispose() }"
+  "$p=$env:CHECK_FILE; if (!(Test-Path -LiteralPath $p)) { exit 1 }; $s=[IO.File]::OpenRead($p); try { if ($s.Length -lt 12) { exit 1 }; $s.Position=4; $b=[char[]]@($s.ReadByte(),$s.ReadByte(),$s.ReadByte(),$s.ReadByte()); if ((-join $b) -eq 'ftyp') { exit 0 } else { exit 1 } } finally { $s.Dispose() }"
 
 if errorlevel 1 (
     echo.
     echo [ERROR] Google Drive did not return a valid MP4 file.
     echo It may require a download confirmation or different sharing permissions.
-    echo The invalid download will be deleted.
     del "%TEMP_FILE%" 2>nul
     pause
     exit /b 1
 )
 
+:: Move the verified download into its final location.
 move /Y "%TEMP_FILE%" "%OUTPUT%" >nul
 if errorlevel 1 (
     echo [ERROR] Could not save the downloaded video.
@@ -91,8 +87,8 @@ if errorlevel 1 (
 )
 
 echo.
-echo [SUCCESS] Original video downloaded successfully.
-echo [INFO] Saved as:
+echo [SUCCESS] Original video downloaded.
+echo [INFO] Saved to:
 echo "%OUTPUT%"
 
 :DONE
@@ -100,4 +96,3 @@ echo.
 echo Finished.
 pause
 exit /b 0
-```
